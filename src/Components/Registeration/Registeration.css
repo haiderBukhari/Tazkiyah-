@@ -31,13 +31,13 @@
     border-bottom-right-radius: 20px;
 }
 .l-login{
-    height: 520px;
+    height: 552px;
 }
 .signin{
     font-size: 30px !important;
 }
 .r-login{
-    height: 520px;
+    height: 552px;
 }
 .welcome{
     font-family: 'Lato', sans-serif;
@@ -159,6 +159,6 @@
         height: 480px;
     }
     .l-login{
-        height: 520px;
+        height: 552px;
     }
 }
