@@ -140,12 +140,13 @@
     }
     .left-login, .right-login{
         width: 320px;
+        height: 391px;
     }
     .left-login{
         height: 480px;
     }   
     .l-login{
-        height: 520px;
+        height: 551px;
     }
 }
 @media only screen and (min-width: 500px) and (max-width: 847px) {
