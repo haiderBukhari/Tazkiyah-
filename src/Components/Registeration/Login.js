@@ -24,7 +24,7 @@ export const LoginUser = () => {
             <div className="google-signin flex justify-center mt-4 mr-4">
             </div>
             <div className="forgot">
-              <p className='mt-5 text-red-600 font-normal text-lg dark:text-gray-300 cursor-pointer hover:text-blue-800 ease-in duration-300' >Forget Password</p>
+              <p onClick={()=>{navigate('/register')}} className='mt-5 font-normal text-lg dark:text-gray-300 cursor-pointer ease-in duration-300 forgetpass' >Forget Password</p>
             </div>
             <hr className='hr-resourse' />
           </form>

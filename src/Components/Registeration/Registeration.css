@@ -21,7 +21,7 @@
     height: 480px;
     width: 400px;
     /* background: linear-gradient(45deg, rgb(247, 91, 117), rgb(247, 115, 181)); */
-    background: linear-gradient(to bottom, #0077B6, #0086FF);
+    background: linear-gradient(to bottom, #c2d8e4, #a3b3c1);
 
     display: flex;
     flex-direction: column;
@@ -166,3 +166,6 @@
     height: 200px;
     width: auto;
 }
+.forgetpass{color: blue;}
+.forgetpass:visited{color: red;}
+.forgetpass:active{color: red;}
