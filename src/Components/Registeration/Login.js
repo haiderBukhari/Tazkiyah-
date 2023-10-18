@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import './Registeration.css'
 import { useNavigate } from 'react-router-dom'
+import Logo from '../../assets/Tazkiyah Logo Bg.png'
 
 export const LoginUser = () => {
   let email = useRef(), password = useRef();
@@ -30,6 +31,7 @@ export const LoginUser = () => {
         </div>
         <div className="right-login-main">
           <div className="right-login">
+          <img src={Logo} className='logoimg' alt="" />
             <h1 className='font-extrabold text-white welcome'>Welcome to Login</h1>
             <p className='text-gray-100 font-lg my-4  font-semibold'>Do not have an Account</p>
             <button onClick={() => navigate('/register')} className='signbtn'>Sign Up</button>
