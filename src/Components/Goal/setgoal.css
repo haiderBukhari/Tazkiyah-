@@ -1,0 +1,69 @@
+.self-development {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    width: 90%;
+    margin: auto;
+}
+
+.delfdev {
+    max-width: 470px;
+    min-width: 200px;
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+}
+.goaldev{
+    width: auto;
+    padding: 14px 23px;
+    box-shadow: 1px 2px 3px 3px #ccc, -1px -2px 3px #ccc;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    justify-self: center;
+}
+.text1, .text2{
+    width: 80%;
+    margin: auto;
+    font-size: 20px;
+    line-height: 2.3rem;
+    text-align: justify;
+}
+.text2{
+    margin-top: 30px;
+}
+@media only screen and (max-width: 960px){
+    .self-development {
+        flex-direction: column;
+    }
+    .text1{
+        margin-top: 40px;
+    }
+}
+.goalsetting{
+    width: 100%;
+}
+.btns-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.btns-list > button{
+    margin: 20px 10px;
+}
+.goalstask{
+    width: 400px;
+    height: 800px;
+    box-shadow: 1px 2px 3px 3px #ccc, -1px -2px 3px #ccc;
+    border-radius: 8px;
+}
+.main-heading{
+    text-decoration: underline;
+    text-underline-position: under;
+}
+.lower-bound input{
+    width: 100%;
+    height: 24px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
