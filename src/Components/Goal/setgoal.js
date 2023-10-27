@@ -49,9 +49,9 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
                 <>
                     <h1 className='text-center text-3xl font-semibold main-heading'>Set Goal</h1>
                     {
-                        finalGoal.length && selfdev && !personaldev && !proceed && !milestone && <div className="btns flex justify-center mt-10 goalfinal mb-10">
-                            <button onClick={()=>{Navigate('/view/goal')}} className='goaldev'>View Your Goals</button>
-                        </div>
+                        (finalGoal.length && selfdev && !personaldev && !proceed && !milestone) ? (<div className="btns flex justify-center mt-10 goalfinal mb-10">
+                        <button onClick={()=>{Navigate('/view/goal')}} className='goaldev'>View Your Goals</button>
+                    </div>):""
                     }
                 </>
             }
