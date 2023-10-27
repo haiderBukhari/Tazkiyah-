@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from "../assets/Tazkiyah Logo.jpg"
+import { Link } from 'react-router-dom'
 
 export const Footer = () => {
     return (
@@ -13,24 +14,22 @@ export const Footer = () => {
                     </a>
                     <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                         <li>
-                            <a href="/" class="mr-4 hover:underline md:mr-6 ">About</a>
+                            <Link to="/goal" class="mr-4 hover:underline md:mr-6 ">Set Goal</Link>
                         </li>
                         <li>
-                            <a href="/" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+                            <Link to="/view/goal" class="mr-4 hover:underline md:mr-6">View Goal</Link>
                         </li>
                         <li>
-                            <a href="/" class="mr-4 hover:underline md:mr-6 ">Licensing</a>
+                            <Link to="/login" class="mr-4 hover:underline md:mr-6 ">Login</Link>
                         </li>
                         <li>
-                            <a href="/" class="hover:underline">Contact</a>
+                            <Link to="/contact" class="hover:underline">Contact</Link>
                         </li>
                     </ul>
                 </div>
-                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+                {/* <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" /> */}
+                <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" class="hover:underline">Tazkiyah</a>. All Rights Reserved.</span>
             </div>
         </footer>
-
-
     )
 }
