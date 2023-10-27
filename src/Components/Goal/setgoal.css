@@ -61,6 +61,7 @@
     border-radius: 8px;
 }
 .main-heading{
+    margin-top: 0;
     text-decoration: underline;
     text-underline-position: under;
 }
