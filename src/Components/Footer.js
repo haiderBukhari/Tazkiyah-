@@ -1,35 +1,87 @@
 import React from 'react'
-import Logo from "../assets/Tazkiyah Logo.jpg"
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 export const Footer = () => {
     return (
 
-        <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
-            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-                <div class="sm:flex sm:items-center sm:justify-between">
-                    <a href="/" class="flex items-center mb-4 sm:mb-0">
-                        <img src={Logo} class="h-20 mr-3" alt="Flowbite Logo" />
-                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Tazkiyah</span>
-                    </a>
-                    <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-                        <li>
-                            <Link to="/goal" class="mr-4 hover:underline md:mr-6 ">Set Goal</Link>
-                        </li>
-                        <li>
-                            <Link to="/view/goal" class="mr-4 hover:underline md:mr-6">View Goal</Link>
-                        </li>
-                        <li>
-                            <Link to="/login" class="mr-4 hover:underline md:mr-6 ">Login</Link>
-                        </li>
-                        <li>
-                            <Link to="/contact" class="hover:underline">Contact</Link>
-                        </li>
-                    </ul>
+        <footer id="footer" class="footer ">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-footer">
+                            <h2>About Us</h2>
+                            <p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
+                            <ul class="social">
+                                <li><a href="/"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="/"><i class="icofont-google-plus"></i></a></li>
+                                <li><a href="/"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="/"><i class="icofont-vimeo"></i></a></li>
+                                <li><a href="/"><i class="icofont-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-footer f-link">
+                            <h2>Quick Links</h2>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <ul>
+                                        <li><a href="/"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+                                        <li><a href="/"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
+                                        <li><a href="/"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
+                                        <li><a href="/"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
+                                        <li><a href="/"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <ul>
+                                        <li><a href="/"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
+                                        <li><a href="/"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
+                                        <li><a href="/"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
+                                        <li><a href="/"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
+                                        <li><a href="/"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-footer">
+                            <h2>Open Hours</h2>
+                            <p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
+                            <ul class="time-sidual">
+                                <li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
+                                <li class="day">Saturday <span>9.00-18.30</span></li>
+                                <li class="day">Monday - Thusday <span>9.00-15.00</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="single-footer">
+                            <h2>Newsletter</h2>
+                            <p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
+                            <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+                                <input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Your email address'" required="" type="email" />
+                                <button class="button"><i class="icofont icofont-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                {/* <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" /> */}
-                <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" class="hover:underline">Tazkiyah</a>. All Rights Reserved.</span>
             </div>
-        </footer>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <div class="copyright-content">
+                            <p>© Copyright 2018  |  All Rights Reserved by <a href="https://www.wpthemesgrid.com" target="_blank" rel='noreferrer'>wpthemesgrid.com</a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     )
 }
