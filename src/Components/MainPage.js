@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 import slider1 from '../assets/img/slider2.jpg'
 import slider2 from '../assets/img/slider.jpg'
 import slider3 from '../assets/img/slider3.jpg'
@@ -8,8 +9,8 @@ export const MainPage = () => {
         <div>
             <section class="slider">
                 <div class="hero-slider">
-                    <div class="single-slider" style={{ backgroundImage: `url(${slider1})` }}>
-                        <div class="container">
+                    <div  class="single-slider" style={{ backgroundImage: `url(${slider1})` }}>
+                        <div class="container ccocooc">
                             <div class="row">
                                 <div class="col-lg-7">
                                     <div class="text">
@@ -25,7 +26,7 @@ export const MainPage = () => {
                         </div>
                     </div>
                     <div class="single-slider" style={{ backgroundImage: `url(${slider2})` }}>
-                        <div class="container">
+                        <div class="container ccocooc">
                             <div class="row">
                                 <div class="col-lg-7">
                                     <div class="text">
@@ -41,7 +42,7 @@ export const MainPage = () => {
                         </div>
                     </div>
                     <div class="single-slider" style={{ backgroundImage: `url(${slider3})` }}>
-                        <div class="container">
+                        <div class="container ccocooc">
                             <div class="row">
                                 <div class="col-lg-7">
                                     <div class="text">
