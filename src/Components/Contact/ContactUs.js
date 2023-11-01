@@ -27,7 +27,7 @@ export const ContactUs = () => {
     });
 
     return (
-        <div class="container">
+        <div class="containerssss">
             <span class="big-circle"></span>
             <img src={shape} class="square" alt="" />
             <div class="form">

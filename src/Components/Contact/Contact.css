@@ -12,12 +12,11 @@ textarea {
     font-family: "Poppins", sans-serif;
 }
 
-.container {
+.containerssss {
     position: relative;
     width: 100%;
     min-height: 100vh;
     padding: 2rem;
-    /* background-color: #fafafa; */
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -336,7 +335,7 @@ textarea.input {
 }
 
 @media (max-width: 480px) {
-    .container {
+    .containerssss {
         padding: 1.5rem;
     }
 
