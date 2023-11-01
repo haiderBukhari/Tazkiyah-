@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
-
 
 export const PerformanceAnalytics = () => {
   const salesRef = useRef(null);
@@ -8,76 +7,90 @@ export const PerformanceAnalytics = () => {
   const productsRef = useRef(null);
 
   useEffect(() => {
-    if (salesRef.current && earningRef.current && productsRef.current) {
-      new Chart(salesRef.current, {
-        type: 'bar',
-        data: {
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July'],
-          datasets: [
-            {
-              label: 'Sales',
-              data: [380, 200, 500, 300, 150, 400, 100],
-              backgroundColor: 'rgba(155, 128, 151, 1)',
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: {
-              display: false,
-            },
+    const salesChart = new Chart(salesRef.current, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July'],
+        datasets: [
+          {
+            label: 'Sales',
+            data: [380, 200, 500, 300, 150, 400, 100],
+            backgroundColor: 'rgba(155, 128, 151, 1)',
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false,
           },
         },
-      });
+      },
+    });
 
-      new Chart(earningRef.current, {
-        type: 'line',
-        data: {
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-          datasets: [
-            {
-              label: 'Earning',
-              data: [380, 200, 500, 300, 150],
-              backgroundColor: 'rgba(155, 128, 151, 1)',
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: {
-              display: false,
-            },
+    const earningChart = new Chart(earningRef.current, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        datasets: [
+          {
+            label: 'Earning',
+            data: [380, 200, 500, 300, 150],
+            backgroundColor: 'rgba(155, 128, 151, 1)',
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false,
           },
         },
-      });
+      },
+    });
 
-      new Chart(productsRef.current, {
-        type: 'doughnut',
-        data: {
-          labels: ['Fashion', 'Gadget', 'Other'],
-          datasets: [
-            {
-              label: 'Products',
-              data: [380, 200, 500],
-              backgroundColor: [
-                'rgba(155, 128, 151, 1)',
-                'rgba(254, 111, 162, 1)',
-                'rgba(244, 164, 111, 1)',
-              ],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-        },
-      });
-    }
+    const productsChart = new Chart(productsRef.current, {
+      type: 'doughnut',
+      data: {
+        labels: ['Fashion', 'Gadget', 'Other'],
+        datasets: [
+          {
+            label: 'Products',
+            data: [380, 200, 500],
+            backgroundColor: [
+              'rgba(155, 128, 151, 1)',
+              'rgba(254, 111, 162, 1)',
+              'rgba(244, 164, 111, 1)',
+            ],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+      },
+    });
+
+    // Destroy previous instances to prevent conflicts
+    return () => {
+      salesChart.destroy();
+      earningChart.destroy();
+      productsChart.destroy();
+    };
   }, []);
 
+  useEffect(() => {
+    // On component mount
+    document.documentElement.style.fontSize = '62.5%';
+
+    // On component unmount (cleanup)
+    return () => {
+      document.documentElement.style.fontSize = ''; // Reset font size to default or any other value you prefer
+    };
+  }, []);
   return (
-    <div class="dashboard">
+    <div class="dashboard dashboardsee">
       <div class="menus flex11-c">
         <div class="logo">
           <div class="icon">

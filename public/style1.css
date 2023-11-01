@@ -1,28 +1,18 @@
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: "Time New Roman", sans-serif;
-}
-
+/* 
 body {
   background: #d5acbc;
   color: #927685;
 }
-
-html {
-  font-size: 62.5%;
-}
+*/
 
 .dashboard {
   max-width: 120rem;
   min-height: 80rem;
-  background: #291623;
+  background: rgba(0, 157, 255, 0.4);
   margin: 5rem auto;
   display: flex;
   overflow-x: hidden;
+  border-radius: 10px;
 }
 
 .flex11 {
@@ -59,7 +49,7 @@ html {
 .menus {
   flex: 0 0 8%;
   min-height: 80rem;
-  background: #2c1923;
+  background: rgba(1, 119, 192, 0.4);
   justify-content: space-between;
   padding: 2rem;
 }
@@ -95,7 +85,8 @@ html {
 
 .box {
   padding: 10px;
-  background: #33202c;
+  background: rgba(0, 81, 131, 0.4);
+  border-radius: 10px;
   font-size: 1.8rem;
   font-weight: 500;
   color: #e6e3e5;
@@ -111,7 +102,7 @@ html {
 }
 
 .stats {
-  background: #33202c;
+  background: rgba(2, 130, 210, 0.3);
   margin-top: 4rem;
   padding: 2rem 1rem;
   font-size: 1.6rem;
@@ -132,7 +123,8 @@ html {
 }
 
 .earning {
-  background: #3f2532;
+  background: rgba(0, 71, 116, 0.2);
+  border-radius: 10px;
   width: 38%;
 }
 
@@ -157,7 +149,7 @@ html {
 }
 
 .product-stats .stats-box {
-  background: #33202c;
+  background: rgba(2, 130, 210, 0.3);
 }
 
 .product-sales {
@@ -175,7 +167,8 @@ html {
 }
 
 .top-selling-products th {
-  background: #3f2532;
+  background: rgba(0, 137, 222, 0.2);
+  border: 1px solid #ccc;
 }
 
 .top-selling-products th,
