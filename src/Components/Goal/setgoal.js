@@ -100,6 +100,17 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
                                     !milestone && <div data-aos="flip-up">
                                         <p>Set Your Goal:</p>
                                         <input onChange={(e) => { setGoalTitle(e.target.value) }} className='input-text' type="text" name="" id="" placeholder='Write Goal' value={goalTitle} />
+                                        <p className='mt-4 text-2xl flex justify-center privates'>
+                                            Make your Goal <i className='mx-2'>Public</i> or <i className='mx-2'>Private </i>
+                                        </p>
+                                        <div className="flex justify-center place-items-center lb mt-2">
+                                            <div className="l1 flex justify-center place-items-center">
+                                                <p>Private</p><input className='ml-2' type="radio" name="q1" id="" />
+                                            </div>
+                                            <div className="l1 flex justify-center place-items-center ml-5">
+                                                <p>Public</p><input className='ml-2' type="radio" name="q1" id="" checked/>
+                                            </div>
+                                        </div>
                                         <div className="btns-list mt-10">
                                             <button className='btns-color' onClick={() => { setMilestone(!milestone) }}>Add MileStone</button>
                                         </div>

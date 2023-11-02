@@ -119,6 +119,10 @@
     cursor: pointer !important;
 }
 
+.heading i:nth-child(2){
+    right: 40px !important;
+    color: green !important;
+}
 .inp input {
     padding-right: 40px !important;
     padding-left: 4px !important;
@@ -224,4 +228,22 @@
 
 .newro {
     align-items: center !important;
+}
+.privates{
+    font-size: 17px;
+    margin-top: 30px !important;
+}
+.lb{
+    font-size: 17px;
+    justify-content: center;
+    align-items: center;
+}
+.lb l1{
+    align-items: center;
+}
+.lb input{
+    box-shadow: none !important;
+}
+.btns-color, .btns-list, .goaldev{
+    color: #fff;
 }

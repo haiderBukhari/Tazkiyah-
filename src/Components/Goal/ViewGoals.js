@@ -49,11 +49,11 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                 <button onClick={() => { navigate('/goal') }} className='goaldev'>Add New Goal</button>
             </div>
             <div className="container-main">
-                {
+            {finalGoal &&
                     !edit && finalGoal.map((item, index) => (
                         <div data-aos="fade-up" className="viewgoalcontainer p-2 px-4 ">
                             <div className="heading">
-                                <h1 className='mt-2 mb-4 text-center text-lg font-semibold goal-heading'>Your {item.heading.split(" ").slice(2).join(' ')}</h1>
+                                <h1 className='mt-2 mb-4 text-center text-2xl font-semibold goal-heading'>Your {item.heading.split(" ").slice(2).join(' ')}</h1>
                                 <i onClick={() => { handledelete(index) }} class="fa-solid fa-trash-can"></i>
                                 <i onClick={() => { setEdit(true); setEditIndex(index) }} class="fa-solid fa-pen-to-square headingi"></i>
                                 <hr />
@@ -108,6 +108,11 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                             </div>
                         </div>
                     </div>
+                }
+                {
+                    finalGoal.length===0 && (
+                        <p style={{lineHeight: "3.4rem"}} className='m-3 text-3xl text-center'>You dont have any Active Goal. Click on the Button to Add Your Goal</p>
+                    )
                 }
             </div>
         </>

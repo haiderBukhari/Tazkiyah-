@@ -24,7 +24,6 @@ export const Ebook = () => {
                                 <h2>"Unlock the transformative power within you with 'The Tazkiyah Vision'—a guide to spiritual enlightenment and self-discovery."</h2>
                             <div className="flex banaa">
                                 <button className='readmore'>Read More</button>
-
                             </div>
                             </div>
                         </div>
