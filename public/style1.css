@@ -1,10 +1,3 @@
-/* 
-body {
-  background: #d5acbc;
-  color: #927685;
-}
-*/
-
 .dashboard {
   max-width: 120rem;
   min-height: 80rem;
@@ -28,7 +21,7 @@ body {
   justify-content: center;
 }
 
-.icon {
+.icon111 {
   width: 5rem;
   height: 5rem;
   display: flex;
@@ -54,9 +47,9 @@ body {
   padding: 2rem;
 }
 
-.menus .icon:hover,
-.menus .logo .icon {
-  background: linear-gradient(to right bottom, #faad72, #f89456);
+.menus .icon111:hover,
+.menus .logo .icon111 {
+  /* background: linear-gradient(to right bottom, #ba5100, #4a1c00); */
   color: #2c1923;
   border-radius: 2px;
   transition: all 0.6s ease-out;
@@ -123,7 +116,6 @@ body {
 }
 
 .earning {
-  background: rgba(0, 71, 116, 0.2);
   border-radius: 10px;
   width: 38%;
 }
@@ -137,7 +129,7 @@ body {
 .earning-icon {
   font-size: 4rem;
   color: #3f2532;
-  background: linear-gradient(to right bottom, #faad72, #f89456);
+  background: linear-gradient(to right bottom, #0083cf, #0083cf);
   padding: 15px;
   border-radius: 50%;
   margin-bottom: 10px;
@@ -184,23 +176,24 @@ body {
   margin-left: 10px;
 }
 
-.product-name .icon {
+.product-name .icon111 {
   margin: 0;
-  background: #ff8bb4;
+  background: #19a0e8;
   border-radius: 50%;
   color: #291623;
   font-size: 3rem;
+  border: 1px solid #ccc;
 }
 
-.product-name.iphone .icon {
-  background: #f89456;
+.product-name.iphone .icon111 {
+  background: #0c73f9;
 }
 
-.product-name.windows .icon {
-  background: #dc9afc;
+.product-name.windows .icon111 {
+  background: #004eb4;
 }
 .profile {
-  background: #2f1a27;
+  background: rgba(2, 130, 210, 0.3);
   padding: 2rem;
   flex: 1;
 }
@@ -228,7 +221,7 @@ body {
 }
 
 .user p {
-  color: #ccc;
+  color: #0400f1;
 }
 
 .activities {
@@ -260,7 +253,7 @@ body {
   margin-top: 4px;
 }
 
-.activity .icon {
+.activity .icon111 {
   font-size: 3rem;
   width: 40px;
   height: 40px;
@@ -280,7 +273,7 @@ body {
   font-size: 14px;
 }
 
-.upgrade .icon {
+.upgrade .icon111 {
   font-size: 8rem;
 }
 
@@ -302,7 +295,7 @@ body {
     margin: 0;
   }
 }
-
+/* 
 @media (max-width: 1180px) {
   html {
     font-size: 50%;
@@ -313,7 +306,7 @@ body {
   html {
     font-size: 50%;
   }
-}
+} */
 
 @media (max-width: 1000px) {
   .content {
@@ -356,7 +349,7 @@ body {
     display: flex;
   }
 
-  .navigation .icon {
+  .navigation .icon111 {
     margin: 0 10px;
   }
 
@@ -419,7 +412,7 @@ body {
     width: 100%;
   }
 
-  .product-name .icon {
+  .product-name .icon111 {
     display: none;
   }
 
@@ -434,7 +427,5 @@ body {
 }
 
 @media (max-width: 300px) {
-  html {
-    font-size: 35%;
-  }
+
 }
