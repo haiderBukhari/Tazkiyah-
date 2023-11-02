@@ -55,7 +55,7 @@ export const PerformanceAnalytics = () => {
     const productsChart = new Chart(productsRef.current, {
       type: 'doughnut',
       data: {
-        labels: ['Liked', 'Subscribed', 'Watched'],
+        labels: ['Attempted', 'Pending', 'Awaiting'],
         datasets: [
           {
             label: 'Products',
@@ -170,7 +170,7 @@ export const PerformanceAnalytics = () => {
 
             <div class="product-stats flex11">
               <div class="product-sales stats-box">
-                <h2 class="headingss">Sales</h2>
+                <h2 class="headingss">Status</h2>
                 <canvas ref={productsRef} id="products"></canvas>
               </div>
 
@@ -179,9 +179,9 @@ export const PerformanceAnalytics = () => {
                 <table class="top-selling-products" height="100%" width="100%">
                   <tr>
                     <th>ID</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Sold</th>
+                    <th>Assignment Name</th>
+                    {/* <th>Price</th> */}
+                    {/* <th>Sold</th> */}
                   </tr>
 
                   <tr>
@@ -191,11 +191,11 @@ export const PerformanceAnalytics = () => {
                         <div class="icon111">
                           <ion-icon name="logo-amazon"></ion-icon>
                         </div>
-                        <p>Amazon Kindle 4th Gen</p>
+                        <p>Fulfill Salah Obligation</p>
                       </div>
                     </td>
-                    <td>$1900</td>
-                    <td>351</td>
+                    {/* <td>$1900</td> */}
+                    {/* <td>351</td> */}
                   </tr>
 
                   <tr>
@@ -205,11 +205,11 @@ export const PerformanceAnalytics = () => {
                         <div class="icon111">
                           <ion-icon name="logo-apple"></ion-icon>
                         </div>
-                        <p>Iphone 11 Pro</p>
+                        <p>Read, Comprehend Quran</p>
                       </div>
                     </td>
-                    <td>$1300</td>
-                    <td>121</td>
+                    {/* <td>$1300</td> */}
+                    {/* <td>121</td> */}
                   </tr>
 
                   <tr>
@@ -219,11 +219,11 @@ export const PerformanceAnalytics = () => {
                         <div class="icon111">
                           <ion-icon name="logo-microsoft"></ion-icon>
                         </div>
-                        <p>Windows 11</p>
+                        <p>Embrace Quran's Wisdom</p>
                       </div>
                     </td>
-                    <td>$180</td>
-                    <td>195</td>
+                    {/* <td>$180</td> */}
+                    {/* <td>195</td> */}
                   </tr>
                 </table>
               </div>
