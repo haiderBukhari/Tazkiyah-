@@ -47,7 +47,7 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
         <div>
             {!proceed &&
                 <>
-                    <h1 className='text-center text-3xl font-semibold main-heading'>Set Goal</h1>
+                    <h1 className='text-center text-5xl font-semibold main-heading'>Set Goal</h1>
                     {
                         (finalGoal.length && selfdev && !personaldev && !proceed && !milestone) ? (<div className="btns flex justify-center mt-10 goalfinal mb-1">
                         <button onClick={()=>{Navigate('/view/goal')}} className='goaldev'>View Your Goals</button>
@@ -69,7 +69,7 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
                     </>}
                 {!selfdev && <div className='goalsetting'>
                     {
-                        !proceed && <p className='text-center mb-5 text-lg leading-9'>Please select the role with which you intend to establish your objective.</p>
+                        !proceed && <p className='text-center mb-5 text-2xl leading-9'>Please select the role with which you intend to establish your objective.</p>
                     }
                     {
                         !personaldev && !proceed && <div data-aos="flip-up" className="btns-list">
@@ -92,7 +92,7 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
                     {
                         proceed && <div className='goalstask m-auto'>
                             <div className="upper-bound">
-                                <p className='text-center py-5 text-xl font-semibold leading-9'>✍️ {corner}</p>
+                                <p className='text-center py-5 text-2xl font-semibold leading-9'>✍️ {corner}</p>
                                 <hr />
                             </div>
                             <div className="lower-bound mt-4 px-4">

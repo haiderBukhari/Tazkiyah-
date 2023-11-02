@@ -6,6 +6,14 @@
     box-sizing: border-box;
 }
 
+.input-container{
+    padding: 5px;
+}
+.input-container input[type="text"]{
+    height: 35px !important;
+    font-size: 30px !important;
+
+}
 body,
 input,
 textarea {

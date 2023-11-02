@@ -49,7 +49,6 @@
 
 .menus .icon111:hover,
 .menus .logo .icon111 {
-  /* background: linear-gradient(to right bottom, #ba5100, #4a1c00); */
   color: #2c1923;
   border-radius: 2px;
   transition: all 0.6s ease-out;
@@ -295,18 +294,6 @@
     margin: 0;
   }
 }
-/* 
-@media (max-width: 1180px) {
-  html {
-    font-size: 50%;
-  }
-}
-
-@media (max-width: 1050px) {
-  html {
-    font-size: 50%;
-  }
-} */
 
 @media (max-width: 1000px) {
   .content {

@@ -4,4 +4,7 @@
 }
 .ccocooc .row .col-lg-7 .text .button{
     padding: 20px !important;
+}.slider .single-slider .btn {
+    height: 34px !important;
+    font-size: 14px;
 }
