@@ -8,3 +8,14 @@
     height: 34px !important;
     font-size: 14px;
 }
+.readmore{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #02b6db;
+    color: #fff;
+    margin: auto;
+}
+.banaa{
+    margin-top: -20px;
+    padding-top: 0;
+}

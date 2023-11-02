@@ -5,6 +5,7 @@ import book_black from '../assets/images/book_black.png'
 import person_1 from '../assets/images/person_1.jpg'
 import person_2 from '../assets/images/person_2.jpg'
 import person_3 from '../assets/images/person_3.jpg'
+import './style.css'
 export const Ebook = () => {
     return (
         <>
@@ -13,18 +14,18 @@ export const Ebook = () => {
                 <div class="container">
                     <div class="row" style={{marginTop: "5em"}}>
                         <div class="col-md-12 text-center">
-                            <h1 id="fh5co-logo" class="cursive-font"><a href="index.html">Show</a></h1>
+                            <h1 id="fh5co-logo" class="cursive-font"><a href="/ebook">E-Books</a></h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="intro">
 
-                                <h2>A free website template to showcase your work. Made with love by <a href="http://freehtml5.co" target="_blank" rel='noreferrer'>FreeHTML5.co</a></h2>
-                                <p>
-                                    <a href="/" class="btn btn-primary btn-lg btn-hardbound">Buy Hard Bound <span class="price">$12.99</span></a> <span class="fh5co-block">&nbsp;&nbsp;
-                                        or &nbsp;&nbsp;</span> <a href="/" class="btn-ebook">Buy the eBook</a>
-                                </p>
+                                <h2>"Unlock the transformative power within you with 'The Tazkiyah Vision'—a guide to spiritual enlightenment and self-discovery."</h2>
+                            <div className="flex banaa">
+                                <button className='readmore'>Read More</button>
+
+                            </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
