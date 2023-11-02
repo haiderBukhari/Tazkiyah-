@@ -257,7 +257,7 @@
   font-size: 3rem;
   width: 40px;
   height: 40px;
-  background: #33202c;
+  background: #ffc6ea;
   margin: 0 5px 5px 5px;
   border-radius: 50%;
   color: #faad72;
@@ -368,7 +368,7 @@
   .earning {
     width: 100%;
     margin: 20px 0;
-    background: #3f2532;
+    background: rgba(1, 119, 192, 0.4);
   }
 
   .profile {
