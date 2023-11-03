@@ -41,7 +41,7 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
         localStorage.setItem('FinalGoal', JSON.stringify(finalizedgoal));
         ToastContainer("Goal Added Successfully!")
         setSelfdev(true); setPersonaldev(false); setProceed(false); setcorner("");; setMilestone(false); setCount([{ goal: "" }]);; setGoalTitle("");
-        Navigate('/view/goal')
+        Navigate('/view-goal')
     }
     return (
         <div>

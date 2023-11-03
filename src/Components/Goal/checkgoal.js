@@ -81,9 +81,9 @@ export const Checkgoal = ({ finalGoal, setFinalGoal }) => {
                 {
                     edit && <div data-aos="flip-down">
                         <div className="main-data">
-                            <p className='font-semibold mr-2 text-base my-3'>{finalGoal[editindex].heading.split(" ").slice(2).join(' ')}</p>
+                            <p className='font-semibold mr-2 my-3 text-6xl'>{finalGoal[editindex].heading.split(" ").slice(2).join(' ')}</p>
                             <hr className='mb-3' />
-                            <p className='font-semibold mr-2 text-base'>Your Goal: </p>
+                            <p className='font-semibold mr-2 gaga'>Your Goal: </p>
                             <input onChange={(e) => { handlechangegoal(e.target.value) }} type="text" name="" id="" value={finalGoal[editindex].goalTitle} required />
                             <div className="milestones-goals mt-4">
                                 {

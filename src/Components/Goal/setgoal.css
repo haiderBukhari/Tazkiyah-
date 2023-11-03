@@ -247,3 +247,7 @@
 .btns-color, .btns-list, .goaldev{
     color: #fff;
 }
+.text-base{
+    font-size: 15px !important;
+    margin-top: 10px;
+}
