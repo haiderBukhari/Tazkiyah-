@@ -16,7 +16,7 @@ export const ReactRoutes = ({finalGoal, setFinalGoal}) => {
                 <Route path='/register' element={<RegisterUser />} />
                 <Route path='/login' element={<LoginUser />} />
                 <Route path='/goal' element={<SetGoal finalGoal={finalGoal} setFinalGoal={setFinalGoal} />} />
-                <Route path='/view/goal' element={<ViewGoals finalGoal={finalGoal} setFinalGoal={setFinalGoal} />} />
+                <Route path='/view-goal' element={<ViewGoals finalGoal={finalGoal} setFinalGoal={setFinalGoal} />} />
                 <Route path='/' element={<MainPage/>}/>
                 <Route path='/performance' element={<PerformanceAnalytics/>}/>
                 <Route path='/ebook' element={<Ebook/>}/>

@@ -111,7 +111,7 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                 }
                 {
                     finalGoal.length===0 && (
-                        <p style={{lineHeight: "3.4rem"}} className='m-3 text-3xl text-center'>You dont have any Active Goal. Click on the Button to Add Your Goal</p>
+                        <p style={{lineHeight: "3.4rem"}} className='m-3 text-3xl text-center'>You don't have any Active Goal yet. Click on the Button and Add Your Goal</p>
                     )
                 }
             </div>

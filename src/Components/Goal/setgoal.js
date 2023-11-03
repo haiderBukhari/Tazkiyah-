@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './setgoal.css';
+// import './setgoal.css';
 import SelfDevelopment from '../../assets/self development.jpg'
 import { useNavigate } from 'react-router-dom';
 import ToastContainer from '../toast';
