@@ -20,3 +20,10 @@
 .contact-ss .btns-pr{
     padding-left: 10px;
 }
+.contact-ss button:focus{
+    outline: none;
+    border: none;
+}
+.contact-ss button:focus{
+    border: none;
+}
