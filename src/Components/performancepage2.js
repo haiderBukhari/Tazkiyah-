@@ -283,7 +283,7 @@ export const Performancepage2 = () => {
             <aside id="sidebar" ref={sidebarRef}>
                 <div className="sidebar-title">
                     <div className="sidebar-brand">
-                        <span className="material-icons-outlined">shopping_cart</span> STORE
+                        <span className="material-icons-outlined">shopping_cart</span> Tazkiyah
                     </div>
                     <span className="material-icons-outlined">close</span>
                 </div>

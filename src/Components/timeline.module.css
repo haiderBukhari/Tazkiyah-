@@ -4,9 +4,9 @@
 	box-sizing: border-box;
 	font-family: Poppins;
 }
-@font-face {
-	font-family: Poppins;
-}
+/* @font-face { */
+	/* font-family: Poppins; */
+/* } */
 .main {
 	width: 100%;
 	height: auto;

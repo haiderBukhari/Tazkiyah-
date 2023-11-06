@@ -5,7 +5,7 @@ import { ContactUs } from "../Components/Contact/ContactUs";
 import { SetGoal } from "../Components/Goal/setgoal";
 import { ViewGoals } from "../Components/Goal/ViewGoals";
 import { MainPage } from "../Components/MainPage";
-import { PerformanceAnalytics } from "../Components/PerformanceAnalytics";
+// import { PerformanceAnalytics } from "../Components/PerformanceAnalytics";
 import { Ebook } from "../Components/ebook";
 import { TimeLine } from "../Components/timeline";
 import { Performancepage2 } from "../Components/performancepage2";

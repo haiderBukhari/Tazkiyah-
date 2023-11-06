@@ -36,7 +36,7 @@ export const Header = ({ finalGoal }) => {
                                     <div class="main-menu">
                                         <nav class="navigation">
                                             <ul class="nav menu">
-                                                <li class="active"><a hrefs="/">Home <i class=""></i></a>
+                                                <li class="active"><a href="/">Home <i class=""></i></a>
                                                 </li>
                                                 <li><a href="/">Tazkiyah Vision </a></li>
                                                 <li><Link to="/goal">Services <i class="icofont-rounded-down"></i></Link>
