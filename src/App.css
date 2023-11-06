@@ -16,7 +16,10 @@
     font-size: 20px;
     border: none;
 }
-
+.contact-ss{
+    border: 1px solid #ccc;
+    background-color: #002751;
+}
 .contact-ss .btns-pr{
     padding-left: 10px;
 }

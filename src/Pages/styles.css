@@ -19,7 +19,7 @@ body {
   'sidebar header header header'
   'sidebar main main main';
   min-height: 100vh;
-  background-color: #1d2634;
+  background-color: #15375c;
   color: #9e9ea4;
 }
 
@@ -47,7 +47,7 @@ body {
 #sidebar {
   grid-area: sidebar;
   height: 100%;
-  background-color: #263043;
+  background-color: #001935;
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -172,12 +172,13 @@ body {
 }
 
 .charts-card {
-  background-color: #263043;
+  background-color: #08284d;
   margin-bottom: 20px;
   padding: 25px;
   box-sizing: border-box;
   -webkit-column-break-inside: avoid;
   border-radius: 5px;
+  border: 1px solid #000000;
   box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
 }
 

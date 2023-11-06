@@ -1,6 +1,6 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
-
+import './style.css'
 export const Footer = () => {
     return (
 
@@ -71,7 +71,7 @@ export const Footer = () => {
                 </div>
             </div>
         </div>
-        <div class="copyright">
+        <div class="copyright color-blue">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12">

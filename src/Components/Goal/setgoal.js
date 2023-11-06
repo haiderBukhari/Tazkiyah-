@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 // import './setgoal.css';
+import { Select } from './select';
 import SelfDevelopment from '../../assets/self development.jpg'
 import { useNavigate } from 'react-router-dom';
 import ToastContainer from '../toast';
-export const SetGoal = ({finalGoal, setFinalGoal}) => {
+export const SetGoal = ({ finalGoal, setFinalGoal }) => {
     let Navigate = useNavigate();
     const [selfdev, setSelfdev] = useState(true)
     const [personaldev, setPersonaldev] = useState(false)
@@ -12,7 +13,10 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
     const [milestone, setMilestone] = useState(false)
     const [count, setCount] = useState([{ goal: "" }]);
     const [goalTitle, setGoalTitle] = useState("")
-    
+    const [status, setstatus] = useState(["Goal", "Milestone"])
+    useEffect(()=>{
+        setstatus(["Goal", "Milestone"])
+    }, [])
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [selfdev, personaldev, proceed])
@@ -50,8 +54,8 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
                     <h1 className='text-center text-5xl font-semibold main-heading'>Set Goal</h1>
                     {
                         (finalGoal.length && selfdev && !personaldev && !proceed && !milestone) ? (<div className="btns flex justify-center mt-10 goalfinal mb-1">
-                        <button onClick={()=>{Navigate('/view-goal')}} className='goaldev'>View Your Goals</button>
-                    </div>):""
+                            <button onClick={() => { Navigate('/view-goal') }} className='goaldev'>View Your Goals</button>
+                        </div>) : ""
                     }
                 </>
             }
@@ -63,7 +67,7 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
                             <p className='text1'>Initiating the journey toward a more meaningful and satisfying life begins with the act of establishing a goal using the self-development feature.</p>
                             <p className='text2'>Click on the Self Development Button to define your objective, set milestones, and work towards it.</p>
                             <div className="btns flex justify-center mt-10">
-                                <button onClick={() => { setSelfdev(!selfdev) }} className='goaldev'>Self Development</button>
+                                <button onClick={() => { setSelfdev(!selfdev) }} className='goaldev'>Set Goal</button>
                             </div>
                         </div>
                     </>}
@@ -100,6 +104,7 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
                                     !milestone && <div data-aos="flip-up">
                                         <p>Set Your Goal:</p>
                                         <input onChange={(e) => { setGoalTitle(e.target.value) }} className='input-text' type="text" name="" id="" placeholder='Write Goal' value={goalTitle} />
+                                        <Select status={status[0]} />
                                         <p className='mt-4 text-2xl flex justify-center privates'>
                                             Make your Goal <i className='mx-2'>Public</i> or <i className='mx-2'>Private </i>
                                         </p>
@@ -108,7 +113,7 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
                                                 <p>Private</p><input className='ml-2' type="radio" name="q1" id="" />
                                             </div>
                                             <div className="l1 flex justify-center place-items-center ml-5">
-                                                <p>Public</p><input className='ml-2' type="radio" name="q1" id="" checked/>
+                                                <p>Public</p><input className='ml-2' type="radio" name="q1" id="" checked />
                                             </div>
                                         </div>
                                         <div className="btns-list mt-10">
@@ -125,10 +130,14 @@ export const SetGoal = ({finalGoal, setFinalGoal}) => {
                                         {
                                             count.map((arr, index) => (
                                                 <div key={arr[index] * index} className="inp">
-                                                    <input onChange={(e) => { handleChange(index, e.target.value) }} className='input-text' type="text" name="" id="" placeholder='Write Your Milestone' value={arr.goal} />
+                                                    <input onChange={(e) => { handleChange(index, e.target.value) }} className='input-text' type="text" name="" id="" placeholder={`Write Your Milestone ${index + 1}`} value={arr.goal} />
                                                     {
-                                                        index !== 0 && <i onClick={() => { handledDelete(index) }} class="fa-solid fa-trash-can"></i>
+                                                        index !== 0 &&
+                                                        <>
+                                                            <i onClick={() => { handledDelete(index) }} class="fa-solid fa-trash-can"></i>
+                                                        </>
                                                     }
+                                                    <Select status={status[1]} />
                                                 </div>
                                             ))
                                         }

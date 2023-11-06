@@ -41,7 +41,7 @@ export const Header = ({ finalGoal }) => {
                                                 <li><a href="/">Tazkiyah Vision </a></li>
                                                 <li><Link to="/goal">Services <i class="icofont-rounded-down"></i></Link>
                                                 <ul class="dropdown">
-                                                        <li><Link to="/goal">Set Goal</Link></li>
+                                                        <li><Link to="/goal">Self Development</Link></li>
                                                         <li><Link to="/view-goal">View Goal</Link></li>
                                                         <li><Link to="/ebook">EBook</Link></li>
                                                         <li><Link to="/">Notifications</Link></li>
