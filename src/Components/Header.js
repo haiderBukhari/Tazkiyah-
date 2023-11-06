@@ -36,9 +36,9 @@ export const Header = ({ finalGoal }) => {
                                     <div class="main-menu">
                                         <nav class="navigation">
                                             <ul class="nav menu">
-                                                <li class="active"><Link to="/">Home <i class=""></i></Link>
+                                                <li class="active"><a hrefs="/">Home <i class=""></i></a>
                                                 </li>
-                                                <li><Link to="/">Tazkiyah Vision </Link></li>
+                                                <li><a href="/">Tazkiyah Vision </a></li>
                                                 <li><Link to="/goal">Services <i class="icofont-rounded-down"></i></Link>
                                                 <ul class="dropdown">
                                                         <li><Link to="/goal">Set Goal</Link></li>

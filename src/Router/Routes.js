@@ -8,6 +8,7 @@ import { MainPage } from "../Components/MainPage";
 import { PerformanceAnalytics } from "../Components/PerformanceAnalytics";
 import { Ebook } from "../Components/ebook";
 import { TimeLine } from "../Components/timeline";
+import { Performancepage2 } from "../Components/performancepage2";
 export const ReactRoutes = ({finalGoal, setFinalGoal}) => {
     return (
         <>
@@ -18,9 +19,10 @@ export const ReactRoutes = ({finalGoal, setFinalGoal}) => {
                 <Route path='/goal' element={<SetGoal finalGoal={finalGoal} setFinalGoal={setFinalGoal} />} />
                 <Route path='/view-goal' element={<ViewGoals finalGoal={finalGoal} setFinalGoal={setFinalGoal} />} />
                 <Route path='/' element={<MainPage/>}/>
-                <Route path='/performance' element={<PerformanceAnalytics/>}/>
+                <Route path='/performance' element={<Performancepage2/>}/>
                 <Route path='/ebook' element={<Ebook/>}/>
                 <Route path='/timeline' element={<TimeLine/>}/>
+                {/* <Route path='/Performancepage' element={<Performancepage2/>}/> */}
             </Routes>
         </>
     )
