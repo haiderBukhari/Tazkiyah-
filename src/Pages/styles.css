@@ -13,27 +13,28 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 260px 1fr 1fr 1fr;
+  /* grid-template-columns: ; */
   grid-template-rows: 0.2fr 3fr;
   grid-template-areas:
   'sidebar header header header'
   'sidebar main main main';
   min-height: 100vh;
-  background-color: #15375c;
+  background-color: #ffffff;
   color: #9e9ea4;
 }
 
 /* ---------- HEADER ---------- */
 .headerssss1 {
   grid-area: header;
-  height: 70px;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 30px 0 30px;
+  height: 50px;
+  /* display: flex; */
+  /* width: 100%; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  padding: 0 30px 0 10px;
   box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
   color: #fff !important;
+  text-align: center;
 }
 .color{
   color: #fff !important;
@@ -139,19 +140,19 @@ body {
 }
 
 .card:first-child {
-  background-color: #2962ff;
+  background-color: #4494ea;
 }
 
 .card:nth-child(2) {
-  background-color: #ff6d00;
+  background-color: #4494ea;
 }
 
 .card:nth-child(3) {
-  background-color: #2e7d32;
+  background-color: #4494ea;
 }
 
 .card:nth-child(4) {
-  background-color: #d50000;
+  background-color: #4494ea;
 }
 
 .card-inner {
@@ -172,13 +173,13 @@ body {
 }
 
 .charts-card {
-  background-color: #08284d;
+  background-color: rgb(106, 106, 106);
   margin-bottom: 20px;
   padding: 25px;
   box-sizing: border-box;
   -webkit-column-break-inside: avoid;
   border-radius: 5px;
-  border: 1px solid #000000;
+  border: 1px solid blue;
   box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
 }
 

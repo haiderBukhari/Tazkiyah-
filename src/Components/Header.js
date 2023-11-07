@@ -2,6 +2,7 @@ import React from 'react'
 import './style.css'
 import Logo from "../assets/Tazkiyah Logo.jpg"
 import { Link } from 'react-router-dom'
+import img from '../assets/img/avatar.png'
 
 export const Header = ({ finalGoal }) => {
     return (
@@ -23,16 +24,16 @@ export const Header = ({ finalGoal }) => {
                     </div>
                 </div>
                 <div class="header-inner">
-                    <div class="container">
+                    <div class="container containe">
                         <div class="inner">
-                            <div class="row">
+                            <div class="row rowww">
                                 <div class="col-lg-3 col-md-3 col-12 p-0 m-0">
                                     <div class="logo p-0 m-0">
                                         <Link to="/"><img style={{ height: "100px", width: "auto" }} className='logos m-0 p-0' src={Logo} alt="#" /></Link>
                                     </div>
                                     <div class="mobile-nav"></div>
                                 </div>
-                                <div class="col-lg-7 col-md-9 col-12">
+                                <div class="">
                                     <div class="main-menu">
                                         <nav class="navigation">
                                             <ul class="nav menu">
@@ -40,7 +41,7 @@ export const Header = ({ finalGoal }) => {
                                                 </li>
                                                 <li><a href="/">Tazkiyah Vision </a></li>
                                                 <li><Link to="/goal">Services <i class="icofont-rounded-down"></i></Link>
-                                                <ul class="dropdown">
+                                                    <ul class="dropdown">
                                                         <li><Link to="/goal">Self Development</Link></li>
                                                         <li><Link to="/view-goal">View Goal</Link></li>
                                                         <li><Link to="/ebook">EBook</Link></li>
@@ -56,8 +57,15 @@ export const Header = ({ finalGoal }) => {
                                         </nav>
                                     </div>
                                 </div>
-                                <div class="col-lg-2 col-12">
-
+                                <div className="user-detail m-auto">
+                                    <p className='mr-6'>Tazkiyah Team</p>
+                                    <ul className='nav flex'>
+                                        <li><Link to="/goal"><img src={img} alt="" srcset="" /></Link>
+                                            <ul class="dropdown flex">
+                                                <li><Link to="/timeline">admin@tazkiyah.com</Link></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

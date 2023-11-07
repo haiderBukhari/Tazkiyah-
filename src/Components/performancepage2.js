@@ -1,29 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import '../Pages/styles.css';
 import ApexCharts from 'apexcharts';
 
 export const Performancepage2 = () => {
 
-    const sidebarRef = useRef(null);
     useEffect(() => {
-        let sidebarOpen = false;
-
-        const openSidebar = () => {
-            const sidebar = sidebarRef.current;
-            if (!sidebarOpen && sidebar) {
-                sidebar.classList.add('sidebar-responsive');
-                sidebarOpen = true;
-            }
-        };
-
-        const closeSidebar = () => {
-            const sidebar = sidebarRef.current;
-            if (sidebarOpen && sidebar) {
-                sidebar.classList.remove('sidebar-responsive');
-                sidebarOpen = false;
-            }
-        };
-
         // ---------- CHARTS ----------
 
         // BAR CHART
@@ -250,17 +231,6 @@ export const Performancepage2 = () => {
         };
         const areaChart = new ApexCharts(document.getElementById('area-chart'), areaChartOptions);
         areaChart.render();
-
-        const menuIcon = document.querySelector('.menu-icon');
-        menuIcon.addEventListener('click', openSidebar);
-
-        const closeIcon = document.querySelector('.sidebar-title > span');
-        closeIcon.addEventListener('click', closeSidebar);
-
-        return () => {
-            menuIcon.removeEventListener('click', openSidebar);
-            closeIcon.removeEventListener('click', closeSidebar);
-        };
     }, []);
 
     return (
@@ -281,7 +251,7 @@ export const Performancepage2 = () => {
                     {/* <span className="material-icons-outlined">account_circle</span> */}
                 {/* </div> */}
             </header>
-            <aside id="sidebar" ref={sidebarRef}>
+            {/* <aside id="sidebar" ref={sidebarRef}>
                 <div className="sidebar-title">
                     <div className="sidebar-brand">
                         <span className="material-icons-outlined"></span> Tazkiyah
@@ -324,8 +294,8 @@ export const Performancepage2 = () => {
                             {/* <span class="material-icons-outlined">settings</span> Settings */}
                         {/* </a> */}
                     {/* </li> */}
-                </ul>
-            </aside>
+                {/* </ul> */}
+            {/* </aside>  */}
             <main className="main-container">
                 <div className="main-cards">
                 <div class="card">

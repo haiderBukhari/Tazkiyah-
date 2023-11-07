@@ -25,3 +25,26 @@
 .footer-top, .color-blue{
     background-color: #15375c !important;
 }
+.rowww{
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    max-width: 100%;
+    margin: 0;
+}
+.containe{
+    /* width: 130vw !important; */
+    max-width: 100% !important;
+    margin: 0 0;
+}
+.user-detail img{
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.user-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
