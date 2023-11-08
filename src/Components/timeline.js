@@ -1,49 +1,83 @@
-import React from 'react'
-import style from './timeline.module.css' 
+import React, { useEffect, useRef, useState } from 'react'
+import style from './timeline.module.css'
+import './style.css'
 export const TimeLine = () => {
-    let data = [
+    let [show, setShow] = useState(false)
+    let [data, setData] = useState([
         {
             name: "MLSA Github Event",
-            institution: "FAST NUCES Islamabad",
-            detail: "The MLSA GitHub event aims to delve into the fundamentals of GitHub, covering topics such as repository creation, version control, branching strategies, and collaborative workflows. Participants will explore the basics of Git commands, pull requests, issue tracking, and best practices for effective collaboration using this popular version control platform.",
-            link: "/timeline",
-            data: "November 2023",
+            data: "2023-10-13",
+            time: '23:10'
         },
         {
             name: "Google Cloud",
-            institution: "Rippah University Islamabad",
-            detail: "The Google Cloud event, organized by GDSC (Google Developer Student Clubs), will provide insights into leveraging Google Cloud Platform services. Topics will include cloud computing essentials, GCP products like Compute Engine, BigQuery, and Kubernetes, along with discussions on deploying, managing, and scaling applications in the cloud. Attendees will gain practical knowledge about Google Cloud resources and solutions for various development and business needs.",
-            link: "/timeline",
-            data: "December 2023",
+            data: "2023-11-19",
+            time: '12:00'
         },
         {
             name: "Web Development",
-            institution: "NUML University",
-            detail: "The Web Development event, hosted by NUML University, will cover the essentials of modern web development. Topics will span from front-end technologies like HTML, CSS, and JavaScript to back-end frameworks such as Node.js and databases like MySQL or MongoDB. Discussions will also include responsive design, web security, and practical hands-on exercises to equip attendees with foundational skills in creating dynamic and interactive web applications.",
-            link: "/timeline",
-            data: "January 2024",
+            data: "2023-12-13",
+            time: '01:00'
         },
-    ]
+    ])
+    let name = useRef();
+    let date = useRef();
+    let time = useRef();
+    let handleeventadd = (e) => {
+        e.preventDefault()
+        setData([{
+            name: name.current.value,
+            data: date.current.value,
+            time: time.current.value
+        }, ...data])
+        setShow(false)
+    }
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    }, [show])
     return (
         <div id={`${style.qualification}`}>
             <div data-aos="fade-up" className={`${style.main} dark:bg-slate-400`}>
-                <h3 className={`${style.head}`}>Events TimeLine</h3>
-                <div className={`${style.container}`}>
-                    <ul>
+                <form onSubmit={(e) => { handleeventadd(e) }} className={`add-event ${show ? 'open-popup' : ''}`}>
+                    <h1>Add Event</h1>
+                    <div className="sub-event mt-2">
+                        <div className="namess mt-3 flex">
+                            <label style={{ color: "#2567ac" }} className='mr-2 topd' htmlFor="">Event Name:</label>
+                            <input className='py-2' type="text" placeholder="Event Name" ref={name} required={true}/>
+                        </div>
+                        <div className="dates mt-4 flex">
+                            <label style={{ color: "#2567ac" }} className='alphaaad' htmlFor="">Event Date:</label>
+                            <input className='py-2' type="date" name="" id="" ref={date} required={true}/>
+                        </div>
+                        <div className="timess my-4 flex">
+                            <label style={{ color: "#2567ac" }} className='alphaaad' htmlFor="">Event Time</label>
+                            <input className='py-2' type="time" name="" id="" ref={time} required={true}/>
+                        </div>
+                        <button type='submit' className='add-brn'>Add</button>
+                    </div>
+                </form>
+                {
+                    !show ? (<>
+                            <h3 className={`${style.head}`}>Events TimeLine</h3>
                         {
-                            data.map((arr, index) => (
-                                <li alt={arr.name} key={Math.floor(Math.random() * 100000 + index)} className='dark:bg-slate-500' >
-                                    <h3 className={`${style.heading} font-bold mb-4  dark:text-cyan-900`}>{arr.name}</h3>
-                                    <h3 className={`${style.heading1} mb-2 font-semibold`}>{arr.institution}</h3>
-                                    <p  className={`text-justify ${style.paraqualification} dark:text-white`}>{arr.detail}</p>
-                                    <a className='dark:text-black' href={arr.link} target='_blank' rel="noreferrer">View More</a>
-                                    <span className={`${style.date}`}>{arr.data}</span>
-                                    <span className={`${style.circle}`}></span>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
+                    <button onClick={() => { setShow(!show) }} type='submit' className='add-brn add-brn1'>Add New Event</button>
+                }
+                        <div className={`${style.container}`}>
+                            <ul>
+                                {
+                                    data.map((arr, index) => (
+                                        <li alt={arr.name} key={Math.floor(Math.random() * 100000 + index)} className='dark:bg-slate-500' >
+                                            <h3 className={`${style.heading} font-bold mb-4  dark:text-cyan-900`}>{arr.name}</h3>
+                                            <h3 className={`${style.heading1} mb-2 font-semibold`}>Time: {arr.time}</h3>
+                                            <span className={`${style.date}`}>{arr.data}</span>
+                                            <span className={`${style.circle}`}></span>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                    </>) : (<div className='none'></div>)
+                }
             </div>
         </div>
     )
