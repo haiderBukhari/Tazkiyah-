@@ -109,8 +109,11 @@
     .open-popup{
         min-width: 300px;
         max-width: 400px;
-        width: 100%;
+        width: auto;
         top: 25%;
+    }
+    .topd, .alphaaad{
+        width: 100% !important;
     }
 }
 .add-brn{
