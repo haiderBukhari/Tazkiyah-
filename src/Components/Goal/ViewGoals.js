@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './setgoal.css'
+import { Select } from './select';
 import ToastContainer from '../toast';
 
 export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
@@ -8,7 +9,10 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
     let [editindex, setEditIndex] = useState(0)
     let navigate = useNavigate();
     useEffect(() => {
-        window.scrollTo(0, 0)
+        document.querySelector('body').scrollTo({
+            top: 0, behavior:
+                'smooth'
+        })
     }, [edit, editindex])
     let handledelete = (index) => {
         let newArr = [...finalGoal];
@@ -49,7 +53,7 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                 <button onClick={() => { navigate('/goal') }} className='goaldev'>Add New Goal</button>
             </div>
             <div className="container-main">
-            {finalGoal &&
+                {finalGoal &&
                     !edit && finalGoal.map((item, index) => (
                         <div data-aos="fade-up" className="viewgoalcontainer p-2 px-4 ">
                             <div className="heading">
@@ -63,7 +67,7 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                                 <h2 className='ml-3'>{item.goalTitle}</h2>
                             </div>
                             {
-                                item.milestones.length!==0 && item.milestones[0].goal!=='' && <div className="responsibilities mt-5">
+                                item.milestones.length !== 0 && item.milestones[0].goal !== '' && <div className="responsibilities mt-5">
                                     <span className='pr-2 text-lg font-semibold'>Milstones:</span>
                                     <ul className='ml-3 ull'>
                                         {item.milestones.map((item, index) => {
@@ -79,30 +83,33 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                     ))
                 }
                 {
-                    edit && <div data-aos="flip-down">
+                    edit && <div className='flpp' data-aos="flip-down">
                         <div className="main-data">
                             <p className='font-semibold mr-2 text-base my-3'>{finalGoal[editindex].heading.split(" ").slice(2).join(' ')}</p>
                             <hr className='mb-3' />
                             <p className='font-semibold mr-2 text-base'>Your Goal: </p>
                             <input onChange={(e) => { handlechangegoal(e.target.value) }} type="text" name="" id="" value={finalGoal[editindex].goalTitle} required />
+                            <Select status={"Goal"} />
                             <div className="milestones-goals mt-4">
                                 {
-                                  finalGoal[editindex].milestones.map((item, index) => (
+                                    finalGoal[editindex].milestones.map((item, index) => (
                                         <>
                                             <div className="m1 mt-4">
                                                 <p className='font-semibold mr-2 text-base'>Milstone {index + 1}: </p>
                                                 <input onChange={(e) => { setmilestone(index, e.target.value) }} type="text" name="" id="" value={item.goal} required />
                                                 <i onClick={() => { milestonedelete(index) }} class="fa-solid fa-trash-can"></i>
                                             </div>
+                                            <Select status={"Milestone"} />
                                         </>
                                     ))
                                 }
                                 <div className="flex flex-col newro">
                                     <div className="btns-lists mt-5">
-                                        <button onClick={() => { addmilestone() }}>Add Another MileStone</button>
+                                        <button disabled={finalGoal[editindex].milestones[finalGoal[editindex].milestones.length - 1] && finalGoal[editindex].milestones[finalGoal[editindex].milestones.length - 1].goal === ''
+                                        } style={{ border: '0', color: '#fff', outline: 'none' }} onClick={() => { addmilestone() }}>Add Another MileStone</button>
                                     </div>
                                     <div className="btns-lists mt-4">
-                                        <button onClick={() => { setEdit(false); ToastContainer("Goal Saved Successfully!") }}>Save Goal</button>
+                                        <button style={{ border: '0', color: '#fff' }} onClick={() => { setEdit(false); ToastContainer("Goal Saved Successfully!") }}>Save Goal</button>
                                     </div>
                                 </div>
                             </div>
@@ -110,8 +117,8 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                     </div>
                 }
                 {
-                    finalGoal.length===0 && (
-                        <p style={{lineHeight: "3.4rem"}} className='m-3 text-3xl text-center'>You don't have any Active Goal yet. Click on the Button and Add Your Goal</p>
+                    finalGoal.length === 0 && (
+                        <p style={{ lineHeight: "3.4rem" }} className='m-3 text-3xl text-center'>You don't have any Active Goal yet. Click on the Button and Add Your Goal</p>
                     )
                 }
             </div>

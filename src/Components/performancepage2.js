@@ -23,7 +23,7 @@ export const Performancepage2 = () => {
                     show: false,
                 },
             },
-            colors: ['#2962ff', '#d50000', '#2e7d32', '#ff6d00', '#583cb3'],
+            colors: ['#2962ff', '#2962ff', '#2962ff', '#2962ff', '#2962ff'],
             plotOptions: {
                 bar: {
                     distributed: true,
@@ -39,7 +39,7 @@ export const Performancepage2 = () => {
                 opacity: 1,
             },
             grid: {
-                borderColor: '#55596e',
+                borderColor: '#000',
                 yaxis: {
                     lines: {
                         show: true,
@@ -53,7 +53,7 @@ export const Performancepage2 = () => {
             },
             legend: {
                 labels: {
-                    colors: '#f5f7ff',
+                    colors: '#000',
                 },
                 show: true,
                 position: 'top',
@@ -72,20 +72,20 @@ export const Performancepage2 = () => {
                 categories: ['Laptop', 'Phone', 'Monitor', 'Headphones', 'Camera'],
                 title: {
                     style: {
-                        color: '#f5f7ff',
+                        color: '#000',
                     },
                 },
                 axisBorder: {
                     show: true,
-                    color: '#55596e',
+                    color: '#000',
                 },
                 axisTicks: {
                     show: true,
-                    color: '#55596e',
+                    color: '#000',
                 },
                 labels: {
                     style: {
-                        colors: '#f5f7ff',
+                        colors: '#000',
                     },
                 },
             },
@@ -93,20 +93,20 @@ export const Performancepage2 = () => {
                 title: {
                     text: 'Count',
                     style: {
-                        color: '#f5f7ff',
+                        color: '#000',
                     },
                 },
                 axisBorder: {
-                    color: '#55596e',
+                    color: '#000',
                     show: true,
                 },
                 axisTicks: {
-                    color: '#55596e',
+                    color: '#000',
                     show: true,
                 },
                 labels: {
                     style: {
-                        colors: '#f5f7ff',
+                        colors: '#000',
                     },
                 },
             },
@@ -135,7 +135,7 @@ export const Performancepage2 = () => {
                     show: false,
                 },
             },
-            colors: ['#00ab57', '#d50000'],
+            colors: ['#2962ff', '#15375c'],
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
             dataLabels: {
                 enabled: false,
@@ -151,7 +151,7 @@ export const Performancepage2 = () => {
                 type: 'gradient',
             },
             grid: {
-                borderColor: '#55596e',
+                borderColor: '#15375c',
                 yaxis: {
                     lines: {
                         show: true,
@@ -165,14 +165,14 @@ export const Performancepage2 = () => {
             },
             legend: {
                 labels: {
-                    colors: '#f5f7ff',
+                    colors: '#15375c',
                 },
                 show: true,
                 position: 'top',
             },
             markers: {
                 size: 6,
-                strokeColors: '#1b2635',
+                strokeColors: '#15375c',
                 strokeWidth: 3,
             },
             stroke: {
@@ -190,7 +190,7 @@ export const Performancepage2 = () => {
                 labels: {
                     offsetY: 5,
                     style: {
-                        colors: '#f5f7ff',
+                        colors: '#000',
                     },
                 },
             },
@@ -199,12 +199,12 @@ export const Performancepage2 = () => {
                     title: {
                         text: 'Purchase Orders',
                         style: {
-                            color: '#f5f7ff',
+                            color: '#000',
                         },
                     },
                     labels: {
                         style: {
-                            colors: ['#f5f7ff'],
+                            colors: ['#000'],
                         },
                     },
                 },
@@ -213,12 +213,12 @@ export const Performancepage2 = () => {
                     title: {
                         text: 'Sales Orders',
                         style: {
-                            color: '#f5f7ff',
+                            color: '#000',
                         },
                     },
                     labels: {
                         style: {
-                            colors: ['#f5f7ff'],
+                            colors: ['#000'],
                         },
                     },
                 },
@@ -243,12 +243,12 @@ export const Performancepage2 = () => {
                     <span className="material-icons-outlined">menu</span>
                 </div>
                 {/* <div className="header-left"> */}
-                    {/* <span className="material-icons-outlined">search</span> */}
+                {/* <span className="material-icons-outlined">search</span> */}
                 {/* </div> */}
                 {/* <div className="header-right"> */}
-                    {/* <span className="material-icons-outlined">notifications</span> */}
-                    {/* <span className="material-icons-outlined">email</span> */}
-                    {/* <span className="material-icons-outlined">account_circle</span> */}
+                {/* <span className="material-icons-outlined">notifications</span> */}
+                {/* <span className="material-icons-outlined">email</span> */}
+                {/* <span className="material-icons-outlined">account_circle</span> */}
                 {/* </div> */}
             </header>
             {/* <aside id="sidebar" ref={sidebarRef}>
@@ -290,15 +290,15 @@ export const Performancepage2 = () => {
                         </a>
                     </li>
                     {/* <li class="sidebar-list-item"> */}
-                        {/* <a href="/" target="_blank"> */}
-                            {/* <span class="material-icons-outlined">settings</span> Settings */}
-                        {/* </a> */}
-                    {/* </li> */}
-                {/* </ul> */}
+            {/* <a href="/" target="_blank"> */}
+            {/* <span class="material-icons-outlined">settings</span> Settings */}
+            {/* </a> */}
+            {/* </li> */}
+            {/* </ul> */}
             {/* </aside>  */}
             <main className="main-container">
                 <div className="main-cards">
-                <div class="card">
+                    <div class="card">
                         <div class="card-inner">
                             <h3>EVENTS</h3>
                             <span class="material-icons-outlined">inventory_2</span>

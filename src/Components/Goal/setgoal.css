@@ -64,7 +64,9 @@
 }
 
 .goalstask {
-    width: 400px !important;
+    min-width: 300px;
+    max-width: 400px;
+    width: 100% !important;
     height: auto !important;
     padding-bottom: 40px !important;
     box-shadow: 1px 2px 3px 3px #ccc, -1px -2px 3px #ccc !important;
@@ -152,6 +154,9 @@
     align-items: center !important;
 }
 
+.responsibilities span, .viewgoal span{
+    font-size: 17px !important;
+}
 .ull {
     line-height: 1.9rem !important;
 }
@@ -192,10 +197,15 @@
 .fllf {
     display: flex !important;
     align-items: center !important;
+    margin: 4px;
 }
+.fllf p{
+    margin: 0 10px 0 0 !important;
 
+}
 .main-data {
-    width: 500px !important;
+    /* max-width: 500px;
+    min-width: 300px !important; */
     margin: 20px !important;
     padding: 20px 30px 50px 30px !important;
     border: 2px solid #ccc !important;
@@ -251,6 +261,31 @@
     font-size: 15px !important;
     margin-top: 10px;
 }
+.inp{
+    margin-top: 10px;
+}
 .inp i{
-    top: 22% !important;
+    top: 55% !important;
+}
+.mainlmn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: 'wrap';
+}
+
+@media only screen and (max-width: 650px){
+    .empty{
+        display: none;
+    }
+}
+.popo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-data, .flpp, .container-main{
+    max-width: 500px !important;
+    min-width: 300px !important;
+    width: 100% !important; 
 }

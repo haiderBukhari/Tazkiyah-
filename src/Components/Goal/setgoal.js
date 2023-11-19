@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-// import './setgoal.css';
+import './setgoal.css'
 import { Select } from './select';
 import SelfDevelopment from '../../assets/self development.jpg'
 import { useNavigate } from 'react-router-dom';
 import ToastContainer from '../toast';
+
 export const SetGoal = ({ finalGoal, setFinalGoal }) => {
     let Navigate = useNavigate();
     const [selfdev, setSelfdev] = useState(true)
@@ -14,12 +15,16 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
     const [count, setCount] = useState([{ goal: "" }]);
     const [goalTitle, setGoalTitle] = useState("")
     const [status, setstatus] = useState(["Goal", "Milestone"])
-    useEffect(()=>{
+    useEffect(() => {
         setstatus(["Goal", "Milestone"])
     }, [])
+
     useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [selfdev, personaldev, proceed])
+        document.querySelector('body').scrollTo({
+            top: 0, behavior:
+                'smooth'
+        })
+    }, [selfdev, personaldev, proceed, milestone])
 
     let handleChange = (index, value) => {
         let newArr = [...count];
@@ -47,9 +52,39 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
         setSelfdev(true); setPersonaldev(false); setProceed(false); setcorner("");; setMilestone(false); setCount([{ goal: "" }]);; setGoalTitle("");
         Navigate('/view-goal')
     }
+
     return (
         <div>
-            {!proceed &&
+            <div className='empty'>
+                <div style={{ marginBottom: '40px', marginTop: '10px', fontSize: '20px' }} className='mainlmn'>
+                    <div>
+                        {
+                            !selfdev && <div style={{ display: 'flex', marginTop: '10px' }}>
+                                <p style={{ marginRight: '10px' }}>Navigate: </p>
+                                <p onClick={() => { setSelfdev(!selfdev); setProceed(false) }} style={{ color: 'blue', cursor: 'pointer', textDecoration: `${selfdev === false && proceed !== true && milestone !== true ? 'underline' : ''}`, textUnderlineOffset: `${selfdev === false && proceed !== true && milestone !== true ? '0.3em' : ''}`, textDecorationThickness: `${selfdev === false && proceed !== true && milestone !== true ? '0.1em' : ''}`, fontWeight: `${selfdev === false && proceed !== true && milestone !== true ? '600' : ''}` }}>Self Development</p>
+                            </div>
+                        }
+                    </div>
+                    <div>
+                        {
+                            !selfdev && proceed && <div style={{ display: 'flex', marginTop: '10px' }}>
+                                <p style={{ margin: '0 10px' }}>/</p>
+                                <p onClick={() => { setProceed(!proceed); setGoalTitle(""); setMilestone(false); setCount([{ goal: "" }]) }} style={{ color: 'blue', cursor: 'pointer', textDecoration: `${proceed !== false && milestone !== true ? 'underline' : ''}`, textUnderlineOffset: `${proceed !== false && milestone !== true ? '0.3em' : ''}`, textDecorationThickness: `${proceed !== false && milestone !== true ? '0.1em' : ''}`, fontWeight: `${proceed !== false && milestone !== true ? '600' : ''}` }}>Set Goal</p>
+                            </div>
+                        }
+                    </div>
+                    <div>
+                        {
+                            !selfdev && proceed && milestone && <div style={{ display: 'flex', marginTop: '10px' }}>
+                                <p style={{ margin: '0 10px' }}>/</p>
+                                <p onClick={() => { setMilestone(!milestone) }} style={{ color: 'blue', cursor: 'pointer', textDecoration: `${milestone === true ? 'underline' : ''}`, textUnderlineOffset: `${milestone === true ? '0.3em' : ''}`, textDecorationThickness: `${milestone === true ? '0.1em' : ''}`, fontWeight: `${milestone === true ? '600' : ''}` }}>Set Responsibility</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            {
+                !proceed &&
                 <>
                     <h1 className='text-center text-5xl font-semibold main-heading'>Set Goal</h1>
                     {
@@ -101,31 +136,33 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
                             </div>
                             <div className="lower-bound mt-4 px-4">
                                 {
-                                    !milestone && <div data-aos="flip-up">
+                                    !milestone && <div>
                                         <p>Set Your Goal:</p>
                                         <input onChange={(e) => { setGoalTitle(e.target.value) }} className='input-text' type="text" name="" id="" placeholder='Write Goal' value={goalTitle} />
-                                        <Select status={status[0]} />
+                                        {/* <Select status={status[0]} /> */}
                                         <p className='mt-4 text-2xl flex justify-center privates'>
                                             Make your Goal <i className='mx-2'>Public</i> or <i className='mx-2'>Private </i>
                                         </p>
                                         <div className="flex justify-center place-items-center lb mt-2">
-                                            <div className="l1 flex justify-center place-items-center">
-                                                <p>Private</p><input className='ml-2' type="radio" name="q1" id="" />
+                                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="l1 flex justify-center place-items-center">
+                                                <label htmlFor='private' style={{ fontWeight: '400', margin: '0px' }}>Private</label>
+                                                <input style={{ margin: '0px' }} className='ml-2' type="radio" name="q1" id="private" />
                                             </div>
                                             <div className="l1 flex justify-center place-items-center ml-5">
-                                                <p>Public</p><input className='ml-2' type="radio" name="q1" id="" checked />
+                                                <label htmlFor='public' style={{ fontWeight: '400', margin: '0px' }}>Public</label>
+                                                <input style={{ margin: '0px' }} className='ml-2' type="radio" name="q1" id="public" />
                                             </div>
                                         </div>
                                         <div className="btns-list mt-10">
                                             <button className='btns-color' onClick={() => { setMilestone(!milestone) }}>Add MileStone</button>
                                         </div>
                                         <div className="btns-list mt-3">
-                                            <button onClick={() => { SetYourGoal() }}>Save Goal</button>
+                                            <button disabled={goalTitle === "" ? true : false} style={{ cursor: `${goalTitle === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { SetYourGoal() }}>Save Goal</button>
                                         </div>
                                     </div>
                                 }
                                 {
-                                    milestone && <div data-aos="flip-up">
+                                    milestone && <div>
                                         <p>Set Your Milestones:</p>
                                         {
                                             count.map((arr, index) => (
@@ -137,12 +174,12 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
                                                             <i onClick={() => { handledDelete(index) }} class="fa-solid fa-trash-can"></i>
                                                         </>
                                                     }
-                                                    <Select status={status[1]} />
+                                                    {/* <Select status={status[1]} /> */}
                                                 </div>
                                             ))
                                         }
                                         <div className="btns-list mt-10">
-                                            <button onClick={() => { setCount([...count, { goal: "" }]) }}>Add Another MileStone</button>
+                                            <button disabled={count[0].goal === "" || count[count.length - 1].goal === "" ? true : false} style={{ cursor: `${count[0].goal === "" || count[count.length - 1].goal === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { setCount([...count, { goal: "" }]) }}>Add Another MileStone</button>
                                         </div>
                                         <div className="btns-list mt-3">
                                             <button onClick={() => { setMilestone(!milestone) }}>Save MileStones</button>
@@ -154,6 +191,6 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
                     }
                 </div>}
             </div>
-        </div>
+        </div >
     );
 }
