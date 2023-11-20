@@ -3,6 +3,7 @@ import './setgoal.css'
 import SelfDevelopment from '../../assets/self development.jpg'
 import { useNavigate } from 'react-router-dom';
 import ToastContainer from '../toast';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export const SetGoal = ({ finalGoal, setFinalGoal }) => {
     let Navigate = useNavigate();
@@ -47,9 +48,25 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
         setSelfdev(true); setPersonaldev(false); setProceed(false); setcorner("");; setMilestone(false); setCount([{ goal: "" }]);; setGoalTitle("");
         Navigate('/view-goal')
     }
-
+    let handleback = () => {
+        if (!selfdev && proceed && milestone) {
+            setMilestone(!milestone)
+        }
+        else if (!selfdev && proceed && !milestone) {
+            setProceed(!proceed); setGoalTitle(""); setMilestone(false)
+            setCount([{ goal: "" }])
+        }
+        else if (!selfdev && !proceed && !milestone) {
+            setSelfdev(!selfdev);
+        }
+    }
     return (
         <div>
+            <div className='arrow' style={{ marginLeft: '20px' }}>
+                {
+                    !selfdev && <ArrowBackIcon onClick={handleback} style={{ width: '30px', fontSize: '33px', color: '#15375c', cursor: 'pointer' }} />
+                }
+            </div>
             <div className='empty'>
                 <div style={{ marginBottom: '40px', marginTop: '10px', fontSize: '20px' }} className='mainlmn'>
                     <div>
@@ -177,7 +194,8 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
                                             <button className='btns-color' disabled={count[0].goal === "" || count[count.length - 1].goal === "" ? true : false} style={{ cursor: `${count[0].goal === "" || count[count.length - 1].goal === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { setCount([...count, { goal: "" }]) }}>Add Another MileStone</button>
                                         </div>
                                         <div className="btns-list mt-3">
-                                            <button className='btns-color' onClick={() => { setMilestone(!milestone) }}>Save MileStones</button>
+                                            <button className='btns-color
+                                            ' onClick={() => { setMilestone(!milestone) }}>Save MileStones</button>
                                         </div>
                                     </div>
                                 }

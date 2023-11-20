@@ -276,10 +276,15 @@
     align-items: center;
     flex-wrap: 'wrap';
 }
-
+.arrow{
+    display: none;
+}
 @media only screen and (max-width: 650px){
     .empty{
         display: none;
+    }
+    .arrow{
+        display: block;
     }
 }
 .popo{
