@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ToastContainer from '../toast'
 import { useNavigate } from 'react-router-dom'
-import { Status } from './select'
 import './setgoal.css'
 
 export const Checkgoal = ({ finalGoal, setFinalGoal }) => {

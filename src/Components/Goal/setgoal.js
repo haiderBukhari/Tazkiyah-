@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './setgoal.css'
-import { Select } from './select';
 import SelfDevelopment from '../../assets/self development.jpg'
 import { useNavigate } from 'react-router-dom';
 import ToastContainer from '../toast';
@@ -14,10 +13,6 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
     const [milestone, setMilestone] = useState(false)
     const [count, setCount] = useState([{ goal: "" }]);
     const [goalTitle, setGoalTitle] = useState("")
-    const [status, setstatus] = useState(["Goal", "Milestone"])
-    useEffect(() => {
-        setstatus(["Goal", "Milestone"])
-    }, [])
 
     useEffect(() => {
         document.querySelector('body').scrollTo({
