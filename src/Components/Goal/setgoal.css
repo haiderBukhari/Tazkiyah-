@@ -17,12 +17,12 @@
 .goaldev {
     width: auto !important;
     padding: 14px 23px !important;
-    box-shadow: 1px 2px 3px #ccc, -1px -2px 1px #ccc !important;
+    box-shadow: 1px 2px 3px #2b629c , -1px -2px 1px #1f4e81  !important;
     border-top-right-radius: 10px !important;
     border-bottom-left-radius: 10px !important;
     justify-self: center !important;
-    background-color: #65cde2 !important;
-    border: 1px solid #41ceea !important;
+    background-color: #15375c  !important;
+    border: 1px solid #15375c  !important;
 }
 
 .text1, .text2 {
@@ -97,7 +97,7 @@
     margin: auto !important;
     padding: 10px 20px !important;
     border-radius: 12px !important;
-    background-color: #6bd2e7 !important;
+    /* background-color: #6bd2e7 !important; */
 }
 
 .input-text {
@@ -256,6 +256,9 @@
 }
 .btns-color, .btns-list, .goaldev{
     color: #fff;
+}
+.btns-color{
+    background-color: #15375c !important;
 }
 .text-base{
     font-size: 15px !important;

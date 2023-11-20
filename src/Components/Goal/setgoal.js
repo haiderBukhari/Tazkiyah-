@@ -152,7 +152,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
                                             <button className='btns-color' onClick={() => { setMilestone(!milestone) }}>Add MileStone</button>
                                         </div>
                                         <div className="btns-list mt-3">
-                                            <button disabled={goalTitle === "" ? true : false} style={{ cursor: `${goalTitle === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { SetYourGoal() }}>Save Goal</button>
+                                            <button className='btns-color' disabled={goalTitle === "" ? true : false} style={{ cursor: `${goalTitle === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { SetYourGoal() }}>Save Goal</button>
                                         </div>
                                     </div>
                                 }
@@ -174,10 +174,10 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
                                             ))
                                         }
                                         <div className="btns-list mt-10">
-                                            <button disabled={count[0].goal === "" || count[count.length - 1].goal === "" ? true : false} style={{ cursor: `${count[0].goal === "" || count[count.length - 1].goal === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { setCount([...count, { goal: "" }]) }}>Add Another MileStone</button>
+                                            <button className='btns-color' disabled={count[0].goal === "" || count[count.length - 1].goal === "" ? true : false} style={{ cursor: `${count[0].goal === "" || count[count.length - 1].goal === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { setCount([...count, { goal: "" }]) }}>Add Another MileStone</button>
                                         </div>
                                         <div className="btns-list mt-3">
-                                            <button onClick={() => { setMilestone(!milestone) }}>Save MileStones</button>
+                                            <button className='btns-color' onClick={() => { setMilestone(!milestone) }}>Save MileStones</button>
                                         </div>
                                     </div>
                                 }
