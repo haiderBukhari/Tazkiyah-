@@ -328,7 +328,7 @@ export const Performancepage2 = () => {
                         <h1>56</h1>
                     </div>
                 </div>
-                <div className="charts">
+                <div className="charts" style={{ display: 'flex', flexDirection: 'column', maxWidth: '600px', margin: '60px auto' }}>
                     <div className="charts-card">
                         <h2 className="chart-title color">Top 5 Products</h2>
                         <div id="bar-chart"></div>

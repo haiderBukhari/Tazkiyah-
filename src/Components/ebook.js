@@ -11,7 +11,7 @@ export const Ebook = () => {
         <div style={{ paddingLeft: '20px' }}>
             <header id="fh5co-header" style={{ backgroundImage: `url(${hero})` }}>
                 <div class="overlay"></div>
-                <div class="container">
+                <div style={{ backgroundColor: '#7291b0' }} class="container">
                     <div class="row" style={{ marginTop: "5em" }}>
                         <div class="col-md-12 text-center">
                             <h1 id="fh5co-logo" class="cursive-font"><a href="/ebook">E-Books</a></h1>
