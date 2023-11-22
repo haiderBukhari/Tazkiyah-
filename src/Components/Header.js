@@ -29,16 +29,18 @@ export const Header = ({ setSideBarShow, sidebarshow, isLogin, setIsLogin, showc
                                 <div class="col-lg-3 col-md-3 col-12 p-0 m-0">
                                     <div class="logo p-0 m-0" style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
                                         <Link to="/"><img style={{ height: "100px", width: "auto" }} className='logos m-0 p-0' src={Logo} alt="#" /></Link>
-                                        <div class="mobile-nav" style={{ width: '100%' }}></div>
+                                        {
+                                            !isLogin && <div class="mobile-nav" style={{ width: '100%' }}></div>
+                                        }
                                     </div>
                                 </div>
                                 <div class="">
                                     <div class="main-menu">
                                         <nav class="navigation">
                                             <ul class="nav menu">
-                                                <li class="active" ><a href="/" style={{ fontSize: '16px' }}>Home <i class=""></i></a>
+                                                <li class="active" ><a href="/">Home <i class=""></i></a>
                                                 </li>
-                                                <li><a href="/" style={{ fontSize: '16px' }}>Tazkiyah Vision </a></li>
+                                                <li><a href="/">Tazkiyah Vision </a></li>
                                                 {/* <li><Link to="/goal">Services <i class="icofont-rounded-down"></i></Link>
                                                     <ul class="dropdown">
                                                         <li><Link to="/goal">Self Development</Link></li>
@@ -51,7 +53,7 @@ export const Header = ({ setSideBarShow, sidebarshow, isLogin, setIsLogin, showc
                                                     </ul>
                                                 </li> */}
                                                 {
-                                                    !isLogin ? <li><Link to="/login" style={{ fontSize: '16px' }}>Login</Link></li> : <li><a href="/" onClick={() => { setIsLogin(false) }} style={{ fontSize: '16px' }}>Logout</a></li>
+                                                    !isLogin ? <li><Link to="/login">Login</Link></li> : <li><a href="/" onClick={() => { setIsLogin(false) }}>Logout</a></li>
                                                 }
                                                 {/* <li><Link to="/contact">Contact Us</Link></li> */}
                                             </ul>

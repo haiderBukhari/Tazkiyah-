@@ -11,7 +11,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 export const AsideNavbar = () => {
     let location = useLocation();
     return (
-        <nav class="pcoded-navbar">
+        <nav class="pcoded-navbar" >
             <div class="navbar-wrapper">
                 <div className='main-head'>
                     <h1 className='ml-2 text-white'>Tazkiyah</h1>
@@ -24,7 +24,7 @@ export const AsideNavbar = () => {
                     </div>
                 </div>
                 <div className='services'>
-                    <p style={{ color: '#fff', fontSize: '17px', marginBottom: '2px' }}>Navigation: </p>
+                    <p style={{ color: '#fff', fontSize: '17px', marginBottom: '4px' }}>Navigation: </p>
                     <ul>
                         <NavLink to="/goal">
                             <li style={{ backgroundColor: `${location.pathname === '/goal' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/goal' ? '14px' : ''}` }}>
