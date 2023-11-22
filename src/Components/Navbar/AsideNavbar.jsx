@@ -1,5 +1,4 @@
 import './style.css'
-import Logo from '../../assets/Tazkiyah Logo Bg.png'
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 import FlagIcon from '@mui/icons-material/Flag';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
