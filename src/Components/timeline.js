@@ -32,36 +32,36 @@ export const TimeLine = () => {
         }, ...data])
         setShow(false)
     }
-    useEffect(()=>{
-        window.scrollTo(0,0)
+    useEffect(() => {
+        window.scrollTo(0, 0)
     }, [show])
     return (
         <div id={`${style.qualification}`}>
             <div data-aos="fade-up" className={`${style.main} dark:bg-slate-400`}>
                 <form onSubmit={(e) => { handleeventadd(e) }} className={`add-event ${show ? 'open-popup' : ''}`}>
                     <h1>Add Event</h1>
-                    <div className="sub-event mt-2">
-                        <div className="namess mt-3 flex">
+                    <div className="sub-event pt-2">
+                        <div className="namess pt-3 flex">
                             <label style={{ color: "#2567ac" }} className='mr-2 topd' htmlFor="">Event Name:</label>
-                            <input className='py-2' type="text" placeholder="Event Name" ref={name} required={true}/>
+                            <input className='py-2' type="text" placeholder="Event Name" ref={name} required={true} />
                         </div>
                         <div className="dates mt-4 flex">
                             <label style={{ color: "#2567ac" }} className='alphaaad' htmlFor="">Event Date:</label>
-                            <input className='py-2' type="date" name="" id="" ref={date} required={true}/>
+                            <input className='py-2' type="date" name="" id="" ref={date} required={true} />
                         </div>
                         <div className="timess my-4 flex">
                             <label style={{ color: "#2567ac" }} className='alphaaad' htmlFor="">Event Time</label>
-                            <input className='py-2' type="time" name="" id="" ref={time} required={true}/>
+                            <input className='py-2' type="time" name="" id="" ref={time} required={true} />
                         </div>
                         <button type='submit' className='add-brn'>Add</button>
                     </div>
                 </form>
                 {
                     !show ? (<>
-                            <h3 className={`${style.head}`}>Events TimeLine</h3>
+                        <h3 className={`${style.head}`}>Events TimeLine</h3>
                         {
-                    <button onClick={() => { setShow(!show) }} type='submit' className='add-brn add-brn1'>Add New Event</button>
-                }
+                            <button onClick={() => { setShow(!show) }} type='submit' className='add-brn add-brn1'>Add New Event</button>
+                        }
                         <div className={`${style.container}`}>
                             <ul>
                                 {

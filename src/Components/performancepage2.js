@@ -234,8 +234,8 @@ export const Performancepage2 = () => {
     }, []);
 
     return (
-        <div className="grid-container">
-            <header className="headerssss1">
+        <div className="grid-container mt-10 mb-10 pl-2 pr-2">
+            <header className="headerssss1 mb-7">
                 <div className="centersss">
                     <p className='text-center text-3xl font-bold main'>Performance Analytics</p>
                 </div>

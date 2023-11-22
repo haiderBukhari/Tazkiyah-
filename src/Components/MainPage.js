@@ -7,9 +7,9 @@ import slider3 from '../assets/img/slider3.jpg'
 export const MainPage = () => {
     return (
         <div>
-            <section class="slider">
+            <section class="slider" style={{ paddingLeft: '10px' }}>
                 <div class="hero-slider">
-                    <div  class="single-slider" style={{ backgroundImage: `url(${slider1})` }}>
+                    <div class="single-slider" style={{ backgroundImage: `url(${slider1})` }}>
                         <div class="container ccocooc">
                             <div class="row">
                                 <div class="col-lg-7">

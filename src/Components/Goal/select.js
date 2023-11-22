@@ -15,7 +15,7 @@ export const Select = ({ status }) => {
                 </div>
                 <div className="l1 flex justify-center place-items-center ml-5">
                     <label htmlFor='pending' style={{ fontWeight: '400', margin: '0px' }}>Pending</label>
-                    <input checked={true} style={{ margin: '0px' }} className='ml-2' type="radio" name="q1" id="pending" />
+                    <input style={{ margin: '0px' }} className='ml-2' type="radio" name="q1" id="pending" />
                 </div>
             </div>
         </>

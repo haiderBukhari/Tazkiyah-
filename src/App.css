@@ -30,3 +30,12 @@
 .contact-ss button:focus{
     border: none;
 }
+.icon-app{
+    position: fixed;
+    top: 10px;
+    font-size: 30px !important;
+    width: 100px;
+    cursor: pointer;
+    z-index: 1000000;
+    font-weight: bold;
+}

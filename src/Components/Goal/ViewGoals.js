@@ -48,7 +48,7 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
     }
     return (
         <>
-            <h1 className='text-center text-3xl font-semibold main-heading'>{`${!edit ? "Your Goals" : "Edit Your Goal"}`}</h1>
+            <h1 className='text-center font-semibold main-heading' style={{ paddingTop: '50px', fontSize: '28px' }}>{`${!edit ? "Your Goals" : "Edit Your Goal"}`}</h1>
             <div className="flex justify-center my-5 mt-10">
                 <button onClick={() => { navigate('/goal') }} className='goaldev'>Add New Goal</button>
             </div>
