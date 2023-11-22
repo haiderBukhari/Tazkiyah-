@@ -27,8 +27,9 @@ export const Header = ({ setSideBarShow, sidebarshow, isLogin, setIsLogin, showc
                         <div class="inner">
                             <div class="row rowww">
                                 <div class="col-lg-3 col-md-3 col-12 p-0 m-0">
-                                    <div class="logo p-0 m-0">
+                                    <div class="logo p-0 m-0" style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
                                         <Link to="/"><img style={{ height: "100px", width: "auto" }} className='logos m-0 p-0' src={Logo} alt="#" /></Link>
+                                        <div class="mobile-nav" style={{ width: '100%' }}></div>
                                     </div>
                                 </div>
                                 <div class="">
