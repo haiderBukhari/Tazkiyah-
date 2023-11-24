@@ -16,6 +16,9 @@ function App() {
   const [showclose, setShowClose] = useState(false)
   const [show, setShow] = useState(false)
   const [isLogin, setIsLogin] = useState(false)
+  const [corner, setcorner] = useState("");
+  const [proceed, setProceed] = useState(false);
+
   useEffect(() => {
     const storedFormData = localStorage.getItem('FinalGoal');
     const storedLogin = localStorage.getItem('isLogin');
@@ -61,7 +64,7 @@ function App() {
     <div className="App" style={{ position: 'relative' }}>
       <div className='alphabeeta'>
         {
-          (sidebarshow && showclose) && <CloseIcon onClick={() => { setSideBarShow(!sidebarshow) }} className='icon-app' style={{ left: '250px', color: '#fff' }} />
+          (sidebarshow && showclose) && <CloseIcon onClick={() => { setSideBarShow(!sidebarshow) }} className='icon-app' style={{ left: '270px', color: '#fff' }} />
         }
       </div>
       {
@@ -75,10 +78,17 @@ function App() {
       }
       <div>
         {
-          sidebarshow && isLogin && <AsideNavbar />
+          sidebarshow && isLogin && <AsideNavbar
+            setProceed={setProceed}
+            corner={corner}
+            setcorner={setcorner}
+            sidebarshow={sidebarshow}
+            setSideBarShow={setSideBarShow}
+            showclose={showclose}
+          />
         }
         <div style={{ marginLeft: `${(sidebarshow && show && isLogin) ? '280px' : '0'}`, marginBottom: `${isLogin ? '20px' : '0'}` }}>
-          <ReactRoutes finalGoal={finalGoal} setFinalGoal={setFinalGoal} isLogin={isLogin} setIsLogin={setIsLogin} />
+          <ReactRoutes finalGoal={finalGoal} setFinalGoal={setFinalGoal} isLogin={isLogin} setIsLogin={setIsLogin} proceed={proceed} setProceed={setProceed} corner={corner} setcorner={setcorner} />
         </div>
       </div>
       {

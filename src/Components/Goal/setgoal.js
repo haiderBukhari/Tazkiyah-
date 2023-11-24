@@ -5,16 +5,17 @@ import { useNavigate } from 'react-router-dom';
 import ToastContainer from '../toast';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-export const SetGoal = ({ finalGoal, setFinalGoal }) => {
+export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, setcorner }) => {
     let Navigate = useNavigate();
-    const [selfdev, setSelfdev] = useState(true)
+    const [selfdev, setSelfdev] = useState(!proceed)
     const [personaldev, setPersonaldev] = useState(false)
-    const [proceed, setProceed] = useState(false)
-    const [corner, setcorner] = useState("");
     const [milestone, setMilestone] = useState(false)
     const [count, setCount] = useState([{ goal: "" }]);
     const [goalTitle, setGoalTitle] = useState("")
 
+    useEffect(() => {
+        setSelfdev(!proceed)
+    }, [proceed])
     useEffect(() => {
         document.querySelector('body').scrollTo({
             top: 0, behavior:
@@ -68,7 +69,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
                     !selfdev && <ArrowBackIcon onClick={handleback} style={{ width: '30px', fontSize: '33px', color: '#15375c', cursor: 'pointer' }} />
                 }
             </div>
-            <div className='empty'>
+            {/* <div className='empty'>
                 <div style={{ marginBottom: '40px', marginTop: '10px', fontSize: '20px' }} className='mainlmn'>
                     <div>
                         {
@@ -95,7 +96,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
                         }
                     </div>
                 </div>
-            </div>
+            </div> */}
             {
                 !proceed &&
                 <>
@@ -114,9 +115,9 @@ export const SetGoal = ({ finalGoal, setFinalGoal }) => {
                         <div className="text">
                             <p className='text1'>Initiating the journey toward a more meaningful and satisfying life begins with the act of establishing a goal using the self-development feature.</p>
                             <p className='text2'>Click on the Self Development Button to define your objective, set milestones, and work towards it.</p>
-                            <div className="btns flex justify-center mt-10">
-                                <button onClick={() => { setSelfdev(!selfdev) }} className='goaldev'>Set Goal</button>
-                            </div>
+                            {/* <div className="btns flex justify-center mt-10"> */}
+                            {/* <button onClick={() => { setSelfdev(!selfdev) }} className='goaldev'>Set Goal</button> */}
+                            {/* </div> */}
                         </div>
                     </>}
                 {!selfdev && <div className='goalsetting'>

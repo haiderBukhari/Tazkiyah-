@@ -10,14 +10,14 @@ import { MainPage } from "../Components/MainPage";
 import { Ebook } from "../Components/ebook";
 import { TimeLine } from "../Components/timeline";
 import { Performancepage2 } from "../Components/performancepage2";
-export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin }) => {
+export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proceed, setProceed, corner, setcorner }) => {
     return (
         <>
             <Routes>
                 <Route path='/contact' element={<ContactUs />} />
                 <Route path='/register' element={<RegisterUser />} />
                 <Route path='/login' element={<LoginUser isLogin={isLogin} setIsLogin={setIsLogin} />} />
-                <Route path='/goal' element={<SetGoal finalGoal={finalGoal} setFinalGoal={setFinalGoal} />} />
+                <Route path='/goal' element={<SetGoal finalGoal={finalGoal} setFinalGoal={setFinalGoal} proceed={proceed} setProceed={setProceed} corner={corner} setcorner={setcorner} />} />
                 <Route path='/view-goal' element={<ViewGoals finalGoal={finalGoal} setFinalGoal={setFinalGoal} />} />
                 <Route path='/' element={<MainPage />} />
                 <Route path='/performance' element={<Performancepage2 />} />
