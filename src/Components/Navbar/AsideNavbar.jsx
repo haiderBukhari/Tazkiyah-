@@ -12,10 +12,12 @@ import RandomPerson from '../../assets/img/avatar.png'
 import { NavLink, useLocation } from 'react-router-dom';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
-export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose }) => {
+export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin }) => {
     let location = useLocation();
     const [closeSideBar, setCloseSidebar] = useState(sidebarshow && showclose)
+    const [showdropdown, setShowDropdown] = useState(false)
     useEffect(() => {
         setCloseSidebar(sidebarshow && showclose)
     }, [sidebarshow, showclose])
@@ -49,13 +51,30 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                 <div className='main-head'>
                     <h1 className='ml-2 text-white'>Tazkiyah</h1>
                 </div>
-                <div className='nav-img'>
-                    <img src={RandomPerson} alt="" srcset="" />
-                    <div>
-                        <h1 style={{ color: '#fff' }}>User</h1>
-                        <p style={{ color: '#fff', fontSize: '12px', marginTop: '3px' }}>user@gmail.com</p>
+                <div onClick={() => { setShowDropdown(!showdropdown) }} style={{ display: 'flex', justifyContent: 'space-between', paddingRight: '30px', cursor: 'pointer' }} id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" className='nav-img'>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <img src={RandomPerson} alt="" srcset="" />
+                        <div>
+                            <h1 style={{ color: '#fff' }}>User</h1>
+                            <p style={{ color: '#fff', fontSize: '12px', marginTop: '3px' }}>Data Scientist</p>
+                        </div>
                     </div>
+                    <ArrowDropDownIcon style={{ fontSize: '30px', color: '#fff', cursor: 'pointer' }} />
                 </div>
+
+                {
+                    showdropdown && <div style={{ position: 'absolute', top: '120px', left: '70px', width: '200px', backgroundColor: '#39638d' }} id="dropdownInformation" class="z-10 rounded-lg shadow">
+                        <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                            <div style={{ fontSize: '15px', padding: '10px 0 4px 0', color: '#fff' }}>User Full Name</div>
+                            <div style={{ fontSize: '15px', padding: '10px 0', color: '#fff' }} class="font-medium truncate">user@gmail.com</div>
+                        </div>
+                        <hr style={{ marginBottom: '10px' }} />
+                        <div class="py-2">
+                            <a href="/" onClick={() => { setIsLogin(false) }} style={{ fontSize: '15px', color: '#fff', marginBottom: '10px' }} class="block px-4 py-2 text-sm ">Sign out</a>
+                        </div>
+                    </div>
+                }
+
                 <div className='services'>
                     <p style={{ color: '#fff', fontSize: '17px', marginBottom: '4px' }}>Navigation: </p>
                     <ul>
@@ -68,6 +87,7 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 }
                             </li>
                         </NavLink>
+
                         {
                             location.pathname === '/goal' && <SubNavigations
                                 currentgoal={currentgoal}

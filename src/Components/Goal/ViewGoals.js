@@ -71,9 +71,10 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                                     <span className='pr-2 text-lg font-semibold'>Milstones:</span>
                                     <ul className='ml-3 ull'>
                                         {item.milestones.map((item, index) => {
-                                            return <div className='flex fllf'>
+                                            return <div className='flex fllf flex-wrap mt-3'>
                                                 <p className='font-semibold mr-2 text-base'>{index + 1})</p>
                                                 <li key={index}>{item.goal}</li>
+                                                <li style={{ marginLeft: '10px' }}> Status:  {item.status}</li>
                                             </div>
                                         })}
                                     </ul>
@@ -83,23 +84,27 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                     ))
                 }
                 {
-                    edit && <div className='flpp' data-aos="flip-down">
+                    edit && <div style={{ marginRight: '40px' }} className='flpp'>
                         <div className="main-data">
                             <p className='font-semibold mr-2 text-base my-3'>{finalGoal[editindex].heading.split(" ").slice(2).join(' ')}</p>
                             <hr className='mb-3' />
                             <p className='font-semibold mr-2 text-base'>Your Goal: </p>
                             <input onChange={(e) => { handlechangegoal(e.target.value) }} type="text" name="" id="" value={finalGoal[editindex].goalTitle} required />
-                            <Select status={"Goal"} />
+                            <Select status={{
+                                value: "Goal", status: {
+                                    status: finalGoal[0].status
+                                }
+                            }} />
                             <div className="milestones-goals mt-4">
                                 {
                                     finalGoal[editindex].milestones.map((item, index) => (
                                         <>
-                                            <div className="m1 mt-4">
+                                            <div key={index} className="m1 mt-4">
                                                 <p className='font-semibold mr-2 text-base'>Milstone {index + 1}: </p>
                                                 <input onChange={(e) => { setmilestone(index, e.target.value) }} type="text" name="" id="" value={item.goal} required />
                                                 <i onClick={() => { milestonedelete(index) }} class="fa-solid fa-trash-can"></i>
                                             </div>
-                                            <Select status={"Milestone"} />
+                                            <Select status={{ value: "Milestone", status: item.status }} key={`select-${index}`} />
                                         </>
                                     ))
                                 }

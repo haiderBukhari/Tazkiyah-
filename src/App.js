@@ -85,6 +85,7 @@ function App() {
             sidebarshow={sidebarshow}
             setSideBarShow={setSideBarShow}
             showclose={showclose}
+            setIsLogin={setIsLogin}
           />
         }
         <div style={{ marginLeft: `${(sidebarshow && show && isLogin) ? '280px' : '0'}`, marginBottom: `${isLogin ? '20px' : '0'}` }}>

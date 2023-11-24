@@ -52,8 +52,9 @@ export const Header = ({ setSideBarShow, sidebarshow, isLogin, setIsLogin, showc
                                                         <li><Link to="/timeline">Upcomming Events</Link></li>
                                                     </ul>
                                                 </li> */}
+                                                {/* setIsLogin(false) */}
                                                 {
-                                                    !isLogin ? <li><Link to="/login">Login</Link></li> : <li><a href="/" onClick={() => { setIsLogin(false) }}>Logout</a></li>
+                                                    !isLogin && <li><Link to="/login">Login</Link></li>
                                                 }
                                                 {/* <li><Link to="/contact">Contact Us</Link></li> */}
                                             </ul>
