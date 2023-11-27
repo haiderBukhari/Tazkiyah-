@@ -4,9 +4,11 @@ import SelfDevelopment from '../../assets/self development.jpg'
 import { useNavigate } from 'react-router-dom';
 import ToastContainer from '../toast';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { GoalTimeline } from './select';
 
 export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, setcorner }) => {
     let Navigate = useNavigate();
+    let [date, setDate] = useState("00:00");
     const [selfdev, setSelfdev] = useState(!proceed)
     const [personaldev, setPersonaldev] = useState(false)
     const [milestone, setMilestone] = useState(false)
@@ -114,6 +116,14 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                 <label htmlFor='public' style={{ fontWeight: '400', margin: '0px' }}>Public</label>
                                                 <input style={{ margin: '0px' }} className='ml-2' type="radio" name="q1" id="public" />
                                             </div>
+                                        </div>
+                                        <GoalTimeline />
+                                        <div style={{ width: '200px', margin: 'auto' }}>
+                                            <input
+                                                type="time"
+                                                value={date}
+                                                onChange={e => setDate(e.target.value)}
+                                            />
                                         </div>
                                         <div className="btns-list mt-10">
                                             <button disabled={goalTitle.length === 0} style={{ cursor: `${goalTitle.length === 0 ? 'not-allowed' : 'pointer'}` }} className='btns-color' onClick={() => { setMilestone(!milestone) }}>Add MileStone</button>

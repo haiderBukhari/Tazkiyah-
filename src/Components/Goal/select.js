@@ -42,3 +42,23 @@ export const Status = ({ status }) => {
         </>
     )
 }
+
+
+
+
+export const GoalTimeline = () => {
+    return (
+        <div>
+            <p className='mt-4 text-2xl flex justify-center privates'>
+                Set The Timeline of Your Goal
+            </p>
+            <div className="flex justify-center place-items-center lb mt-2 mb-4">
+                <select style={{ width: '140px', marginTop: '10px', marginBottom: '3px' }} name="" id="">
+                    <option value="">Daily</option>
+                    <option value="">Weekly</option>
+                    <option value="">Monthly</option>
+                </select>
+            </div>
+        </div>
+    )
+}

@@ -8,20 +8,19 @@ import person_3 from '../assets/images/person_3.jpg'
 import './style.css'
 export const Ebook = () => {
     return (
-        <div style={{ paddingLeft: '20px' }}>
-            <header id="fh5co-header" style={{ backgroundImage: `url(${hero})` }}>
+        <div style={{ paddingLeft: '20px', backgroundColor: '#fff' }}>
+            <header id="fh5co-header" style={{ backgroundImage: `url(${hero})`, paddingLeft: '20px', marginRight: '20px' }}>
                 <div class="overlay"></div>
-                <div style={{ backgroundColor: '#7291b0' }} class="container">
+                <div style={{ backgroundColor: '#fff' }} class="container">
                     <div class="row" style={{ marginTop: "5em" }}>
                         <div class="col-md-12 text-center">
-                            <h1 id="fh5co-logo" class="cursive-font"><a href="/ebook">E-Books</a></h1>
+                            <h1 id="fh5co-logo" class="cursive-font"><a style={{ color: '#000' }} href="/ebook">E-Books</a></h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="intro">
-
-                                <h2>"Unlock the transformative power within you with 'The Tazkiyah Vision'—a guide to spiritual enlightenment and self-discovery."</h2>
+                                <h2 style={{ color: '#000' }}>"Unlock the transformative power within you with 'The Tazkiyah Vision'—a guide to spiritual enlightenment and self-discovery."</h2>
                                 <div className="flex banaa">
                                     <button className='readmore'>Read More</button>
                                 </div>
@@ -36,10 +35,8 @@ export const Ebook = () => {
                     </div>
                 </div>
             </header>
-            <div id="main">
-
+            <div id="main" style={{ paddingLeft: '20px' }}>
                 <div class="container">
-
                     <div class="row row-pb-md">
                         <div class="col-md-4">
                             <div class="review text-center">
