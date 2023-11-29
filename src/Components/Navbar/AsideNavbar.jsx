@@ -14,11 +14,18 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Attendence from './Attendence';
+import { useDispatch, useSelector } from "react-redux"
+import { deleteAuth } from '../../features/authenticationSlice'
+
 
 export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin, currentDept, setCurrentDept }) => {
+    const dispatch = useDispatch();
+    //eslint-disable-next-line
+    const [email, setemail] = useState(useSelector(state => state));
     let location = useLocation();
     const [closeSideBar, setCloseSidebar] = useState(sidebarshow && showclose)
     const [showdropdown, setShowDropdown] = useState(false)
+    console.log(email)
     useEffect(() => {
         setCloseSidebar(sidebarshow && showclose)
     }, [sidebarshow, showclose])
@@ -71,7 +78,7 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                         </div>
                         <hr style={{ marginBottom: '10px' }} />
                         <div class="py-2">
-                            <a href="/" onClick={() => { setIsLogin(false) }} style={{ fontSize: '15px', color: '#fff', marginBottom: '10px' }} class="block px-4 py-2 text-sm ">Sign out</a>
+                            <a href="/" onClick={() => { setIsLogin(false); dispatch(deleteAuth()) }} style={{ fontSize: '15px', color: '#fff', marginBottom: '10px' }} class="block px-4 py-2 text-sm ">Sign out</a>
                         </div>
                     </div>
                 }
@@ -126,24 +133,25 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 Performance Analytics
                             </li>
                         </NavLink>
-                        <NavLink to="/attendence" >
-                            <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/attendence' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/attendence' ? '14px' : ''}` }}>
-                                <AssessmentIcon style={{ fontSize: '30px', marginRight: '10px' }} />
-                                Attendence
-                                {
-                                    location.pathname === '/attendence' ? <ArrowDownwardIcon style={{ fontSize: '20px', marginLeft: '10px' }} /> : <ArrowRightAltIcon style={{ fontSize: '30px', marginLeft: '10px' }} />
-                                }
-                            </li>
-                        </NavLink>
                         {
-                            location.pathname === '/attendence' && <Attendence currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} />
+                            email?.email === "tarbiyah@gmail.com" && <NavLink to="/attendence" >
+                                <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/attendence' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/attendence' ? '14px' : ''}` }}>
+                                    <AssessmentIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                                    Attendence
+                                    {
+                                        location.pathname === '/attendence' ? <ArrowDownwardIcon style={{ fontSize: '20px', marginLeft: '10px' }} /> : <ArrowRightAltIcon style={{ fontSize: '30px', marginLeft: '10px' }} />
+                                    }
+                                </li>
+                            </NavLink>
+                        }
+                        {
+                            email?.email === "tarbiyah@gmail.com" && location.pathname === '/attendence' && <Attendence currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} />
                         }
                         <NavLink to="/timeline" >
                             <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/timeline' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/timeline' ? '14px' : ''}` }}>
                                 <TimelineIcon style={{ fontSize: '30px', marginRight: '10px' }} />
                                 Timeline Management
                             </li>
-
                         </NavLink>
                         <NavLink onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} to="/timeline" >
                             <li style={{ backgroundColor: `${location.pathname === '' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '' ? '14px' : ''}` }}>

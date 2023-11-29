@@ -2,12 +2,16 @@ import React, { useRef } from 'react'
 import './Registeration.css'
 import { useNavigate } from 'react-router-dom'
 import Logo from '../../assets/Tazkiyah Logo Bg.png'
+import { useDispatch } from "react-redux"
+import { createAuth } from '../../features/authenticationSlice'
 
 export const LoginUser = ({ isLogin, setIsLogin }) => {
   let email = useRef(), password = useRef();
   let navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    dispatch(createAuth({ email: email.current.value }));
     setIsLogin(true);
     navigate('/goal')
   }
