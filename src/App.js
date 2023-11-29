@@ -18,6 +18,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false)
   const [corner, setcorner] = useState("");
   const [proceed, setProceed] = useState(false);
+  const [currentDept, setCurrentDept] = useState('');
 
   useEffect(() => {
     const storedFormData = localStorage.getItem('FinalGoal');
@@ -34,31 +35,18 @@ function App() {
   }, [isLogin])
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 600) {
-        setShow(true);
-      }
-      else {
-        setShow(false);
-      }
-      if (window.innerWidth > 600 && window.innerWidth < 1201) {
-        setOnMobile(true)
-      }
-      if (window.innerWidth > 1201) {
-        setSideBarShow(true)
-      }
-      else {
-        setSideBarShow(false)
-        setOnMobile(false)
-      };
-
+      if (window.innerWidth > 600) { setShow(true); }
+      else { setShow(false); }
+      if (window.innerWidth > 600 && window.innerWidth < 1201) { setOnMobile(true) }
+      if (window.innerWidth > 1201) { setSideBarShow(true) }
+      else { setSideBarShow(false); setOnMobile(false) };
       if (window.innerWidth > 1201) setShowClose(false)
       else setShowClose(true)
     };
+
     window.addEventListener('resize', handleResize);
     handleResize();
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize)
   }, []);
   return (
     <div className="App" style={{ position: 'relative' }}>
@@ -86,10 +74,13 @@ function App() {
             setSideBarShow={setSideBarShow}
             showclose={showclose}
             setIsLogin={setIsLogin}
+            currentDept={currentDept}
+            setCurrentDept={setCurrentDept}
           />
         }
         <div style={{ marginLeft: `${(sidebarshow && show && isLogin) ? '280px' : '0'}`, marginBottom: `${isLogin ? '20px' : '0'}` }}>
-          <ReactRoutes finalGoal={finalGoal} setFinalGoal={setFinalGoal} isLogin={isLogin} setIsLogin={setIsLogin} proceed={proceed} setProceed={setProceed} corner={corner} setcorner={setcorner} />
+          <ReactRoutes finalGoal={finalGoal} setFinalGoal={setFinalGoal} isLogin={isLogin} setIsLogin={setIsLogin} proceed={proceed} setProceed={setProceed} corner={corner} setcorner={setcorner} currentDept={currentDept}
+            setCurrentDept={setCurrentDept} />
         </div>
       </div>
       {

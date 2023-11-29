@@ -13,8 +13,9 @@ import { NavLink, useLocation } from 'react-router-dom';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import Attendence from './Attendence';
 
-export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin }) => {
+export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin, currentDept, setCurrentDept }) => {
     let location = useLocation();
     const [closeSideBar, setCloseSidebar] = useState(sidebarshow && showclose)
     const [showdropdown, setShowDropdown] = useState(false)
@@ -125,11 +126,24 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 Performance Analytics
                             </li>
                         </NavLink>
+                        <NavLink to="/attendence" >
+                            <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/attendence' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/attendence' ? '14px' : ''}` }}>
+                                <AssessmentIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                                Attendence
+                                {
+                                    location.pathname === '/attendence' ? <ArrowDownwardIcon style={{ fontSize: '20px', marginLeft: '10px' }} /> : <ArrowRightAltIcon style={{ fontSize: '30px', marginLeft: '10px' }} />
+                                }
+                            </li>
+                        </NavLink>
+                        {
+                            location.pathname === '/attendence' && <Attendence currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} />
+                        }
                         <NavLink to="/timeline" >
                             <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/timeline' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/timeline' ? '14px' : ''}` }}>
                                 <TimelineIcon style={{ fontSize: '30px', marginRight: '10px' }} />
                                 Timeline Management
                             </li>
+
                         </NavLink>
                         <NavLink onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} to="/timeline" >
                             <li style={{ backgroundColor: `${location.pathname === '' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '' ? '14px' : ''}` }}>
