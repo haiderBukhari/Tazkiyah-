@@ -10,7 +10,7 @@ const Attendence = ({ currentDept, setCurrentDept, closeSideBar, sidebarshow, se
     let [onClick, setOnClick] = useState(false)
     return (
         <>
-            <p style={{ color: '#fff', fontSize: '17px', marginTop: '15px' }}>Set Your Goal as: </p>
+            <p style={{ color: '#fff', fontSize: '17px', marginTop: '15px' }}>Select your Department: </p>
             <div style={{ paddingLeft: '10px', marginBottom: '10px' }}>
                 <NavLink to="/attendence">
                     <li onClick={() => { setOnClick(!onClick); setCurrentDept('FC') }} style={{ backgroundColor: `${currentDept === 'FC' || currentDept === 'CS' || currentDept === 'SE' || currentDept === 'CA' ? '#3f6184' : ''}`, borderRadius: `${currentDept === 'FC' || currentDept === 'CS' || currentDept === 'SE' || currentDept === 'CA' ? '14px' : ''}`, marginTop: '10px', paddingLeft: '20px', width: '90%', paddingTop: '10px', paddingBottom: '10px' }}>
@@ -73,7 +73,6 @@ const Attendence = ({ currentDept, setCurrentDept, closeSideBar, sidebarshow, se
                         Psychology
                     </li>
                 </NavLink>
-
             </div>
         </>
     )
