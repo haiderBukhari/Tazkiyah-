@@ -11,7 +11,7 @@ export const LoginUser = ({ isLogin, setIsLogin }) => {
   const dispatch = useDispatch();
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(createAuth({ email: email.current.value }));
+    dispatch(createAuth({ email: email.current.value.trim() }));
     setIsLogin(true);
     navigate('/goal')
   }

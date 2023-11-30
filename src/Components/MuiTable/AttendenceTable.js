@@ -21,9 +21,6 @@ export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
         // eslint-disable-next-line
     }, [window.innerWidth]);
 
-    useEffect(() => {
-
-    })
     const columns = [
         {
             field: 'id',

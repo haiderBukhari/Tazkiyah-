@@ -27,7 +27,7 @@ export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proc
                 <Route path='/performance' element={<Performancepage2 />} />
                 <Route path='/ebook' element={<Ebook />} />
                 <Route path='/timeline' element={<TimeLine />} />
-                <Route path='/attendence' element={(email?.email === "tarbiyah@gmail.com") && <AttendenceTable currentDept={currentDept} setCurrentDept={setCurrentDept} />} />
+                <Route path='/attendence' element={ <AttendenceTable currentDept={currentDept} setCurrentDept={setCurrentDept} />} />
                 {/* <Route path='/nav' element={<AsideNavbar />} /> */}
                 {/* <Route path='/Performancepage' element={<Performancepage2/>}/> */}
             </Routes>
