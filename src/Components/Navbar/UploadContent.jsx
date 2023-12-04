@@ -14,7 +14,7 @@ export const UploadContent = ({ editUploadContentPopup, setEditUploadContentPopu
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    <h1 style={{ fontSize: '20px', fontWeight: 'bold' }}>Edit Profile</h1>
+                    <h1 style={{ fontSize: '20px', fontWeight: 'bold' }}>Upload Material</h1>
                     <hr style={{ margin: '10px 0 0 0' }} />
                 </DialogTitle>
                 <div style={{ margin: '0px 20px' }} >
