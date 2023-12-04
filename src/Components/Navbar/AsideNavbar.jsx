@@ -100,7 +100,7 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 </NavLink>
                             }
                             {
-                                email && email.email === "tarbiyah@gmail.com" && location.pathname === '/goal' && <SubNavigations
+                                email && email.email !== "tarbiyah@gmail.com" && location.pathname === '/goal' && <SubNavigations
                                     currentgoal={currentgoal}
                                     setCurrentGoal={setCurrentGoal}
                                     initial={initial}
