@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import AsideNavbar from './Components/Navbar/AsideNavbar';
 import CloseIcon from '@mui/icons-material/Close';
+import { EditProfile } from './Components/Navbar/EditProfile';
+import { UploadContent } from './Components/Navbar/UploadContent';
 
 function App() {
   const location = useLocation()
@@ -19,6 +21,8 @@ function App() {
   const [corner, setcorner] = useState("");
   const [proceed, setProceed] = useState(false);
   const [currentDept, setCurrentDept] = useState('');
+  const [editProfilePopup, setEditProfilePopup] = useState(false);
+  const [editUploadContentPopup, setEditUploadContentPopup] = useState(false);
 
   useEffect(() => {
     const storedFormData = localStorage.getItem('FinalGoal');
@@ -76,6 +80,10 @@ function App() {
             setIsLogin={setIsLogin}
             currentDept={currentDept}
             setCurrentDept={setCurrentDept}
+            editProfilePopup={editProfilePopup}
+            setEditProfilePopup={setEditProfilePopup}
+            editUploadContentPopup={editUploadContentPopup}
+            setEditUploadContentPopup={setEditUploadContentPopup}
           />
         }
         <div style={{ marginLeft: `${(sidebarshow && show && isLogin) ? '280px' : '0'}`, marginBottom: `${isLogin ? '20px' : '0'}` }}>
@@ -86,6 +94,8 @@ function App() {
       {
         ((!sidebarshow || !onmobile) && !isLogin) && <Footer />
       }
+      <EditProfile editProfilePopup={editProfilePopup} setEditProfilePopup={setEditProfilePopup} />
+      <UploadContent editUploadContentPopup={editUploadContentPopup} setEditUploadContentPopup={setEditUploadContentPopup} />
     </div>
   );
 }
