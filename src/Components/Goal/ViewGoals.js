@@ -3,11 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import './setgoal.css'
 import { Select } from './select';
 import ToastContainer from '../toast';
+import React from 'react';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import Button from '@mui/material/Button';
+
 
 export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
     let [edit, setEdit] = useState(false)
     let [editindex, setEditIndex] = useState(0)
     let navigate = useNavigate();
+    const [deleteVerfication, setDeleteVerfication] = useState(false);
+    const [deleteIndex, setDeleteIndex] = useState(-1);
     useEffect(() => {
         document.querySelector('body').scrollTo({
             top: 0, behavior:
@@ -58,7 +65,7 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                         <div data-aos="fade-up" className="viewgoalcontainer p-2 px-4 ">
                             <div className="heading">
                                 <h1 className='mt-2 mb-4 text-center text-2xl font-semibold goal-heading'>Your {item.heading.split(" ").slice(2).join(' ')}</h1>
-                                <i onClick={() => { handledelete(index) }} class="fa-solid fa-trash-can"></i>
+                                <i onClick={() => { setDeleteVerfication(!deleteVerfication); setDeleteIndex(index) }} class="fa-solid fa-trash-can"></i>
                                 <i onClick={() => { setEdit(true); setEditIndex(index) }} class="fa-solid fa-pen-to-square headingi"></i>
                                 <hr />
                             </div>
@@ -127,6 +134,27 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                     )
                 }
             </div>
+            <React.Fragment>
+                <Dialog
+                    open={deleteVerfication}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">
+                        <h1 style={{ fontSize: '20px', fontWeight: 'bold' }}>Delete Confirmation</h1>
+                        <hr style={{ margin: '10px 0 0 0' }} />
+                    </DialogTitle>
+                    <div style={{padding: "20px"}}>
+                        <p style={{ fontSize: '14px', textAlign: 'justify', marginBottom: '20px' }}>Are you sure you want to delete the Goal. Deleted Goal will not be recovered afterwards.</p>
+                    </div>
+                <div style={{display: "flex", justifyContent:"end", padding: "0 20px 20px 20px"}}>
+                    <Button style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={() => { setDeleteVerfication(!deleteVerfication); }}>No Close</Button>
+                    <Button style={{ fontSize: '12px', border: '1px solid #ccc', marginLeft: "10px" }} onClick={() => { setDeleteVerfication(!deleteVerfication); handledelete(deleteIndex) }} autoFocus>
+                        Delete
+                    </Button>
+                </div>
+                </Dialog>
+            </React.Fragment>
         </>
     )
 }
