@@ -6,7 +6,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 
 export const EditProfile = ({ editProfilePopup, setEditProfilePopup }) => {
-    const [changePassword, setChangePassword] = React.useState(false);
+    const [changePassword, setChangePassword] = React.useState(true);
     return (
         <>
             <React.Fragment>
