@@ -1,7 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
 import style from './timeline.module.css'
 import './style.css'
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogTitle from '@mui/material/DialogTitle';
+import { useSelector } from "react-redux"
+
 export const TimeLine = () => {
+    const [open, setOpen] = useState(false);
+    const handleClickOpen = () => { setOpen(true); };
+    //eslint-disable-next-line
+    const [email, setemail] = useState(useSelector(state => state)?.email);
+    const handleClose = () => { setOpen(false); };
     let [show, setShow] = useState(false)
     let [data, setData] = useState([
         {
@@ -38,46 +49,62 @@ export const TimeLine = () => {
     return (
         <div id={`${style.qualification}`}>
             <div data-aos="fade-up" className={`${style.main} dark:bg-slate-400`}>
-                <form onSubmit={(e) => { handleeventadd(e) }} className={`add-event ${show ? 'open-popup' : ''}`}>
-                    <h1>Add Event</h1>
-                    <div className="sub-event pt-2">
-                        <div className="namess pt-3 flex">
-                            <label style={{ color: "#2567ac" }} className='mr-2 topd' htmlFor="">Event Name:</label>
-                            <input className='py-2' type="text" placeholder="Event Name" ref={name} required={true} />
-                        </div>
-                        <div className="dates mt-4 flex">
-                            <label style={{ color: "#2567ac" }} className='alphaaad' htmlFor="">Event Date:</label>
-                            <input className='py-2' type="date" name="" id="" ref={date} required={true} />
-                        </div>
-                        <div className="timess my-4 flex">
-                            <label style={{ color: "#2567ac" }} className='alphaaad' htmlFor="">Event Time</label>
-                            <input className='py-2' type="time" name="" id="" ref={time} required={true} />
-                        </div>
-                        <button type='submit' className='add-brn'>Add</button>
+                <>
+                    <h3 className={`${style.head}`}>Events TimeLine</h3>
+                    {
+                        email === "tarbiyah@gmail.com" && <button onClick={() => { setShow(!show); handleClickOpen() }} type='submit' className='add-brn add-brn1' style={{ marginBottom: "0" }}>Add New Event</button>
+                    }
+                    <div style={{ margin: "90px 0 0 0" }} className={`${style.container}`}>
+                        <ul>
+                            {
+                                data.map((arr, index) => (
+                                    <li alt={arr.name} key={Math.floor(Math.random() * 100000 + index)} className='dark:bg-slate-500' >
+                                        <h3 className={`${style.heading} font-bold mb-4  dark:text-cyan-900`}>{arr.name}</h3>
+                                        <h3 className={`${style.heading1} mb-2 font-semibold`}>Time: {arr.time}</h3>
+                                        <span className={`${style.date}`}>{arr.data}</span>
+                                        <span className={`${style.circle}`}></span>
+                                    </li>
+                                ))
+                            }
+                        </ul>
                     </div>
-                </form>
-                {
-                    !show ? (<>
-                        <h3 className={`${style.head}`}>Events TimeLine</h3>
-                        {
-                            <button onClick={() => { setShow(!show) }} type='submit' className='add-brn add-brn1'>Add New Event</button>
-                        }
-                        <div className={`${style.container}`}>
-                            <ul>
-                                {
-                                    data.map((arr, index) => (
-                                        <li alt={arr.name} key={Math.floor(Math.random() * 100000 + index)} className='dark:bg-slate-500' >
-                                            <h3 className={`${style.heading} font-bold mb-4  dark:text-cyan-900`}>{arr.name}</h3>
-                                            <h3 className={`${style.heading1} mb-2 font-semibold`}>Time: {arr.time}</h3>
-                                            <span className={`${style.date}`}>{arr.data}</span>
-                                            <span className={`${style.circle}`}></span>
-                                        </li>
-                                    ))
-                                }
-                            </ul>
-                        </div>
-                    </>) : (<div className='none'></div>)
-                }
+                </>
+                <React.Fragment>
+                    <Dialog
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            <h1 style={{ fontSize: "20px" }}>Add Event</h1>
+                            <hr style={{ margin: "10px 0" }} />
+                        </DialogTitle>
+                        <p style={{ margin: "0 20px" }}>Add specific Event by mentioning the Event Name, it's Date and the time. </p>
+                        <form style={{ margin: "0 20px" }} onSubmit={(e) => { handleeventadd(e) }}>
+                            <div className="sub-event pt-0">
+                                <div className="namess pt-3 flex">
+                                    <label style={{ color: "#2567ac" }} className='mr-2 topd' htmlFor="">Event Name:</label>
+                                    <input className='py-2' type="text" placeholder="Event Name" ref={name} required={true} />
+                                </div>
+                                <div className="dates mt-4 flex">
+                                    <label style={{ color: "#2567ac" }} className='alphaaad' htmlFor="">Event Date:</label>
+                                    <input className='py-2' type="date" name="" id="" ref={date} required={true} />
+                                </div>
+                                <div className="timess my-4 flex">
+                                    <label style={{ color: "#2567ac" }} className='alphaaad' htmlFor="">Event Time</label>
+                                    <input className='py-2' type="time" name="" id="" ref={time} required={true} />
+                                </div>
+                            </div>
+                            <DialogActions>
+                                <Button style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={handleClose}>Close</Button>
+                                <Button type='submit' style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={handleClose} autoFocus>
+                                    Add Event
+                                </Button>
+                            </DialogActions>
+                        </form>
+                    </Dialog>
+                </React.Fragment>
             </div>
         </div>
     )
