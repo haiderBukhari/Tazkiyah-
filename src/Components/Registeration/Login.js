@@ -13,7 +13,7 @@ export const LoginUser = ({ isLogin, setIsLogin }) => {
     e.preventDefault();
     dispatch(createAuth({ email: email.current.value.trim() }));
     setIsLogin(true);
-    navigate('/goal')
+    navigate('/')
   }
   return (
     <>
@@ -40,7 +40,7 @@ export const LoginUser = ({ isLogin, setIsLogin }) => {
         </div>
         <div className="right-login-main">
           <div className="right-login">
-            <img src={Logo} className='logoimg' alt="" />
+            <img style={{margin: "20px 0"}} src={Logo} className='logoimg' alt="" />
             <h1 className='font-extrabold text-white welcome'>Welcome to Login</h1>
             <p className='text-gray-100 font-lg my-4  font-semibold'>Do not have an Account</p>
             <button onClick={() => navigate('/register')} className='signbtn'>Sign Up</button>

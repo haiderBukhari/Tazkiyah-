@@ -134,6 +134,14 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                     EBook
                                 </li>
                             </NavLink>
+                            {
+                                email && email.email === "manager@gmail.com" && <NavLink to="/assign-mentees" >
+                                <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/assign-mentees' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/assign-mentees' ? '14px' : ''}` }}>
+                                    <MenuBookIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                                    Assign Mentees
+                                </li>
+                            </NavLink>
+                            }
                             <a href="/" >
                                 <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/' ? '14px' : ''}` }}>
                                     <NotificationsIcon style={{ fontSize: '30px', marginRight: '10px' }} />

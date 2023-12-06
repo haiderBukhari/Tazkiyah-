@@ -3,6 +3,7 @@ import './style.css'
 import slider1 from '../assets/img/slider2.jpg'
 import slider2 from '../assets/img/slider.jpg'
 import slider3 from '../assets/img/slider3.jpg'
+import tazkiyahquranic from "../assets/tazkiyahquranic.jfif"
 
 export const MainPage = () => {
     return (
@@ -62,7 +63,7 @@ export const MainPage = () => {
 
 
 
-            <section class="schedule">
+            <section style={{marginLeft: "50px", marginRight: "20px"}} class="schedule">
                 <div class="container">
                     <div class="schedule-inner">
                         <div class="row">
@@ -117,6 +118,7 @@ export const MainPage = () => {
                             </div>
                         </div>
                     </div>
+                <img style={{height: "500px", width: "auto", margin: "0 auto 30px auto"}} src={tazkiyahquranic} className='hover:scale-105' alt="" />
                 </div>
             </section>
         </div>

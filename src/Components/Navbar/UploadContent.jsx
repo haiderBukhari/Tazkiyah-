@@ -41,7 +41,7 @@ export const UploadContent = ({ editUploadContentPopup, setEditUploadContentPopu
                 <DialogActions>
                     <Button style={{fontSize: '12px', border: '1px solid #ccc'}} onClick={() => { setEditUploadContentPopup(!editUploadContentPopup) }}>Close</Button>
                     <Button style={{fontSize: '12px', border: '1px solid #ccc'}} onClick={() => { setEditUploadContentPopup(!editUploadContentPopup) }} autoFocus>
-                        Save
+                        {"Upload this File"}
                     </Button>
                 </DialogActions>
             </Dialog>

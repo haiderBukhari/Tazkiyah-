@@ -47,8 +47,12 @@ export const EditProfile = ({ editProfilePopup, setEditProfilePopup }) => {
                             </DialogActions>
                         </>) : (<div style={{ padding: "0 20px" }}>
                             <p style={{ fontSize: '14px', textAlign: 'justify', marginBottom: '20px' }}>You cam change your password. Your password should consist of Upper Case and Lower Case Letters(A-Z, a-z) and numbers(1-9)</p>
-                            <h1 style={{ paddingBottom: '4px', fontSize: '14px' }} className='font-semibold'>Password: </h1>
-                            <input type="text" style={{ width: '240px' }} placeholder='***********' />
+                            <h1 style={{ paddingBottom: '4px', fontSize: '14px' }} className='font-semibold'>Current Password: </h1>
+                            <input type="password" style={{ width: '240px' }} placeholder='***********' />
+                            <h1 style={{ paddingBottom: '4px', fontSize: '14px', marginTop: "10px" }} className='font-semibold'>New Password: </h1>
+                            <input type="password" style={{ width: '240px' }} placeholder='***********' />
+                            <h1 style={{ paddingBottom: '4px', fontSize: '14px',marginTop: "10px"  }} className='font-semibold'>Confirm New Password: </h1>
+                            <input type="password" style={{ width: '240px' }} placeholder='***********' />
                             <DialogActions>
                                 <Button style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={() => { setChangePassword(!changePassword) }}>Close</Button>
                                 <Button style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={() => { setChangePassword(!changePassword) }} autoFocus>

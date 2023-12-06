@@ -11,6 +11,7 @@ import { TimeLine } from "../Components/timeline";
 import { Performancepage2 } from "../Components/performancepage2";
 import { useSelector } from 'react-redux'
 import { useState } from "react";
+import AssignMentees from "../Components/AssignMentees";
 
 export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proceed, setProceed, corner, setcorner, currentDept, setCurrentDept }) => {
     //eslint-disable-next-line
@@ -26,6 +27,7 @@ export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proc
                 <Route path='/' element={<MainPage />} />
                 <Route path='/performance' element={<Performancepage2 />} />
                 <Route path='/ebook' element={<Ebook />} />
+                <Route path='/assign-mentees' element={<AssignMentees />} />
                 <Route path='/timeline' element={<TimeLine />} />
                 <Route path="/attendence" element={<AttendenceTable currentDept={currentDept} setCurrentDept={setCurrentDept} />}/>
             </Routes>
