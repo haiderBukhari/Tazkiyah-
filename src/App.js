@@ -91,11 +91,11 @@ function App() {
             setCurrentDept={setCurrentDept} />
         </div>
       </div>
+      <EditProfile editProfilePopup={editProfilePopup} setEditProfilePopup={setEditProfilePopup} />
+      <UploadContent editUploadContentPopup={editUploadContentPopup} setEditUploadContentPopup={setEditUploadContentPopup} />
       {
         ((!sidebarshow || !onmobile) && !isLogin) && <Footer />
       }
-      <EditProfile editProfilePopup={editProfilePopup} setEditProfilePopup={setEditProfilePopup} />
-      <UploadContent editUploadContentPopup={editUploadContentPopup} setEditUploadContentPopup={setEditUploadContentPopup} />
     </div>
   );
 }
