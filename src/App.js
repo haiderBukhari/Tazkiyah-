@@ -23,6 +23,7 @@ function App() {
   const [currentDept, setCurrentDept] = useState('');
   const [editProfilePopup, setEditProfilePopup] = useState(false);
   const [editUploadContentPopup, setEditUploadContentPopup] = useState(false);
+  const [selectedSemester, setSelectedSemester] = useState(null);
 
   useEffect(() => {
     const storedFormData = localStorage.getItem('FinalGoal');
@@ -84,11 +85,25 @@ function App() {
             setEditProfilePopup={setEditProfilePopup}
             editUploadContentPopup={editUploadContentPopup}
             setEditUploadContentPopup={setEditUploadContentPopup}
+            selectedSemester={selectedSemester}
+            setSelectedSemester={setSelectedSemester}
           />
         }
         <div style={{ marginLeft: `${(sidebarshow && show && isLogin) ? '280px' : '0'}`, marginBottom: `${isLogin ? '20px' : '0'}` }}>
-          <ReactRoutes finalGoal={finalGoal} setFinalGoal={setFinalGoal} isLogin={isLogin} setIsLogin={setIsLogin} proceed={proceed} setProceed={setProceed} corner={corner} setcorner={setcorner} currentDept={currentDept}
-            setCurrentDept={setCurrentDept} />
+          <ReactRoutes
+            finalGoal={finalGoal}
+            setFinalGoal={setFinalGoal}
+            isLogin={isLogin}
+            setIsLogin={setIsLogin}
+            proceed={proceed}
+            setProceed={setProceed}
+            corner={corner}
+            setcorner={setcorner}
+            currentDept={currentDept}
+            setCurrentDept={setCurrentDept}
+            selectedSemester={selectedSemester}
+            setSelectedSemester={setSelectedSemester}
+          />
         </div>
       </div>
       <EditProfile editProfilePopup={editProfilePopup} setEditProfilePopup={setEditProfilePopup} />

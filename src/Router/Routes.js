@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux'
 import { useState } from "react";
 import AssignMentees from "../Components/AssignMentees";
 
-export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proceed, setProceed, corner, setcorner, currentDept, setCurrentDept }) => {
+export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proceed, setProceed, corner, setcorner, currentDept, setCurrentDept, selectedSemester, setSelectedSemester }) => {
     //eslint-disable-next-line
     const [email, setemail  ] = useState(useSelector(state => state.email));
     return (
@@ -27,7 +27,7 @@ export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proc
                 <Route path='/' element={<MainPage />} />
                 <Route path='/performance' element={<Performancepage2 />} />
                 <Route path='/ebook' element={<Ebook />} />
-                <Route path='/assign-mentees' element={<AssignMentees />} />
+                <Route path='/assign-mentees' element={<AssignMentees selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester}/>} />
                 <Route path='/timeline' element={<TimeLine />} />
                 <Route path="/attendence" element={<AttendenceTable currentDept={currentDept} setCurrentDept={setCurrentDept} />}/>
             </Routes>

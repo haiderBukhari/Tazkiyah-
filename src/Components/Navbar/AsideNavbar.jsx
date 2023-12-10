@@ -17,8 +17,9 @@ import Attendence from './Attendence';
 import { useDispatch, useSelector } from "react-redux"
 import { deleteAuth } from '../../features/authenticationSlice'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import AssignMentors from './AssigneeMentors';
 
-export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin, currentDept, setCurrentDept, editProfilePopup, setEditProfilePopup, editUploadContentPopup, setEditUploadContentPopup }) => {
+export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin, currentDept, setCurrentDept, editProfilePopup, setEditProfilePopup, editUploadContentPopup, setEditUploadContentPopup, selectedSemester, setSelectedSemester }) => {
     const dispatch = useDispatch();
     //eslint-disable-next-line
     const [email, setemail] = useState(useSelector(state => state));
@@ -136,12 +137,19 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                             </NavLink>
                             {
                                 email && email.email === "manager@gmail.com" && <NavLink to="/assign-mentees" >
-                                <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/assign-mentees' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/assign-mentees' ? '14px' : ''}` }}>
-                                    <MenuBookIcon style={{ fontSize: '30px', marginRight: '10px' }} />
-                                    Assign Mentees
-                                </li>
-                            </NavLink>
+                                    <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/assign-mentees' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/assign-mentees' ? '14px' : ''}` }}>
+                                        <MenuBookIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                                        Assign Mentees
+                                        {
+                                            location.pathname === '/assign-mentees' ? <ArrowDownwardIcon style={{ fontSize: '20px', marginLeft: '10px' }} /> : <ArrowRightAltIcon style={{ fontSize: '30px', marginLeft: '10px' }} />
+                                        }
+                                    </li>
+                                </NavLink>
                             }
+                            {
+                                email?.email === "manager@gmail.com" && location.pathname === '/assign-mentees' && <AssignMentors currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester}/>
+                            }
+
                             <a href="/" >
                                 <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/' ? '14px' : ''}` }}>
                                     <NotificationsIcon style={{ fontSize: '30px', marginRight: '10px' }} />

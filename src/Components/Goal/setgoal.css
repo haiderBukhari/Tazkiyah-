@@ -80,7 +80,7 @@
 }
 
 .lower-bound input,
-.main-data input {
+.main-data input, .alpha {
     margin-top: 6px !important;
     width: 100% !important;
     height: 24px !important;

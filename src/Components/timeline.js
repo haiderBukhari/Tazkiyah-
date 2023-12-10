@@ -51,9 +51,7 @@ export const TimeLine = () => {
             <div data-aos="fade-up" className={`${style.main} dark:bg-slate-400`}>
                 <>
                     <h3 className={`${style.head}`}>Events TimeLine</h3>
-                    {
-                        email === "tarbiyah@gmail.com" && <button onClick={() => { setShow(!show); handleClickOpen() }} type='submit' className='add-brn add-brn1' style={{ marginBottom: "0" }}>Add New Event</button>
-                    }
+                        <button onClick={() => { setShow(!show); handleClickOpen() }} type='submit' className='add-brn add-brn1' style={{ marginBottom: "0" }}>Add New Event</button>
                     <div style={{ margin: "90px 0 0 0" }} className={`${style.container}`}>
                         <ul>
                             {
@@ -97,8 +95,8 @@ export const TimeLine = () => {
                                 </div>
                             </div>
                             <DialogActions>
-                                <Button style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={handleClose}>Close</Button>
-                                <Button type='submit' style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={handleClose} autoFocus>
+                                <Button style={{ fontSize: '12px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff" }} onClick={handleClose}>Close</Button>
+                                <Button type='submit' style={{ fontSize: '12px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff" }} onClick={handleClose} autoFocus>
                                     Add Event
                                 </Button>
                             </DialogActions>

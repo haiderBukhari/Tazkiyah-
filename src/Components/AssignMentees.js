@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './style.css'
 import MenteesDataGrid from './MenteesDataGrid';
-const AssignMentees = () => {
+const AssignMentees = ({selectedSemester, setSelectedSemester}) => {
     const [selectedMentor, setSelectedMentor] = useState(null);
     function generateRandomId() {
         return Math.floor(1000 + Math.random() * 9000);
@@ -181,26 +181,38 @@ const AssignMentees = () => {
             Department: "xyz"
         }
     ]);
-    
-    return (
-        <div className="mentor-list-container">
-            {
-                selectedMentor ? (<MenteesDataGrid data={studentList} setStudentList={setStudentList} selectedMentor={selectedMentor} setSelectedMentor={setSelectedMentor}/>
-                ) : (<>
-                    <h1 style={{ textAlign: "center", fontSize: "22px" }}>Mentor's List</h1>
-                    <hr style={{ width: "100px", margin: "4px auto 30px auto", padding: "1px" }} />
-                    <div className="mentor-list">
-                        {mentorList.map((mentor, index) => (
-                            <div onClick={() => { setSelectedMentor(mentor) }} style={{ cursor: "pointer" }} key={index} className="mentor-card">
-                                <h2>Name: {mentor.name}</h2>
-                                <p>Students Assigned: {mentor.studentsAssigned}</p>
-                            </div>
-                        ))}
-                    </div>
 
+    return (
+        <>
+            {
+                selectedSemester ? (<div className="mentor-list-container">
+                    {
+                        selectedMentor ? (<MenteesDataGrid data={studentList} setStudentList={setStudentList} selectedMentor={selectedMentor} setSelectedMentor={setSelectedMentor} />
+                        ) : (<>
+                            <h1 style={{ textAlign: "center", fontSize: "22px" }}>Mentor's List</h1>
+                            <hr style={{ width: "100px", margin: "4px auto 30px auto", padding: "1px" }} />
+                            <div>
+                                <h1 style={{ textAlign: "center", fontSize: "18px", marginBottom: "10px" }}>Semester: {selectedSemester}</h1>
+                            </div>
+                            <div className="mentor-list">
+                                {mentorList.map((mentor, index) => (
+                                    <div onClick={() => { setSelectedMentor(mentor) }} style={{ cursor: "pointer" }} key={index} className="mentor-card">
+                                        <h2>Name: {mentor.name}</h2>
+                                        <p>Students Assigned: {mentor.studentsAssigned}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                        </>)
+                    }
+                </div>) : (<>
+                    <div className='flex flex-col justify-center items-center' style={{ height: '50vh' }}>
+                        <h1 style={{ fontWeight: 'bold', fontSize: '23px', textAlign: 'center', lineHeight: '3.5rem' }}>Please Select the Desired Department and Semester.</h1>
+                    </div>
                 </>)
             }
-        </div>
+        </>
+
     )
 }
 

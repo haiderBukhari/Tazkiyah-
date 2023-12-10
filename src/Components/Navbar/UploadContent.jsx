@@ -39,8 +39,8 @@ export const UploadContent = ({ editUploadContentPopup, setEditUploadContentPopu
                         
                 </div>
                 <DialogActions>
-                    <Button style={{fontSize: '12px', border: '1px solid #ccc'}} onClick={() => { setEditUploadContentPopup(!editUploadContentPopup) }}>Close</Button>
-                    <Button style={{fontSize: '12px', border: '1px solid #ccc'}} onClick={() => { setEditUploadContentPopup(!editUploadContentPopup) }} autoFocus>
+                    <Button style={{fontSize: '12px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff"}} onClick={() => { setEditUploadContentPopup(!editUploadContentPopup) }}>Close</Button>
+                    <Button style={{fontSize: '12px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff"}} onClick={() => { setEditUploadContentPopup(!editUploadContentPopup) }} autoFocus>
                         {"Upload this File"}
                     </Button>
                 </DialogActions>

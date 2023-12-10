@@ -148,8 +148,8 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                         <p style={{ fontSize: '14px', textAlign: 'justify', marginBottom: '20px' }}>Are you sure you want to delete the Goal. Deleted Goal will not be recovered afterwards.</p>
                     </div>
                 <div style={{display: "flex", justifyContent:"end", padding: "0 20px 20px 20px"}}>
-                    <Button style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={() => { setDeleteVerfication(!deleteVerfication); }}>No Close</Button>
-                    <Button style={{ fontSize: '12px', border: '1px solid #ccc', marginLeft: "10px" }} onClick={() => { setDeleteVerfication(!deleteVerfication); handledelete(deleteIndex) }} autoFocus>
+                    <Button style={{ fontSize: '12px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff" }} onClick={() => { setDeleteVerfication(!deleteVerfication); }}>No Close</Button>
+                    <Button style={{ fontSize: '12px', border: '1px solid #ccc', marginLeft: "10px", backgroundColor: "#15375c", color: "#fff" }} onClick={() => { setDeleteVerfication(!deleteVerfication); handledelete(deleteIndex) }} autoFocus>
                         Delete
                     </Button>
                 </div>

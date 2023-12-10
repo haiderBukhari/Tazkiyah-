@@ -31,7 +31,7 @@ export const EditProfile = ({ editProfilePopup, setEditProfilePopup }) => {
                                         <input type="text" style={{ width: '240px' }} placeholder='user' />
                                     </div>
                                     <div>
-                                        <button onClick={() => { setChangePassword(!changePassword) }} style={{ backgroundColor: "#3498db", padding: "5px 15px", color: "#fff", borderRadius: "7px" }}>Change Password</button>
+                                        <button onClick={() => { setChangePassword(!changePassword) }} style={{ backgroundColor: "#15375c", padding: "5px 15px", color: "#fff", borderRadius: "7px" }}>Password</button>
                                     </div>
                                 </div>
                                 <div>
@@ -40,8 +40,8 @@ export const EditProfile = ({ editProfilePopup, setEditProfilePopup }) => {
                                 </div>
                             </div>
                             <DialogActions>
-                                <Button style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={() => { setEditProfilePopup(!editProfilePopup) }}>Close</Button>
-                                <Button style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={() => { setEditProfilePopup(!editProfilePopup) }} autoFocus>
+                                <Button style={{ fontSize: '12px', border: '1px solid #ccc', backgroundColor: "#15375c", color:"#fff" }} onClick={() => { setEditProfilePopup(!editProfilePopup) }}>Close</Button>
+                                <Button style={{ fontSize: '12px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff" }} onClick={() => { setEditProfilePopup(!editProfilePopup) }} autoFocus>
                                     Save
                                 </Button>
                             </DialogActions>
@@ -54,8 +54,8 @@ export const EditProfile = ({ editProfilePopup, setEditProfilePopup }) => {
                             <h1 style={{ paddingBottom: '4px', fontSize: '14px',marginTop: "10px"  }} className='font-semibold'>Confirm New Password: </h1>
                             <input type="password" style={{ width: '240px' }} placeholder='***********' />
                             <DialogActions>
-                                <Button style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={() => { setChangePassword(!changePassword) }}>Close</Button>
-                                <Button style={{ fontSize: '12px', border: '1px solid #ccc' }} onClick={() => { setChangePassword(!changePassword) }} autoFocus>
+                                <Button style={{ fontSize: '12px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff" }} onClick={() => { setChangePassword(!changePassword) }}>Close</Button>
+                                <Button style={{ fontSize: '12px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff" }} onClick={() => { setChangePassword(!changePassword) }} autoFocus>
                                     Save
                                 </Button>
                             </DialogActions>

@@ -4,7 +4,6 @@ import SelfDevelopment from '../../assets/self development.jpg'
 import { useNavigate } from 'react-router-dom';
 import ToastContainer from '../toast';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { GoalTimeline } from './select';
 
 export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, setcorner }) => {
     let Navigate = useNavigate();
@@ -117,13 +116,21 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                 <input style={{ margin: '0px' }} className='ml-2' type="radio" name="q1" id="public" />
                                             </div>
                                         </div>
-                                        <GoalTimeline />
-                                        <div style={{ width: '200px', margin: 'auto' }}>
-                                            <input
-                                                type="time"
-                                                value={date}
-                                                onChange={e => setDate(e.target.value)}
-                                            />
+                                        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems:"center" }}>
+                                            <div style={{ }} className="flex justify-between place-items-center lb mt-2 mb-4 items-center">
+                                                <select style={{ width: '150px', margin: 'auto', marginTop: '10px', marginBottom: '3px', padding: "3px 0" }} className='' name="" id="">
+                                                    <option value="">Daily</option>
+                                                    <option value="">Weekly</option>
+                                                    <option value="">Monthly</option>
+                                                </select>
+                                            </div>
+                                            <div style={{ width: '200px', margin: 'auto', boxShadow: "none", border: "none" }}>
+                                                <input
+                                                    type="time"
+                                                    value={date}
+                                                    onChange={e => setDate(e.target.value)}
+                                                />
+                                            </div>
                                         </div>
                                         <div className="btns-list mt-10">
                                             <button disabled={goalTitle.length === 0} style={{ cursor: `${goalTitle.length === 0 ? 'not-allowed' : 'pointer'}` }} className='btns-color' onClick={() => { setMilestone(!milestone) }}>Add MileStone</button>
