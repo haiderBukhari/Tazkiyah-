@@ -21,8 +21,10 @@
     height: 480px;
     width: 400px;
     /* background: linear-gradient(45deg, rgb(247, 91, 117), rgb(247, 115, 181)); */
-    background: linear-gradient(to bottom, #c2d8e4, #a3b3c1);
-
+    /* background: linear-gradient(to bottom, #c2d8e4, #a3b3c1); */
+    /* background: linear-gradient(to bottom, #c2d8e4, #a3b3c1);; */
+    background-color: #fff;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,8 +51,8 @@
 }
 .signbtn{
     padding: 12px 20px;
-    border: 1px solid #f4f4f4;
-    color: white;
+    border: 1px solid black;
+    color: black;
     border-radius: 30px;
 }
 .signin{

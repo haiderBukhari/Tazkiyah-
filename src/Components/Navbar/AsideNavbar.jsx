@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { deleteAuth } from '../../features/authenticationSlice'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import AssignMentors from './AssigneeMentors';
+import PerformanceAnalyticsSideBar from './PerformanceAnalyticsSidebar';
 
 export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin, currentDept, setCurrentDept, editProfilePopup, setEditProfilePopup, editUploadContentPopup, setEditUploadContentPopup, selectedSemester, setSelectedSemester }) => {
     const dispatch = useDispatch();
@@ -90,7 +91,7 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                         <p style={{ color: '#fff', fontSize: '17px', marginBottom: '4px' }}>Navigation: </p>
                         <ul>
                             {
-                                email && email.email !== "tarbiyah@gmail.com" && <NavLink to="/goal">
+                                email && email.email !== "tarbiyah@gmail.com" && email.email !== "manager@gmail.com" && <NavLink to="/goal">
                                     <li onClick={() => { setCurrentGoal(initial); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/goal' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/goal' ? '14px' : ''}` }}>
                                         <SelfImprovementIcon style={{ fontSize: '30px', marginRight: '10px' }} />
                                         Self Development
@@ -101,7 +102,7 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 </NavLink>
                             }
                             {
-                                email && email.email !== "tarbiyah@gmail.com" && location.pathname === '/goal' && <SubNavigations
+                                email && email.email !== "tarbiyah@gmail.com" && email.email !== "manager@gmail.com" && location.pathname === '/goal' && <SubNavigations
                                     currentgoal={currentgoal}
                                     setCurrentGoal={setCurrentGoal}
                                     initial={initial}
@@ -114,7 +115,7 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 />
                             }
                             {
-                                email && email.email !== "tarbiyah@gmail.com" && <NavLink to="/view-goal" >
+                                email && email.email !== "tarbiyah@gmail.com" && email.email !== "manager@gmail.com"  && <NavLink to="/view-goal" >
                                     <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/view-goal' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/view-goal' ? '14px' : ''}` }}>
                                         <FlagIcon style={{ fontSize: '30px', marginRight: '10px' }} />
                                         View Goals
@@ -129,12 +130,14 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                     </li>
                                 </>
                             }
-                            <NavLink to="/ebook" >
+                            {
+                                email && email.email !== "tarbiyah@gmail.com" && email.email !== "manager@gmail.com"  && <NavLink to="/ebook" >
                                 <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/ebook' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/ebook' ? '14px' : ''}` }}>
                                     <MenuBookIcon style={{ fontSize: '30px', marginRight: '10px' }} />
                                     EBook
                                 </li>
                             </NavLink>
+                            }
                             {
                                 email && email.email === "manager@gmail.com" && <NavLink to="/assign-mentees" >
                                     <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/assign-mentees' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/assign-mentees' ? '14px' : ''}` }}>
@@ -147,21 +150,27 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 </NavLink>
                             }
                             {
-                                email?.email === "manager@gmail.com" && location.pathname === '/assign-mentees' && <AssignMentors currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester}/>
+                                email?.email === "manager@gmail.com" && location.pathname === '/assign-mentees' && <AssignMentors currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} />
                             }
 
-                            <a href="/" >
-                                <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/' ? '14px' : ''}` }}>
+                            <NavLink to="/notifications" >
+                                <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/notifications' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/notifications' ? '14px' : ''}` }}>
                                     <NotificationsIcon style={{ fontSize: '30px', marginRight: '10px' }} />
                                     Notifications
                                 </li>
-                            </a>
+                            </NavLink>
                             <NavLink to="/performance" >
-                                <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/performance' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/performance' ? '14px' : ''}` }}>
-                                    <AssessmentIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                                <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/performance' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/performance' ? '14px' : ''}`, fontSize: "13px" }}>
+                                    <AssessmentIcon style={{ fontSize: '25px', marginRight: '10px' }} />
                                     Performance Analytics
+                                    {
+                                        email && (email.email === "tarbiyah@gmail.com") ?location.pathname === '/performance' ? <ArrowDownwardIcon style={{ fontSize: '20px', marginLeft: '10px' }} /> : <ArrowRightAltIcon style={{ fontSize: '20px', marginLeft: '10px' }} /> : (<></>)
+                                    }
                                 </li>
                             </NavLink>
+                            {
+                                email && (email.email === "tarbiyah@gmail.com") && location.pathname === '/performance' && <PerformanceAnalyticsSideBar currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} />
+                            }
                             {
                                 email?.email === "tarbiyah@gmail.com" && <NavLink to="/attendence" >
                                     <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/attendence' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/attendence' ? '14px' : ''}` }}>
@@ -176,18 +185,23 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                             {
                                 email?.email === "tarbiyah@gmail.com" && location.pathname === '/attendence' && <Attendence currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} />
                             }
-                            <NavLink to="/timeline" >
-                                <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/timeline' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/timeline' ? '14px' : ''}` }}>
-                                    <TimelineIcon style={{ fontSize: '30px', marginRight: '10px' }} />
-                                    Timeline Management
-                                </li>
-                            </NavLink>
-                            <NavLink onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} to="/timeline" >
-                                <li style={{ backgroundColor: `${location.pathname === '' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '' ? '14px' : ''}` }}>
-                                    <EventIcon style={{ fontSize: '30px', marginRight: '10px' }} />
-                                    Upcomming Events
-                                </li>
-                            </NavLink>
+
+                            {
+                                email && email.email !== "tarbiyah@gmail.com" && email.email !== "manager@gmail.com" && <>
+                                    <NavLink to="/timeline" >
+                                        <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/timeline' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/timeline' ? '14px' : ''}` }}>
+                                            <TimelineIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                                            Timeline Management
+                                        </li>
+                                    </NavLink>
+                                    <NavLink onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} to="/Calendar" >
+                                        <li style={{ backgroundColor: `${location.pathname === '/Calendar' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/Calendar' ? '14px' : ''}` }}>
+                                            <EventIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                                            Upcomming Events
+                                        </li>
+                                    </NavLink>
+                                </>
+                            }
                         </ul>
                     </div>
                 </div>

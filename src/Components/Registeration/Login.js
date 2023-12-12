@@ -41,9 +41,9 @@ export const LoginUser = ({ isLogin, setIsLogin }) => {
         <div className="right-login-main">
           <div className="right-login">
             <img style={{margin: "20px 0"}} src={Logo} className='logoimg' alt="" />
-            <h1 className='font-extrabold text-white welcome'>Welcome to Login</h1>
-            <p className='text-gray-100 font-lg my-4  font-semibold'>Do not have an Account</p>
-            <button onClick={() => navigate('/register')} className='signbtn'>Sign Up</button>
+            <h1 className='font-extrabold text-gray-700 welcome'>Welcome to Login</h1>
+            <p className='text-gray-700 font-lg my-4  font-semibold'>Do not have an Account</p>
+            <button onClick={() => navigate('/register')} className='signbtn text-gray-700'>Sign Up</button>
           </div>
         </div>
       </div>

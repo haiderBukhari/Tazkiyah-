@@ -35,8 +35,8 @@ export const RegisterUser = () => {
         <div className="right-login-main">
           <div className="right-login r-login">
             <img style={{margin: "20px 0"}} src={Logo} className='logoimg' alt="" />
-            <h1 className='font-extrabold text-white welcome1'>Welcome to Register</h1>
-            <p className='text-gray-100 font-lg my-4  font-semibold'>Already have an account</p>
+            <h1 className='font-extrabold text-gray-700 welcome1'>Welcome to Register</h1>
+            <p className='text-gray-700 font-lg my-4  font-semibold'>Already have an account</p>
             <button onClick={() => { navigate('/login') }} className='signbtn'>Sign In</button>
           </div>
         </div>

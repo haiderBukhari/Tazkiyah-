@@ -3,19 +3,27 @@ import React, { useEffect, useState } from 'react';
 import '../Pages/styles.css';
 import ApexCharts from 'apexcharts';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-export const Performancepage2 = () => {
+import AssignMentees from "./AssignMentees";
+import StudentDataItems from "./StudentList";
+
+export const Performancepage2 = ({ selectedSemester, setSelectedSemester, selectedMentor, setSelectedMentor }) => {
     //eslint-disable-next-line
     const [email, setemail] = useState(useSelector(state => state)?.email);
-    const [findData, setFindData] = useState(false);
-    const [sapId, setId] = useState("");
+    const [selectedStudent, setSelectedStudent] = useState(null);
+    const [sapId, setId] = useState();
+    const [studentLogined, setStudentLogined] = useState(false);
     useEffect(() => {
-        if (email !== "tarbiyah@gmail.com") {
-            setFindData(true)
+        if (email !== "tarbiyah@gmail.com" && email !== "manager@gmail.com") {
+            setStudentLogined(true)
+            setSelectedStudent(true)
+        }
+        if(email === "manager@gmail.com"){
+            setSelectedSemester(1)
         }
         //eslint-disable-next-line
     }, [])
     useEffect(() => {
-        if (findData) {
+        if (selectedStudent || studentLogined) {
             const barChartOptions = {
                 series: [
                     {
@@ -240,19 +248,19 @@ export const Performancepage2 = () => {
             const areaChart = new ApexCharts(document.getElementById('area-chart'), areaChartOptions);
             areaChart.render();
         }
-    }, [findData]);
+        //eslint-disable-next-line
+    }, [selectedStudent]);
 
     return (
         <>
             {
-                findData ?
+                selectedStudent ?
                     <div className="grid-container mt-10 mb-10 pl-2 pr-2">
                         <header className="headerssss1 mb-7">
                             <div style={{ position: "relative" }} className="centersss">
                                 {
-                                    email === "tarbiyah@gmail.com" && <div onClick={() => { setFindData(!findData) }} style={{ position: "absolute", top: 0, left: 10, cursor: 'pointer' }}>
+                                    (email === "tarbiyah@gmail.com" || email === "manager@gmail.com") && <div onClick={() => { setSelectedStudent(null) }} style={{ position: "absolute", top: 0, left: 10, cursor: 'pointer' }}>
                                         <ArrowLeftIcon style={{ color: "#000", fontWeight: "bold", fontSize: "25px" }} />
-                                        {/* <p>Go Back</p> */}
                                     </div>
                                 }
                                 <p className='text-center text-3xl font-bold main'>Performance Analytics</p>
@@ -263,9 +271,10 @@ export const Performancepage2 = () => {
                         </header>
                         <main className="main-container">
                             {
-                                email === "tarbiyah@gmail.com" && <div style={{ color: '#000' }} className="flex justify-center flex-col items-center">
+                                (email === "tarbiyah@gmail.com" ||email === "manager@gmail.com") && <div style={{ color: '#000' }} className="flex justify-center flex-col items-center">
                                     <p style={{ fontSize: "18px" }}>SAP ID: <span>{sapId}</span></p>
-                                    <p style={{ fontSize: "18px", margin: "10px" }}>Name: <span>User 1</span></p>
+                                    <p style={{ fontSize: "18px", margin: "10px 10px 0 10px" }}>Student Name: <span>{selectedStudent.name}</span></p>
+                                    <p style={{ fontSize: "18px", margin: "0 10px 10px 10px" }}>Mentor Name: <span>{selectedMentor.name}</span></p>
                                 </div>
                             }
                             <div className="main-cards">
@@ -312,11 +321,17 @@ export const Performancepage2 = () => {
                             </div>
                         </main>
                     </div> : <div>
-                        <div className="flex justify-center items-center flex-col">
-                            <h1 style={{ fontSize: "18px", margin: "20px 0 10px 0" }}>Enter the SAP ID:</h1>
-                            <input type="text" placeholder="SAP ID" onChange={(e) => { setId(e.target.value) }} style={{ fontSize: "16px", borderRadius: "3px", outline: "none", padding: "10px 20px" }} />
-                            <button onClick={() => { setFindData(!findData) }} style={{ backgroundColor: "#007bff", fontSize: "17px", padding: "7px 20px", color: "#fff", margin: "20px 0", borderRadius: "7px" }}>Search</button>
-                        </div>
+                        {
+                            !selectedSemester && <div className='flex flex-col justify-center items-center' style={{ height: '50vh' }}>
+                                <h1 style={{ fontWeight: 'bold', fontSize: '23px', textAlign: 'center', lineHeight: '3.5rem' }}>Please Select the Desired Department and Semester.</h1>
+                            </div>
+                        }
+                        {
+                            selectedSemester && !selectedMentor && <AssignMentees selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} selectedMentor={selectedMentor} setSelectedMentor={setSelectedMentor} />
+                        }
+                        {
+                            selectedSemester && selectedMentor && !selectedStudent && <StudentDataItems setStudentData={setSelectedStudent} mentorName={selectedMentor} semester={selectedSemester} setid={setId} setmentor={setSelectedMentor}/>
+                        }
                     </div>
             }
         </>

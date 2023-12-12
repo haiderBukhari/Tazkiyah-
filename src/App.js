@@ -20,7 +20,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false)
   const [corner, setcorner] = useState("");
   const [proceed, setProceed] = useState(false);
-  const [currentDept, setCurrentDept] = useState('');
+  const [currentDept, setCurrentDept] = useState(null);
   const [editProfilePopup, setEditProfilePopup] = useState(false);
   const [editUploadContentPopup, setEditUploadContentPopup] = useState(false);
   const [selectedSemester, setSelectedSemester] = useState(null);

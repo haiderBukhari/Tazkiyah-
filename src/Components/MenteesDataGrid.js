@@ -124,8 +124,8 @@ const MenteesDataGrid = ({ data, setStudentList, selectedMentor , setSelectedMen
                             <input onChange={(e) => { setStudentData({ ...studentData, Department: e.target.value }) }} value={studentData.Department} type="text" style={{ width: '240px' }} placeholder='Dapartment' />
                         </DialogContent>
                         <DialogActions>
-                            <Button style={{ fontSize: '14px', border: '1px solid #ccc' }} onClick={handleClose}>Close</Button>
-                            <Button disabled={!studentData.sapid || !studentData.Name || !studentData.Department} style={{ fontSize: '14px', border: '1px solid #ccc' }} onClick={() => { setStudentList([studentData, ...data]); ToastContainer("Student Assigned Successfully!"); handleClose() }} autoFocus>
+                            <Button style={{ fontSize: '14px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff" }} onClick={handleClose}>Close</Button>
+                            <Button disabled={!studentData.sapid || !studentData.Name || !studentData.Department} style={{ fontSize: '14px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff" }} onClick={() => { setStudentList([studentData, ...data]); ToastContainer("Student Assigned Successfully!"); handleClose() }} autoFocus>
                                 Add Student
                             </Button>
                         </DialogActions>

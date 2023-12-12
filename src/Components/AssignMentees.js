@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import './style.css'
 import MenteesDataGrid from './MenteesDataGrid';
-const AssignMentees = ({selectedSemester, setSelectedSemester}) => {
-    const [selectedMentor, setSelectedMentor] = useState(null);
+const AssignMentees = ({selectedSemester, setSelectedSemester, selectedMentor, setSelectedMentor}) => {
     function generateRandomId() {
         return Math.floor(1000 + Math.random() * 9000);
     }
@@ -202,7 +201,6 @@ const AssignMentees = ({selectedSemester, setSelectedSemester}) => {
                                     </div>
                                 ))}
                             </div>
-
                         </>)
                     }
                 </div>) : (<>
@@ -212,7 +210,6 @@ const AssignMentees = ({selectedSemester, setSelectedSemester}) => {
                 </>)
             }
         </>
-
     )
 }
 

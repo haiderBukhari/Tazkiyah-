@@ -4,11 +4,13 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import { NavLink } from 'react-router-dom'
+import Woman2Icon from '@mui/icons-material/Woman2';
 import PeopleIcon from '@mui/icons-material/People';
+import PublicIcon from '@mui/icons-material/Public';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
-const AssignMentors = ({ currentDept, setCurrentDept, closeSideBar, sidebarshow, setSideBarShow, setProceed, selectedSemester, setSelectedSemester }) => {
+const PerformanceAnalyticsSideBar = ({ currentDept, setCurrentDept, closeSideBar, sidebarshow, setSideBarShow, setProceed, selectedSemester, setSelectedSemester }) => {
     let [onClick, setOnClick] = useState(false)
     const [selectDpt, setSelectDpt] = React.useState(false);
     const [selectedSemesterTemp, setSelectedSemesterTemp] = useState(false);
@@ -17,7 +19,7 @@ const AssignMentors = ({ currentDept, setCurrentDept, closeSideBar, sidebarshow,
         <>
             <p style={{ color: '#fff', fontSize: '17px', marginTop: '15px' }}>Select your Department: </p>
             <div style={{ paddingLeft: '10px', marginBottom: '10px' }}>
-                <NavLink to="/assign-mentees">
+                <NavLink to="/performance">
                     <li onClick={() => { setOnClick(!onClick); setCurrentDept('FC') }} style={{ backgroundColor: `${currentDept === 'FC' || currentDept === 'CS' || currentDept === 'SE' || currentDept === 'CA' ? '#3f6184' : ''}`, borderRadius: `${currentDept === 'FC' || currentDept === 'CS' || currentDept === 'SE' || currentDept === 'CA' ? '14px' : ''}`, marginTop: '10px', paddingLeft: '20px', width: '90%', paddingTop: '10px', paddingBottom: '10px' }}>
                         <PeopleIcon style={{ fontSize: '30px', marginRight: '10px' }} />
                         FC
@@ -28,7 +30,7 @@ const AssignMentors = ({ currentDept, setCurrentDept, closeSideBar, sidebarshow,
                 </NavLink>
                 {
                     onClick && <div style={{ paddingLeft: '20px', marginBottom: '10px' }}>
-                        <NavLink to="/assign-mentees">
+                        <NavLink to="/performance">
                             <li onClick={() => {
                                 setCurrentDept('SE');
                                 closeSideBar && setSideBarShow(!sidebarshow); setProceed(false);
@@ -37,7 +39,7 @@ const AssignMentors = ({ currentDept, setCurrentDept, closeSideBar, sidebarshow,
                                 Software Engineering
                             </li>
                         </NavLink>
-                        <NavLink to="/assign-mentees">
+                        <NavLink to="/performance">
                             <li onClick={() => {
                                 setCurrentDept('CS');
                                 setSelectDpt(!selectDpt)
@@ -46,7 +48,7 @@ const AssignMentors = ({ currentDept, setCurrentDept, closeSideBar, sidebarshow,
                                 Computer Science
                             </li>
                         </NavLink>
-                        <NavLink to="/assign-mentees">
+                        <NavLink to="/performance">
                             <li onClick={() => {
                                 setCurrentDept('CA');
                                 setSelectDpt(!selectDpt)
@@ -57,6 +59,32 @@ const AssignMentors = ({ currentDept, setCurrentDept, closeSideBar, sidebarshow,
                         </NavLink>
                     </div>
                 }
+                <NavLink to="/performance">
+                    <li onClick={() => { setCurrentDept('Pharmacy'); closeSideBar && setSideBarShow(!sidebarshow); setProceed(false); setSelectDpt(!selectDpt); }} style={{ backgroundColor: `${currentDept === 'Pharmacy' ? '#3f6184' : ''}`, borderRadius: `${currentDept === 'Pharmacy' ? '14px' : ''}`, marginTop: '10px', paddingLeft: '20px', width: '90%', paddingTop: '10px', paddingBottom: '10px' }}>
+                        <PeopleIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                        Pharmacy
+                    </li>
+                </NavLink>
+                <NavLink to="/performance">
+                    <li onClick={() => {
+                        setCurrentDept('DBD');
+                        setSelectDpt(!selectDpt)
+                        closeSideBar && setSideBarShow(!sidebarshow); setProceed(false);
+                    }} style={{ backgroundColor: `${currentDept === 'DBD' ? '#3f6184' : ''}`, borderRadius: `${currentDept === 'DBD' ? '14px' : ''}`, marginTop: '10px', paddingLeft: '20px', width: '90%', paddingTop: '10px', paddingBottom: '10px' }}>
+                        <Woman2Icon style={{ fontSize: '30px', marginRight: '10px' }} />
+                        DBD
+                    </li>
+                </NavLink>
+                <NavLink to="/performance">
+                    <li onClick={() => {
+                        setCurrentDept('Psychology');
+                        setSelectDpt(!selectDpt)
+                        closeSideBar && setSideBarShow(!sidebarshow); setProceed(false);
+                    }} style={{ backgroundColor: `${currentDept === 'Psychology' ? '#3f6184' : ''}`, borderRadius: `${currentDept === 'Psychology' ? '14px' : ''}`, marginTop: '10px', paddingLeft: '20px', width: '90%', paddingTop: '10px', paddingBottom: '10px' }}>
+                        <PublicIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                        Psychology
+                    </li>
+                </NavLink>
                 {
                     <React.Fragment>
                         <Dialog
@@ -93,4 +121,4 @@ const AssignMentors = ({ currentDept, setCurrentDept, closeSideBar, sidebarshow,
     )
 }
 
-export default AssignMentors
+export default PerformanceAnalyticsSideBar;

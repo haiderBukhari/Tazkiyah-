@@ -4,6 +4,7 @@ import SelfDevelopment from '../../assets/self development.jpg'
 import { useNavigate } from 'react-router-dom';
 import ToastContainer from '../toast';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { SetDates } from './select';
 
 export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, setcorner }) => {
     let Navigate = useNavigate();
@@ -132,6 +133,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                 />
                                             </div>
                                         </div>
+                                        <SetDates/>
                                         <div className="btns-list mt-10">
                                             <button disabled={goalTitle.length === 0} style={{ cursor: `${goalTitle.length === 0 ? 'not-allowed' : 'pointer'}` }} className='btns-color' onClick={() => { setMilestone(!milestone) }}>Add MileStone</button>
                                         </div>
@@ -154,6 +156,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                             <i onClick={() => { handledDelete(index) }} class="fa-solid fa-trash-can"></i>
                                                         </>
                                                     }
+                                                    <SetDates/>
                                                 </div>
                                             ))
                                         }
