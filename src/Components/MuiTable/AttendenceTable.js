@@ -3,11 +3,15 @@ import style from '../timeline.module.css'
 import '../style.css'
 import { DataGrid } from '@mui/x-data-grid';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import { useSelector } from "react-redux"
 
 export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
     let [show, setShow] = useState(false)
     const [gridWidth, setGridWidth] = useState(0);
     const [tableShow, setTableShow] = useState(false);
+    const [mentorEmail, setMentorEmail] = useState(useSelector(state => state).email === "mentor@gmail.com");
+    const [eventDetails, setEventDetails] = useState({name: "", date: ""});
+    const [markAttendece, setMarkAttendence] = useState(false);
     useEffect(() => { window.scrollTo(0, 0) }, [show])
     useEffect(() => {
         const handleResize = () => {
@@ -57,6 +61,43 @@ export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
         },
     ];
 
+    const AttendenceMarkColumn = [
+        {
+            field: 'id',
+            headerName: 'SAP ID',
+            width: gridWidth > 500 ? 180 : 100,
+            renderCell: (params) => (
+                <div style={{ fontSize: `${gridWidth > 500 ? '20px' : '13px'}` }}>
+                    {params.value}
+                </div>
+            ),
+        },
+        {
+            field: 'Name',
+            headerName: 'Name',
+            width: gridWidth > 800 ? 300 : gridWidth > 550 ? 300 : 100,
+            renderCell: (params) => (
+                <div style={{ fontSize: `${gridWidth > 500 ? '17px' : '13px'}` }}>
+                    {
+                        gridWidth > 500 ? `${params.value}` : `${params.value.split(" ")[0]}`
+                    }
+                </div>
+            ),
+        },
+        {
+            field: 'present',
+            headerName: '',
+            fontSize: "20px",
+            width: gridWidth > 500 ? 130 : 100,
+            renderCell: (params) => (
+                <select style={{ color: '#000', padding: `${gridWidth > 500 ? '7px 23px' : '7px 10px'}`, borderRadius: '3px', fontSize: '14px' }}>
+                    <option value="" key="">Present</option>
+                    <option value="" key="">Absent</option>
+                </select>
+            ),
+        },
+    ];
+
     const rows = [
         { id: Math.floor(Math.random() * 10000), Name: 'Snow', present: false },
         { id: Math.floor(Math.random() * 10000), Name: 'Lannister', present: true },
@@ -97,7 +138,7 @@ export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
     ];
     let [selected, setSelected] = useState(false);
     let [event, setEvent] = useState({});
-    let eventDetail = [
+    const [eventDetail, setEventDetail] = useState([
         {
             name: 'MLSA Event',
             date: '28-12-2022'
@@ -106,11 +147,11 @@ export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
             name: 'GDSC Github Event',
             date: '21-10-2022'
         }
-    ]
+    ])
     useEffect(() => {
         setSelected(false);
         setEvent({});
-        setTableShow(currentDept === 'SE' || currentDept === 'CS' || currentDept === 'CA' || currentDept === 'Pharmacy' || currentDept === 'DBD' || currentDept === 'Psychology')
+        setTableShow(currentDept === 'SE' || currentDept === 'CS' || currentDept === 'CA' || currentDept === 'Pharmacy' || currentDept === 'DBD' || currentDept === 'Psychology' || mentorEmail)
     }, [currentDept])
     return (
         <>
@@ -118,7 +159,12 @@ export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
                 tableShow ? (<>
                     <div id={`${style.qualification}`}>
                         {
-                            !selected && <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+                            !markAttendece && !selected && <div style={{ display: "flex", justifyContent: "center" }}>
+                                <button onClick={() => { setMarkAttendence(true) }} style={{ margin: "20px 0", backgroundColor: "#15375c", color: "#fff", padding: "7px 14px", borderRadius: "4px" }}>Add Session Attendence</button>
+                            </div>
+                        }
+                        {
+                            !markAttendece && !selected && <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
                                 {
                                     eventDetail.map((item) => (
                                         <div style={{ padding: '20px', margin: '20px', border: '1px solid #ccc', boxShadow: '1px 1px 2px 3px #ccc', width: '300px', height: '230px', position: 'relative' }}>
@@ -139,7 +185,7 @@ export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
                         }
 
                         {
-                            selected && <div style={{ position: 'relative', paddingTop: '30px' }} className={`${style.main} dark:bg-slate-400`}>
+                            !markAttendece && selected && <div style={{ position: 'relative', paddingTop: '30px' }} className={`${style.main} dark:bg-slate-400`}>
                                 <div onClick={() => { setSelected(false); setEvent({}) }} style={{ position: 'absolute', top: 0, left: '6%', color: '#000', display: 'flex', alignItems: 'center', cursor: 'pointer', marginTop: '10px' }}>
                                     <ArrowLeftIcon style={{ fontSize: '30px' }} />
                                     <p>Go Back</p>
@@ -155,6 +201,24 @@ export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
                                         rows={rows}
                                         columns={columns}
                                         style={{ fontSize: '15px' }}
+                                    />
+                                </div>
+                            </div>
+                        }
+                        {
+                            markAttendece && <div style={{ position: 'relative', paddingTop: '30px', height: "100%" }} className={`${style.main} dark:bg-slate-400`}>
+                                <button onClick={()=>{setEventDetail([eventDetails, ...eventDetail]); setMarkAttendence(false)}} style={{ margin: "20px 0", backgroundColor: "#15375c", color: "#fff", padding: "7px 14px", borderRadius: "4px" }}>Add Attendence</button>
+                                <input onChange={(e)=>{setEventDetails({...eventDetails, name: e.target.value})}}  type="text" placeholder='Name of the Event' style={{width: "250px", padding: "4px 10px", color: "gray", fontSize: "17px", outline: "none", boxShadow: "2px 2px 1px #ccc, -2px -2px 1px #ccc", margin: "10px 0 10px 0"}}/>
+                                <input onChange={(e)=>{setEventDetails({...eventDetails, date: e.target.value})}} type="date" style={{width: "250px", padding: "4px 10px", color: "gray", fontSize: "17px", outline: "none", boxShadow: "2px 2px 1px #ccc, -2px -2px 1px #ccc", margin: "0px 0 10px 0"}}/>
+                                <div onClick={() => { setMarkAttendence(false) }} style={{ position: 'absolute', top: 0, left: '6%', color: '#000', display: 'flex', alignItems: 'center', cursor: 'pointer', marginTop: '10px' }}>
+                                    <ArrowLeftIcon style={{ fontSize: '30px' }} />
+                                    <p>Go Back</p>
+                                </div>
+                                <div style={{ height: '100%', width: 'auto', margin: "10px 20px" }}>
+                                    <DataGrid
+                                        rows={rows}
+                                        columns={AttendenceMarkColumn}
+                                        style={{ fontSize: '15px'}}
                                     />
                                 </div>
                             </div>

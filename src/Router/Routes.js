@@ -14,6 +14,7 @@ import { useState } from "react";
 import Calendar from "../Components/EventsCalender/Calender";
 import AssignMentees from "../Components/AssignMentees";
 import { Notifications } from './../Components/Notifications';
+import MentorTraining from "../Components/MentorTraining/MentorTraining";
 
 export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proceed, setProceed, corner, setcorner, currentDept, setCurrentDept, selectedSemester, setSelectedSemester }) => {
     //eslint-disable-next-line
@@ -35,6 +36,7 @@ export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proc
                 <Route path='/calendar' element={<Calendar />} />
                 <Route path="/attendence" element={<AttendenceTable currentDept={currentDept} setCurrentDept={setCurrentDept} />} />
                 <Route path="/notifications" element={<Notifications />} />
+                <Route path="/training" element={<MentorTraining />} />
             </Routes>
         </>
     )
