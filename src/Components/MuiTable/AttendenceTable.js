@@ -153,6 +153,8 @@ export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
         setSelected(false);
         setEvent({});
         setTableShow(currentDept === 'SE' || currentDept === 'CS' || currentDept === 'CA' || currentDept === 'Pharmacy' || currentDept === 'DBD' || currentDept === 'Psychology' || mentorEmail)
+
+        //eslint-disable-next-line
     }, [currentDept])
     return (
         <>
