@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import Logo from "../assets/Tazkiyah Logo.jpg"
+import Logo from "../assets/Tazkiyah Logo Bg.png"
 import { Link } from 'react-router-dom'
 import DehazeIcon from '@mui/icons-material/Dehaze';
 
