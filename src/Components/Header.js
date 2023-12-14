@@ -40,7 +40,7 @@ export const Header = ({ setSideBarShow, sidebarshow, isLogin, setIsLogin, showc
                                             <ul class="nav menu">
                                                 <li class="active" ><a href="/">Home <i class=""></i></a>
                                                 </li>
-                                                <li><a href="/">Tazkiyah Vision </a></li>
+                                                <li><a href="/#tazkiyahvision">Tazkiyah Vision </a></li>
                                                 {/* <li><Link to="/goal">Services <i class="icofont-rounded-down"></i></Link>
                                                     <ul class="dropdown">
                                                         <li><Link to="/goal">Self Development</Link></li>

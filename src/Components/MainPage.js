@@ -120,7 +120,7 @@ export const MainPage = () => {
                     </div>
                 </section>
             </div>
-            <h1 style={{ fontSize: "27px", fontWeight: "bold", color: "gray", textAlign: "center", marginTop: "30px" }}>Tazkiyah Vision</h1>
+            <h1 id='tazkiyahvision' style={{ fontSize: "27px", fontWeight: "bold", color: "gray", textAlign: "center", marginTop: "30px" }}>Tazkiyah Vision</h1>
             <hr style={{ width: "130px", padding: "1px", backgroundColor: "gray", margin: "10px auto 20px auto" }} />
             <div style={{display: "flex", justifyContent:"center", alignItems: "center", flexDirection: "column"}}>
                 <p style={{fontSize: "16px", maxWidth: "800px", margin: "10px 30px", textAlign: "center", lineHeight: "3.0rem"}}>The very first thing that motivated us to start the project was the idea that it would help in solving the problem of departmental issues of our university. Second, it was a technically challenging project, so each new challenge in our project motivated us to learn a technology which solved our problem. Itself, it became a challenge for us too. For the project, we had to learn many new technologies and spent days finding the right technology for the project.</p>

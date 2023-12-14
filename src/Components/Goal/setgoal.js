@@ -163,12 +163,14 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                 </div>
                                             ))
                                         }
-                                        <div className="btns-list mt-10">
-                                            <button className='btns-color' disabled={count[0].goal === "" || count[count.length - 1].goal === "" ? true : false} style={{ cursor: `${count[0].goal === "" || count[count.length - 1].goal === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { setCount([...count, { goal: "", status: "Pending" }]) }}>Add Another MileStone</button>
-                                        </div>
-                                        <div className="btns-list mt-3">
-                                            <button className='btns-color
+                                        <div className='flex justify-center'>
+                                            <div className="btns-list mt-10">
+                                                <button  className='btns-color' disabled={count[0].goal === "" || count[count.length - 1].goal === "" ? true : false} style={{fontSize: "12px", cursor: `${count[0].goal === "" || count[count.length - 1].goal === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { setCount([...count, { goal: "", status: "Pending" }]) }}>Add Another MileStone</button>
+                                            </div>
+                                            <div style={{fontSize: "12px"}} className="btns-list mt-10">
+                                                <button className='btns-color
                                             ' onClick={() => { setMilestone(!milestone) }}>Save MileStones</button>
+                                            </div>
                                         </div>
                                     </div>
                                 }

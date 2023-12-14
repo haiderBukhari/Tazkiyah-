@@ -195,7 +195,7 @@ const AssignMentees = ({selectedSemester, setSelectedSemester, selectedMentor, s
                             </div>
                             <div className="mentor-list">
                                 {mentorList.map((mentor, index) => (
-                                    <div onClick={() => { setSelectedMentor(mentor) }} style={{ cursor: "pointer" }} key={index} className="mentor-card">
+                                    <div onClick={() => { setSelectedMentor(mentor) }} style={{ cursor: "pointer",border: "2px solid #15375c", transition: "transform 300ms ease-in-out 0s" }} key={index} className="mentor-card hover:scale-110">
                                         <h2>Name: {mentor.name}</h2>
                                         <p>Students Assigned: {mentor.studentsAssigned}</p>
                                     </div>

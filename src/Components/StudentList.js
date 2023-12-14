@@ -87,11 +87,11 @@ const StudentDataItems = ({ setStudentData, mentorName, semester, setid , setmen
                             <h1 style={{ textAlign: "center", fontSize: "18px", marginBottom: "20px" }}>Semester: {semester}</h1>
                             <h1 style={{ textAlign: "center", fontSize: "18px", marginBottom: "20px" }}>Mentor Name: {mentorName.name}</h1>
                         </div>
-                        <div className="mentor-list">
+                        <div className="mentor-list mx-4">
                             {StudentLists.map((student, index) => (
-                                <div onClick={() => { setStudentData(student); setid(student.sapid) }} style={{ cursor: "pointer", width: "300px" }} key={index} className="mentor-card">
-                                    <h2>Name: {student.name}</h2>
-                                    <p>SAP ID: {student.sapid}</p>
+                                <div onClick={() => { setStudentData(student); setid(student.sapid) }} style={{ cursor: "pointer", width: "300px", border: "2px solid #15375c", transition: "transform 300ms ease-in-out 0s" }} key={index} className="mentor-card hover:scale-110">
+                                    <h2 style={{color: "#15375c"}}>Name: {student.name}</h2>
+                                    <p style={{color: "#15375c"}}>SAP ID: {student.sapid}</p>
                                 </div>
                             ))}
                         </div>

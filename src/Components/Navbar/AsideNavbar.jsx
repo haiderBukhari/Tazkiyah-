@@ -167,8 +167,8 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 </li>
                             </NavLink>
                             <NavLink to="/performance" >
-                                <li onClick={() => { }} style={{ backgroundColor: `${location.pathname === '/performance' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/performance' ? '14px' : ''}`, fontSize: "13px" }}>
-                                    <AssessmentIcon style={{ fontSize: '33px', marginRight: '10px' }} />
+                                <li onClick={() => { }} style={{ backgroundColor: `${location.pathname === '/performance' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/performance' ? '14px' : ''}`, fontSize: "15px" }}>
+                                    <AssessmentIcon style={{ fontSize: '25px', marginRight: '10px' }} />
                                     Performance Analytics
                                     {
                                         email && (email.email === "tarbiyah@gmail.com") ? location.pathname === '/performance' ? <ArrowDownwardIcon style={{ fontSize: '20px', marginLeft: '10px' }} /> : <ArrowRightAltIcon style={{ fontSize: '20px', marginLeft: '10px' }} /> : (<></>)
