@@ -3,7 +3,6 @@ import './style.css'
 import slider1 from '../assets/Corousel_Images/c1.jpg'
 import slider2 from '../assets/Corousel_Images/c2.png'
 import slider3 from '../assets/Corousel_Images/c3.png'
-import tazkiyahquranic from "../assets/tazkiyahquranic.jfif"
 
 export const MainPage = () => {
     return (
@@ -127,7 +126,6 @@ export const MainPage = () => {
                 <p style={{fontSize: "16px", maxWidth: "800px", margin: "10px 30px", textAlign: "center", lineHeight: "3.0rem"}}>The very first thing that motivated us to start the project was the idea that it would help in solving the problem of departmental issues of our university. Second, it was a technically challenging project, so each new challenge in our project motivated us to learn a technology which solved our problem. Itself, it became a challenge for us too. For the project, we had to learn many new technologies and spent days finding the right technology for the project.</p>
                 <p style={{fontSize: "17px", maxWidth: "800px", margin: "40px 30px", textAlign: "center", lineHeight: "3.0rem"}}>There are current systems that match our system. Existing System allows us limited features, but these features cannot satisfy the demand of our university Tarbiyah department. As a solution to these challenges, the Tazkiyah website came up with different new features that will prove to be beneficial for the targeted stakeholders.</p>
             </div>
-            {/* <img style={{ height: "500px", width: "auto", margin: "0 auto 30px auto" }} src={tazkiyahquranic} className='hover:scale-105' alt="" /> */}
         </>
 
     )

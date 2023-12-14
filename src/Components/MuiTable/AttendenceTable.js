@@ -9,6 +9,7 @@ export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
     let [show, setShow] = useState(false)
     const [gridWidth, setGridWidth] = useState(0);
     const [tableShow, setTableShow] = useState(false);
+    //eslint-disable-next-line
     const [mentorEmail, setMentorEmail] = useState(useSelector(state => state).email === "mentor@gmail.com");
     const [eventDetails, setEventDetails] = useState({name: "", date: ""});
     const [markAttendece, setMarkAttendence] = useState(false);
