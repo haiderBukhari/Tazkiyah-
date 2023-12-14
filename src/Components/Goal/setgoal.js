@@ -117,8 +117,8 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                 <input style={{ margin: '0px' }} className='ml-2' type="radio" name="q1" id="public" />
                                             </div>
                                         </div>
-                                        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems:"center" }}>
-                                            <div style={{ }} className="flex justify-between place-items-center lb mt-2 mb-4 items-center">
+                                        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+                                            <div style={{}} className="flex justify-between place-items-center lb mt-2 mb-4 items-center">
                                                 <select style={{ width: '150px', margin: 'auto', marginTop: '10px', marginBottom: '3px', padding: "3px 0" }} className='' name="" id="">
                                                     <option value="">Daily</option>
                                                     <option value="">Weekly</option>
@@ -133,12 +133,15 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                 />
                                             </div>
                                         </div>
-                                        <SetDates/>
-                                        <div className="btns-list mt-10">
-                                            <button disabled={goalTitle.length === 0} style={{ cursor: `${goalTitle.length === 0 ? 'not-allowed' : 'pointer'}` }} className='btns-color' onClick={() => { setMilestone(!milestone) }}>Add MileStone</button>
-                                        </div>
-                                        <div className="btns-list mt-3">
-                                            <button className='btns-color' disabled={goalTitle === "" ? true : false} style={{ cursor: `${goalTitle === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { SetYourGoal() }}>Save Goal</button>
+                                        <SetDates />
+                                        <div className='flex justify-center item-center'>
+
+                                            <div className="btns-list mt-10">
+                                                <button disabled={goalTitle.length === 0} style={{ cursor: `${goalTitle.length === 0 ? 'not-allowed' : 'pointer'}` }} className='btns-color' onClick={() => { setMilestone(!milestone) }}>Add MileStone</button>
+                                            </div>
+                                            <div className="btns-list mt-10 ml-3">
+                                                <button className='btns-color' disabled={goalTitle === "" ? true : false} style={{ cursor: `${goalTitle === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { SetYourGoal() }}>Save Goal</button>
+                                            </div>
                                         </div>
                                     </div>
                                 }
@@ -156,7 +159,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                             <i onClick={() => { handledDelete(index) }} class="fa-solid fa-trash-can"></i>
                                                         </>
                                                     }
-                                                    <SetDates/>
+                                                    <SetDates />
                                                 </div>
                                             ))
                                         }

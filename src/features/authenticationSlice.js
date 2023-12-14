@@ -5,6 +5,7 @@ const loadAuthDataFromLocalStorage = () => {
     return storedAuthData ? JSON.parse(storedAuthData) : {
         name: "User",
         email: "user@example.com",
+        isLogin: false
     };
 };
 
@@ -15,12 +16,12 @@ export const authSlice = createSlice({
     initialState,
     reducers: {
         createAuth: (state, action) => {
-            const newState = { ...initialState, email: action.payload.email };
+            const newState = { ...initialState, email: action.payload.email, isLogin: true };
             localStorage.setItem("auth", JSON.stringify(newState));
             return newState;
         },
         deleteAuth: (state) => {
-            const newState = { ...initialState, email: "user@example.com" };
+            const newState = { ...initialState, email: "user@example.com", isLogin: false };
             localStorage.setItem("auth", JSON.stringify(newState));
             return newState;
         }

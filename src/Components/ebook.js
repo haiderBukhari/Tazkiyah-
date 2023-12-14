@@ -1,7 +1,7 @@
 import React from 'react'
 import hero from '../assets/images/hero_bg_1.jpg'
-import book_white from '../assets/images/book_white.png'
-import book_black from '../assets/images/book_black.png'
+import book_white from '../assets/images/book2.png'
+import book_black from '../assets/images/book1.png'
 import person_1 from '../assets/images/person_1.jpg'
 import person_2 from '../assets/images/person_2.jpg'
 import person_3 from '../assets/images/person_3.jpg'
@@ -28,8 +28,8 @@ export const Ebook = () => {
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <figure class="fh5co-intro-img">
-                                <img class="img-1" src={book_black} alt="Free Website Template by FreeHTML5.co" />
-                                <img class="img-2" src={book_white} i alt="Free Website Template by FreeHTML5.co" />
+                                <img class="img-1" style={{height: "500px"}} src={book_black} alt="Free Website Template by FreeHTML5.co" />
+                                <img class="img-2" style={{height: "500px"}} src={book_white} i alt="Free Website Template by FreeHTML5.co" />
                             </figure>
                         </div>
                     </div>
@@ -105,7 +105,7 @@ export const Ebook = () => {
                         <div class="col-md-6 col-md-pull-6">
                             <div class="fh5co-img text-right">
                                 <figure class="fh5co-figure ">
-                                    <img class="img-2" src={book_white} alt="Free Website Template by FreeHTML5.co" />
+                                    <img class="img-2" style={{height: "500px"}} src={book_white} alt="Free Website Template by FreeHTML5.co" />
                                 </figure>
                             </div>
                         </div>
@@ -122,7 +122,7 @@ export const Ebook = () => {
                         <div class="col-md-6">
                             <div class="fh5co-img text-left">
                                 <figure class="fh5co-figure ">
-                                    <img class="img-2" src={book_black} alt="Free Website Template by FreeHTML5.co" />
+                                    <img class="img-2" style={{height: "500px"}} src={book_black} alt="Free Website Template by FreeHTML5.co" />
                                 </figure>
                             </div>
                         </div>
@@ -139,7 +139,7 @@ export const Ebook = () => {
                         <div class="col-md-6 col-md-pull-6">
                             <div class="fh5co-img text-right">
                                 <figure class="fh5co-figure ">
-                                    <img class="img-2" src={book_white} alt="Free Website Template by FreeHTML5.co" />
+                                    <img class="img-2"  style={{height: "500px"}} src={book_white} alt="Free Website Template by FreeHTML5.co" />
                                 </figure>
                             </div>
                         </div>

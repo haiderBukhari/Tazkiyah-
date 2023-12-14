@@ -13,7 +13,7 @@ export const LoginUser = ({ isLogin, setIsLogin }) => {
     e.preventDefault();
     dispatch(createAuth({ email: email.current.value.trim() }));
     setIsLogin(true);
-    navigate('/')
+    navigate('/performance')
   }
   return (
     <>

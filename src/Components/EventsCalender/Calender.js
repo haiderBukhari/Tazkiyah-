@@ -158,7 +158,6 @@ export default function Calendar() {
                 <>
                     <div onClick={() => { setSelectedDate(null) }} style={{ position: 'absolute', top: -20, left: '4%', color: '#000', display: 'flex', alignItems: 'center', cursor: 'pointer', marginTop: '10px' }}>
                         <ArrowLeftIcon style={{ fontSize: '30px' }} />
-                        <p>Go Back</p>
                     </div>
                     <EventCalender EventDate={selectedDate} setSelectedFinalDates={setSelectedFinalDates} />
                 </>

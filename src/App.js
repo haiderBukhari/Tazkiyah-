@@ -8,6 +8,7 @@ import AsideNavbar from './Components/Navbar/AsideNavbar';
 import CloseIcon from '@mui/icons-material/Close';
 import { EditProfile } from './Components/Navbar/EditProfile';
 import { UploadContent } from './Components/Navbar/UploadContent';
+import { useSelector } from 'react-redux';
 
 function App() {
   const location = useLocation()
@@ -60,7 +61,7 @@ function App() {
           (sidebarshow && showclose) && <CloseIcon onClick={() => { setSideBarShow(!sidebarshow) }} className='icon-app' style={{ left: '270px', color: '#fff' }} />
         }
       </div>
-      {
+      {useSelector(state=>state)?.isLogin &&
         location.pathname !== "/contact" && <div onClick={() => { navigate('/contact') }} className="contact-ss">
           <i class="fa-brands fa-rocketchat"></i>
           <button className='btns-pr'>Contact Us</button>
