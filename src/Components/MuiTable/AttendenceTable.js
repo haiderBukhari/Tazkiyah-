@@ -210,7 +210,6 @@ export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
                         }
                         {
                             markAttendece && <div style={{ position: 'relative', paddingTop: '30px', height: "100%" }} className={`${style.main} dark:bg-slate-400`}>
-                                <button onClick={()=>{setEventDetail([eventDetails, ...eventDetail]); setMarkAttendence(false)}} style={{ margin: "20px 0", backgroundColor: "#15375c", color: "#fff", padding: "7px 14px", borderRadius: "4px" }}>Add Attendence</button>
                                 <input onChange={(e)=>{setEventDetails({...eventDetails, name: e.target.value})}}  type="text" placeholder='Name of the Event' style={{width: "250px", padding: "4px 10px", color: "gray", fontSize: "17px", outline: "none", boxShadow: "2px 2px 1px #ccc, -2px -2px 1px #ccc", margin: "10px 0 10px 0"}}/>
                                 <input onChange={(e)=>{setEventDetails({...eventDetails, date: e.target.value})}} type="date" style={{width: "250px", padding: "4px 10px", color: "gray", fontSize: "17px", outline: "none", boxShadow: "2px 2px 1px #ccc, -2px -2px 1px #ccc", margin: "0px 0 10px 0"}}/>
                                 <div onClick={() => { setMarkAttendence(false) }} style={{ position: 'absolute', top: 0, left: '6%', color: '#000', display: 'flex', alignItems: 'center', cursor: 'pointer', marginTop: '10px' }}>
@@ -224,6 +223,8 @@ export const AttendenceTable = ({ currentDept, setCurrentDept }) => {
                                         style={{ fontSize: '15px'}}
                                     />
                                 </div>
+
+                                <button onClick={()=>{setEventDetail([eventDetails, ...eventDetail]); setMarkAttendence(false)}} style={{ margin: "20px 0", backgroundColor: "#15375c", color: "#fff", padding: "7px 14px", borderRadius: "4px" }}>Save Attendence</button>
                             </div>
                         }
                     </div>

@@ -97,7 +97,7 @@ ul li .date {
 	position: absolute;
 	width: 130px;
 	height: 33px;
-	background-image: linear-gradient(to right,#7f00ff,#e100ff);
+	background-color: #15375c;
 	border-radius: 15px;
 	top: -45px;
 	display: grid;

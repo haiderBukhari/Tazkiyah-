@@ -12,9 +12,9 @@ const MentorTraining = () => {
 
     const [fileName, setFileName] = useState("");
     const [linkName, setLinkName] = useState("");
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+    // const handleClickOpen = () => {
+        // setOpen(true);
+    // };
 
     const handleClose = () => {
         setOpen(false);
@@ -45,7 +45,7 @@ const MentorTraining = () => {
     return (
         <div>
             <div style={{ display: "flex", justifyContent: "center" }}>
-                <button onClick={() => { handleClickOpen() }} style={{ margin: "20px 0", backgroundColor: "#15375c", color: "#fff", padding: "7px 14px", borderRadius: "4px" }}>Upload Training Material</button>
+                {/* <button onClick={() => { handleClickOpen() }} style={{ margin: "20px 0", backgroundColor: "#15375c", color: "#fff", padding: "7px 14px", borderRadius: "4px" }}>Upload Training Material</button> */}
             </div>
 
 

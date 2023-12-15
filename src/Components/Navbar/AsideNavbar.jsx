@@ -17,10 +17,10 @@ import Attendence from './Attendence';
 import { useDispatch, useSelector } from "react-redux"
 import { deleteAuth } from '../../features/authenticationSlice'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import AssignMentors from './AssigneeMentors';
+import AssignMentees from './AssigneeMentees';
 import PerformanceAnalyticsSideBar from './PerformanceAnalyticsSidebar';
 
-export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin, currentDept, setCurrentDept, editProfilePopup, setEditProfilePopup, editUploadContentPopup, setEditUploadContentPopup, selectedSemester, setSelectedSemester }) => {
+export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin, currentDept, setCurrentDept, editProfilePopup, setEditProfilePopup, editUploadContentPopup, setEditUploadContentPopup, selectedSemester, setSelectedSemester, selectDpt, setSelectDpt }) => {
     const dispatch = useDispatch();
     //eslint-disable-next-line
     const [email, setemail] = useState(useSelector(state => state));
@@ -157,7 +157,7 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 </NavLink>
                             }
                             {
-                                email?.email === "manager@gmail.com" && location.pathname === '/assign-mentees' && <AssignMentors currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} />
+                                email?.email === "manager@gmail.com" && location.pathname === '/assign-mentees' && <AssignMentees currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} selectDpt={selectDpt} setSelectDpt={setSelectDpt}/>
                             }
 
                             <NavLink to="/notifications" >

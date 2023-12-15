@@ -16,7 +16,7 @@ import AssignMentees from "../Components/AssignMentees";
 import { Notifications } from './../Components/Notifications';
 import MentorTraining from "../Components/MentorTraining/MentorTraining";
 
-export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proceed, setProceed, corner, setcorner, currentDept, setCurrentDept, selectedSemester, setSelectedSemester }) => {
+export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proceed, setProceed, corner, setcorner, currentDept, setCurrentDept, selectedSemester, setSelectedSemester, forgetPasswordPopup, setForgetPasswordPopup }) => {
     //eslint-disable-next-line
     const [email, setemail] = useState(useSelector(state => state.email));
     const [selectedMentor, setSelectedMentor] = useState(null);
@@ -25,7 +25,7 @@ export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proc
             <Routes>
                 <Route path='/contact' element={<ContactUs />} />
                 <Route path='/register' element={<RegisterUser />} />
-                <Route path='/login' element={<LoginUser isLogin={isLogin} setIsLogin={setIsLogin} />} />
+                <Route path='/login' element={<LoginUser isLogin={isLogin} setIsLogin={setIsLogin} forgetPasswordPopup={forgetPasswordPopup} setForgetPasswordPopup={setForgetPasswordPopup}/>} />
                 <Route path='/goal' element={<SetGoal finalGoal={finalGoal} setFinalGoal={setFinalGoal} proceed={proceed} setProceed={setProceed} corner={corner} setcorner={setcorner} />} />
                 <Route path='/view-goal' element={<ViewGoals finalGoal={finalGoal} setFinalGoal={setFinalGoal} />} />
                 <Route path='/' element={<MainPage />} />

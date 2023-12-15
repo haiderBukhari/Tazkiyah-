@@ -51,7 +51,7 @@ export const TimeLine = () => {
             <div data-aos="fade-up" className={`${style.main} dark:bg-slate-400`}>
                 <>
                     <h3 className={`${style.head}`}>Events TimeLine</h3>
-                        <button onClick={() => { setShow(!show); handleClickOpen() }} type='submit' className='add-brn add-brn1' style={{ marginBottom: "0" }}>Add New Event</button>
+                        <button onClick={() => { setShow(!show); handleClickOpen() }} type='submit' className='add-brn add-brn1' style={{ marginBottom: "0", backgroundColor: "#15375c" }}>Add New Event</button>
                     <div style={{ margin: "90px 0 0 0" }} className={`${style.container}`}>
                         <ul>
                             {

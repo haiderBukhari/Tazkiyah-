@@ -56,7 +56,7 @@ function ServerDay(props) {
                 {...other}
                 style={{
                     color: isSelected ? '#fff' : '#000',
-                    backgroundColor: isSelected ? '#5a9bdb' : '',
+                    backgroundColor: isSelected ? '#15375c' : '',
                     borderRadius: "50%",
                     fontSize: "12px",
                     padding: "2px"

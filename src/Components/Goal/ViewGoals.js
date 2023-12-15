@@ -115,12 +115,12 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                                         </>
                                     ))
                                 }
-                                <div className="flex flex-col newro">
+                                <div className="flex flex-row newro justify-center">
                                     <div className="btns-lists mt-5">
                                         <button disabled={finalGoal[editindex].milestones[finalGoal[editindex].milestones.length - 1] && finalGoal[editindex].milestones[finalGoal[editindex].milestones.length - 1].goal === ''
                                         } style={{ border: '0', color: '#fff', outline: 'none' }} onClick={() => { addmilestone() }}>Add Another MileStone</button>
                                     </div>
-                                    <div className="btns-lists mt-4">
+                                    <div className="btns-lists mt-5">
                                         <button style={{ border: '0', color: '#fff' }} onClick={() => { setEdit(false); ToastContainer("Goal Saved Successfully!") }}>Save Goal</button>
                                     </div>
                                 </div>
