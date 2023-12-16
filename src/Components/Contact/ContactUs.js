@@ -80,26 +80,28 @@ export const ContactUs = () => {
                     <form className='form1' action="index.html" autocomplete="off">
                         <h3 class="title">Contact us</h3>
                         <div class="input-container">
-                            <input type="text" name="name" class="input" />
+                            <input style={{fontSize: "14px", color: "#fff", padding: "10px 20px"}} type="text" name="name" class="input" />
                             <label for="">Username</label>
                             <span>Username</span>
                         </div>
                         <div class="input-container">
-                            <input type="email" name="email" class="input" />
+                            <input style={{fontSize: "14px", color: "#fff", padding: "10px 20px"}} type="email" name="email" class="input" />
                             <label for="">Email</label>
                             <span>Email</span>
                         </div>
                         <div class="input-container">
-                            <input type="tel" name="phone" class="input" />
+                            <input style={{fontSize: "14px", color: "#fff", padding: "10px 20px"}} type="tel" name="phone" class="input" />
                             <label for="">Phone</label>
                             <span>Phone</span>
                         </div>
                         <div class="input-container textarea">
-                            <textarea name="message" class="input"></textarea>
+                            <textarea style={{fontSize: "14px", color: "#fff", padding: "10px 20px"}} name="message" class="input"></textarea>
                             <label for="">Message</label>
                             <span>Message</span>
                         </div>
-                        <input type="submit" value="Send" class="btn" />
+                        <div className='flex justify-center items-start mt-3'>
+                            <input style={{fontSize: "16px", padding: "10px 40px", backgroundColor: "rgb(27, 71, 119)", color: "#fff"}} type="submit" value="Send" class="btn" />
+                        </div>
                     </form>
                 </div>
             </div>

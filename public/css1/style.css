@@ -85,7 +85,6 @@ h1, h2, h3, h4, h5, h6, figure {
   background-repeat: no-repeat;
   background-position: top center;
   position: relative;
-  margin-bottom: 26em;
 }
 @media screen and (max-width: 480px) {
   #fh5co-header {
@@ -195,7 +194,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-header .fh5co-intro-img {
   position: relative;
-  bottom: -10em;
+  bottom: -3em;
 }
 @media screen and (max-width: 768px) {
   #fh5co-header .fh5co-intro-img {
@@ -387,8 +386,12 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .fh5co-feature {
   height: 600px;
-  margin-bottom: 10em;
-  padding-top: 4em;
+}
+@media only screen and (max-width: 800px){
+  .fh5co-feature {
+    margin-bottom: 10em;
+    padding-top: 4em;
+  }
 }
 .fh5co-feature.last-feature {
   border-bottom: none;

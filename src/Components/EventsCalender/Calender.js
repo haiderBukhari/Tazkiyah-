@@ -59,7 +59,7 @@ function ServerDay(props) {
                     backgroundColor: isSelected ? '#15375c' : '',
                     borderRadius: "50%",
                     fontSize: "12px",
-                    padding: "2px"
+                    padding: "2px",
                 }}
                 outsideCurrentMonth={outsideCurrentMonth}
                 day={day}
@@ -129,7 +129,6 @@ export default function Calendar() {
         <div style={{ height: '100%', width: "100%", margin: "10px 20px", position: "relative" }}>
             <h3 style={{ textAlign: "center", fontSize: "20px", margin: "10px 0", fontWeight: "bold" }}>Upcomming Events </h3>
             <hr style={{ width: "100px", margin: "10px auto 20px auto", padding: "1px" }} />
-
             {
                 !selectedDate && <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DateCalendar
@@ -142,7 +141,6 @@ export default function Calendar() {
                                 <ServerDay {...props} onSelect={handleDateClick} />
                             ),
                         }}
-
                         slotProps={{
                             day: {
                                 highlightedDays,

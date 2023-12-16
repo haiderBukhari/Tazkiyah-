@@ -203,3 +203,14 @@ p {
     color: #777;
     margin: 0;
 }
+@media only screen and (max-width: "700px"){
+    .intro-ebooks{
+        margin-top: "5em";
+    }
+}
+
+@media only screen and (min-width: "700px"){
+    .intro-ebooks{
+        margin-top: "4em" !important;
+    }
+}

@@ -20,7 +20,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import AssignMentees from './AssigneeMentees';
 import PerformanceAnalyticsSideBar from './PerformanceAnalyticsSidebar';
 
-export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin, currentDept, setCurrentDept, editProfilePopup, setEditProfilePopup, editUploadContentPopup, setEditUploadContentPopup, selectedSemester, setSelectedSemester, selectDpt, setSelectDpt }) => {
+export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin, currentDept, setCurrentDept, editProfilePopup, setEditProfilePopup, editUploadContentPopup, setEditUploadContentPopup, selectedSemester, setSelectedSemester, selectDpt, setSelectDpt, notificationPopUp, setNotificationPopUp }) => {
     const dispatch = useDispatch();
     //eslint-disable-next-line
     const [email, setemail] = useState(useSelector(state => state));
@@ -123,6 +123,14 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 </NavLink>
                             }
                             {
+                                email && email.email !== "tarbiyah@gmail.com" && email.email !== "manager@gmail.com" && email.email !== "mentor@gmail.com" && <NavLink to="/achieved-goals" >
+                                    <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/achieved-goals' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/achieved-goals' ? '14px' : ''}` }}>
+                                        <FlagIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                                        Acheived Goals
+                                    </li>
+                                </NavLink>
+                            }
+                            {
                                 email && (email.email === "tarbiyah@gmail.com" || email.email === "mentor@gmail.com") && <>
                                     <li className='hover:underline cursor-pointer' onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false); setEditUploadContentPopup(!editUploadContentPopup) }} style={{ backgroundColor: `${editUploadContentPopup ? '#3f6184' : ''}`, borderRadius: `${editUploadContentPopup ? '14px' : ''}` }}>
                                         <CloudUploadIcon style={{ fontSize: '30px', marginRight: '10px' }} />
@@ -157,15 +165,14 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 </NavLink>
                             }
                             {
-                                email?.email === "manager@gmail.com" && location.pathname === '/assign-mentees' && <AssignMentees currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} selectDpt={selectDpt} setSelectDpt={setSelectDpt}/>
+                                email?.email === "manager@gmail.com" && location.pathname === '/assign-mentees' && <AssignMentees currentDept={currentDept} setCurrentDept={setCurrentDept} closeSideBar={closeSideBar} sidebarshow={sidebarshow} setSideBarShow={setSideBarShow} setProceed={setProceed} selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} selectDpt={selectDpt} setSelectDpt={setSelectDpt} />
                             }
 
-                            <NavLink to="/notifications" >
-                                <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/notifications' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/notifications' ? '14px' : ''}` }}>
-                                    <NotificationsIcon style={{ fontSize: '30px', marginRight: '10px' }} />
-                                    Notifications
-                                </li>
-                            </NavLink>
+                            <li className='hover:underline cursor-pointer' onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false); setNotificationPopUp(!notificationPopUp) }} style={{ backgroundColor: `${editUploadContentPopup ? '#3f6184' : ''}`, borderRadius: `${editUploadContentPopup ? '14px' : ''}` }}>
+                                <NotificationsIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                                Notifications
+                            </li>
+
                             <NavLink to="/performance" >
                                 <li onClick={() => { }} style={{ backgroundColor: `${location.pathname === '/performance' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/performance' ? '14px' : ''}`, fontSize: "15px" }}>
                                     <AssessmentIcon style={{ fontSize: '25px', marginRight: '10px' }} />

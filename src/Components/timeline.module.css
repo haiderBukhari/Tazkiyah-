@@ -30,7 +30,7 @@
 	left: 50%;
 	bottom: -5px;
 	transform: translateX(-50%);
-	background-image: linear-gradient(to right, rgba(91, 14, 216, 0.767), rgba(238, 12, 200, 0.747));
+	background-color: #15375c;
 }
 
 /* Container Css Start  */
@@ -52,7 +52,7 @@
 	left: 50%;
 	top: 0;
 	transform: translateX(-50%);
-	background-image: linear-gradient(to bottom, rgba(91, 14, 216, 0.767), rgba(238, 12, 200, 0.747));
+	background-color: #15375c;
 }
 .container ul li {
 	width: 50%;
@@ -73,7 +73,7 @@
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
-	background-color: #e100ff7a;
+	background-color: #15375c;
 	top: 0;
 	display: grid;
 	place-items: center;

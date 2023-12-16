@@ -11,6 +11,7 @@ import { UploadContent } from './Components/Navbar/UploadContent';
 import { useSelector } from 'react-redux';
 import AssignMenteesDialog from './Components/Dialog/AssignMenteesDialog';
 import { ForgetPassword } from './Components/ForgetPassword';
+import { Notifications } from './Components/Notifications';
 
 function App() {
   const location = useLocation()
@@ -27,9 +28,10 @@ function App() {
   const [editProfilePopup, setEditProfilePopup] = useState(false);
   const [editUploadContentPopup, setEditUploadContentPopup] = useState(false);
   const [selectedSemester, setSelectedSemester] = useState(null);
-  const [selectedSemesterTemp, setSelectedSemesterTemp] = useState(false);
+  const [selectedSemesterTemp, setSelectedSemesterTemp] = useState(false);  
   const [selectDpt, setSelectDpt] = useState(false);
   const [forgetPasswordPopup, setForgetPasswordPopup] = useState(false);
+  const [notificationPopUp, setNotificationPopUp] = useState(false);
   useEffect(() => {
     const storedFormData = localStorage.getItem('FinalGoal');
     const storedLogin = localStorage.getItem('isLogin');
@@ -94,6 +96,8 @@ function App() {
             setSelectedSemester={setSelectedSemester}
             selectDpt={selectDpt}
             setSelectDpt={setSelectDpt}
+            notificationPopUp={notificationPopUp}
+            setNotificationPopUp={setNotificationPopUp}
           />
         }
         <div style={{ marginLeft: `${(sidebarshow && show && isLogin) ? '280px' : '0'}`, marginBottom: `${isLogin ? '20px' : '0'}` }}>
@@ -128,6 +132,7 @@ function App() {
         setSelectedSemester={setSelectedSemester}
       />
       <ForgetPassword forgetPasswordPopup={forgetPasswordPopup} setForgetPasswordPopup={setForgetPasswordPopup}/>
+      <Notifications notificationPopUp={notificationPopUp} setNotificationPopUp={setNotificationPopUp}/>
     </div>
   );
 }

@@ -13,13 +13,14 @@ import { useSelector } from 'react-redux'
 import { useState } from "react";
 import Calendar from "../Components/EventsCalender/Calender";
 import AssignMentees from "../Components/AssignMentees";
-import { Notifications } from './../Components/Notifications';
 import MentorTraining from "../Components/MentorTraining/MentorTraining";
+import GoalAcheivement from "../Components/Goal/GoalAcheivement";
 
 export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proceed, setProceed, corner, setcorner, currentDept, setCurrentDept, selectedSemester, setSelectedSemester, forgetPasswordPopup, setForgetPasswordPopup }) => {
     //eslint-disable-next-line
     const [email, setemail] = useState(useSelector(state => state.email));
     const [selectedMentor, setSelectedMentor] = useState(null);
+
     return (
         <>
             <Routes>
@@ -35,8 +36,8 @@ export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proc
                 <Route path='/timeline' element={<TimeLine />} />
                 <Route path='/calendar' element={<Calendar />} />
                 <Route path="/attendence" element={<AttendenceTable currentDept={currentDept} setCurrentDept={setCurrentDept} />} />
-                <Route path="/notifications" element={<Notifications />} />
                 <Route path="/training" element={<MentorTraining />} />
+                <Route path="/achieved-goals" element={<GoalAcheivement />} />
             </Routes>
         </>
     )

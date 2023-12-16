@@ -1,8 +1,7 @@
 import React from 'react'
 import './style.css'
-import slider1 from '../assets/Corousel_Images/c1.jpg'
-import slider2 from '../assets/Corousel_Images/c2.png'
-import slider3 from '../assets/Corousel_Images/c3.png'
+import slider2 from '../assets/Corousel_Images/c3.png'
+import slider3 from '../assets/Corousel_Images/c2.png'
 
 export const MainPage = () => {
     return (
@@ -10,22 +9,6 @@ export const MainPage = () => {
             <div>
                 <section class="slider" style={{ paddingLeft: '10px' }}>
                     <div class="hero-slider">
-                        <div class="single-slider" style={{ backgroundImage: `url(${slider1})` }}>
-                            <div class="container ccocooc">
-                                <div class="row">
-                                    <div class="col-lg-7">
-                                        <div class="text">
-                                            {/* <h1></h1> */}
-                                            {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p> */}
-                                            <div class="button">
-                                                {/* <a href="/" class="btn">Get Appointment</a> */}
-                                                {/* <a href="/" class="btn primary">Learn More</a> */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="single-slider" style={{ backgroundImage: `url(${slider2})`, backgroundSize: "contain" }}>
                             <div class="container ccocooc">
                                 <div class="row">

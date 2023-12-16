@@ -2,9 +2,6 @@ import React from 'react'
 import hero from '../assets/images/hero_bg_1.jpg'
 import book_white from '../assets/images/book2.png'
 import book_black from '../assets/images/book1.png'
-import person_1 from '../assets/images/person_1.jpg'
-import person_2 from '../assets/images/person_2.jpg'
-import person_3 from '../assets/images/person_3.jpg'
 import './style.css'
 export const Ebook = () => {
     return (
@@ -14,15 +11,15 @@ export const Ebook = () => {
                 <div style={{ backgroundColor: '#fff' }} class="container">
                     <div class="row" style={{ marginTop: "5em" }}>
                         <div class="col-md-12 text-center">
-                            <h1 id="fh5co-logo" class="cursive-font"><a style={{ color: '#000' }} href="/ebook">E-Books</a></h1>
+                            <h1 id="fh5co-logo" class="cursive-font m-0" ><a style={{color: "#15375c", fontSize: "40px", margin: "0", padding: "0"}} href="/ebook">E-Books</a></h1>
+                            <hr style={{backgroundColor: "#15375c", padding: "2px", width: "140px", margin: "0 auto"}}/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <div class="intro">
+                            <div className="intro intro-ebooks" >
                                 <h2 style={{ color: '#000' }}>"Unlock the transformative power within you with 'The Tazkiyah Vision'—a guide to spiritual enlightenment and self-discovery."</h2>
                                 <div className="flex banaa">
-                                    <button className='readmore'>Read More</button>
                                 </div>
                             </div>
                         </div>
@@ -35,69 +32,13 @@ export const Ebook = () => {
                     </div>
                 </div>
             </header>
-            <div id="main" style={{ paddingLeft: '20px' }}>
-                <div class="container">
-                    <div class="row row-pb-md">
-                        <div class="col-md-4">
-                            <div class="review text-center">
-                                <figure>
-                                    <img src={person_3} alt="user" />
-                                </figure>
-                                <span>Rob Smith </span>
-                                <span class="star">
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star colored"></i>
-                                </span>
-                                <blockquote>
-                                    <p>&ldquo;Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                </blockquote>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="review text-center">
-                                <figure>
-                                    <img src={person_2} alt="user" />
-                                </figure>
-                                <span>John Doe </span>
-                                <span class="star">
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star colored"></i>
-                                </span>
-                                <blockquote>
-                                    <p>&ldquo;Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                </blockquote>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="review active text-center">
-                                <figure>
-                                    <img src={person_1} alt="user" />
-                                </figure>
-                                <span>Jean Doe </span>
-                                <span class="star">
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star colored"></i>
-                                    <i class="icon-star"></i>
-                                </span>
-                                <blockquote>
-                                    <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.&rdquo;</p>
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
+            <div className='mt-0' id="main" style={{ paddingLeft: '20px' }}>
+                <div class="container mt-0">
                     <div class="row fh5co-feature">
                         <div class="col-md-6 col-md-push-6">
                             <div class="fh5co-copy">
                                 <div class="fh5co-copy-inner">
-                                    <h2>Keep It Simple</h2>
+                                    <h2 style={{fontSize: "27px"}}>Keep It Simple</h2>
                                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
                                 </div>
                             </div>
@@ -114,7 +55,7 @@ export const Ebook = () => {
                         <div class="col-md-6">
                             <div class="fh5co-copy">
                                 <div class="fh5co-copy-inner">
-                                    <h2>Pixel Perfect</h2>
+                                    <h2 style={{fontSize: "27px"}}>Pixel Perfect</h2>
                                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
                                 </div>
                             </div>
@@ -131,7 +72,7 @@ export const Ebook = () => {
                         <div class="col-md-6 col-md-push-6">
                             <div class="fh5co-copy">
                                 <div class="fh5co-copy-inner">
-                                    <h2>Beautiful Design</h2>
+                                    <h2 style={{fontSize: "27px"}}>Beautiful Design</h2>
                                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
                                 </div>
                             </div>
@@ -150,7 +91,7 @@ export const Ebook = () => {
                     <div class="container">
                         <div class="row text-center fh5co-heading">
                             <div class="col-md-8 col-md-offset-2">
-                                <h2>More Features</h2>
+                                <h2 style={{fontSize: "27px"}}>More Features</h2>
                                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                             </div>
                         </div>
