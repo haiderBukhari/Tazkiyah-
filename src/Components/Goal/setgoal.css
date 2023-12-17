@@ -1,4 +1,5 @@
-.self-development, .container-main {
+.self-development,
+.container-main {
     display: flex !important;
     align-items: center !important;
     padding-top: 40px !important;
@@ -17,15 +18,16 @@
 .goaldev {
     width: auto !important;
     padding: 14px 23px !important;
-    box-shadow: 1px 2px 3px #2b629c , -1px -2px 1px #1f4e81  !important;
+    box-shadow: 1px 2px 3px #2b629c, -1px -2px 1px #1f4e81 !important;
     border-top-right-radius: 10px !important;
     border-bottom-left-radius: 10px !important;
     justify-self: center !important;
-    background-color: #15375c  !important;
-    border: 1px solid #15375c  !important;
+    background-color: #15375c !important;
+    border: 1px solid #15375c !important;
 }
 
-.text1, .text2 {
+.text1,
+.text2 {
     width: 80% !important;
     margin: auto !important;
     font-size: 20px !important;
@@ -59,7 +61,7 @@
     flex-wrap: wrap !important;
 }
 
-.btns-list > button {
+.btns-list>button {
     margin: 20px 10px !important;
 }
 
@@ -80,7 +82,8 @@
 }
 
 .lower-bound input,
-.main-data input, .alpha {
+.main-data input,
+.alpha {
     margin-top: 6px !important;
     width: 100% !important;
     height: 24px !important;
@@ -121,10 +124,11 @@
     cursor: pointer !important;
 }
 
-.heading i:nth-child(2){
+.heading i:nth-child(2) {
     right: 40px !important;
     color: green !important;
 }
+
 .inp input {
     padding-right: 40px !important;
     padding-left: 4px !important;
@@ -154,9 +158,11 @@
     align-items: center !important;
 }
 
-.responsibilities span, .viewgoal span{
+.responsibilities span,
+.viewgoal span {
     font-size: 17px !important;
 }
+
 .ull {
     line-height: 1.9rem !important;
 }
@@ -186,6 +192,7 @@
 }
 
 @media only screen and (max-width:544px) {
+
     .viewgoal,
     .responsibilities {
         flex-direction: column !important;
@@ -199,10 +206,12 @@
     align-items: center !important;
     margin: 4px;
 }
-.fllf p{
+
+.fllf p {
     margin: 0 10px 0 0 !important;
 
 }
+
 .main-data {
     /* max-width: 500px;
     min-width: 300px !important; */
@@ -239,61 +248,85 @@
 .newro {
     align-items: center !important;
 }
-.privates{
+
+.privates {
     font-size: 17px;
     margin-top: 30px !important;
 }
-.lb{
+
+.lb {
     font-size: 17px;
     justify-content: center;
     align-items: center;
 }
-.lb l1{
+
+.lb l1 {
     align-items: center;
 }
-.lb input{
+
+.lb input {
     box-shadow: none !important;
 }
-.btns-color, .btns-list, .goaldev{
+
+.btns-color,
+.btns-list,
+.goaldev {
     color: #fff;
 }
-.btns-color{
+
+.btns-color {
     background-color: #15375c !important;
 }
-.text-base{
+
+.text-base {
     font-size: 15px !important;
     margin-top: 10px;
 }
-.inp{
+
+.inp {
     margin-top: 10px;
 }
-.inp i{
+
+.inp i {
     top: 55% !important;
 }
-.mainlmn{
+
+.mainlmn {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: 'wrap';
 }
-.arrow{
+
+.arrow {
     display: none;
 }
-@media only screen and (max-width: 650px){
-    .empty{
+
+@media only screen and (max-width: 650px) {
+    .empty {
         display: none;
     }
-    .arrow{
+
+    .arrow {
         display: block;
     }
 }
-.popo{
+
+.popo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.main-data, .flpp, .container-main{
+
+.main-data,
+.flpp,
+.container-main {
     max-width: 500px !important;
     min-width: 300px !important;
-    width: 100% !important; 
+    width: 100% !important;
+}
+
+.custom-column-header {
+    font-size: 13px;
+    /* Adjust the font size as needed */
 }

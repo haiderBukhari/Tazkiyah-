@@ -15,6 +15,7 @@ import Calendar from "../Components/EventsCalender/Calender";
 import AssignMentees from "../Components/AssignMentees";
 import MentorTraining from "../Components/MentorTraining/MentorTraining";
 import GoalAcheivement from "../Components/Goal/GoalAcheivement";
+import ViewGoalDataGrid from "../Components/Goal/ViewGoalGrid";
 
 export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proceed, setProceed, corner, setcorner, currentDept, setCurrentDept, selectedSemester, setSelectedSemester, forgetPasswordPopup, setForgetPasswordPopup }) => {
     //eslint-disable-next-line
@@ -28,7 +29,7 @@ export const ReactRoutes = ({ finalGoal, setFinalGoal, isLogin, setIsLogin, proc
                 <Route path='/register' element={<RegisterUser />} />
                 <Route path='/login' element={<LoginUser isLogin={isLogin} setIsLogin={setIsLogin} forgetPasswordPopup={forgetPasswordPopup} setForgetPasswordPopup={setForgetPasswordPopup}/>} />
                 <Route path='/goal' element={<SetGoal finalGoal={finalGoal} setFinalGoal={setFinalGoal} proceed={proceed} setProceed={setProceed} corner={corner} setcorner={setcorner} />} />
-                <Route path='/view-goal' element={<ViewGoals finalGoal={finalGoal} setFinalGoal={setFinalGoal} />} />
+                <Route path='/view-goal' element={window.innerWidth<700 ? <ViewGoals finalGoal={finalGoal} setFinalGoal={setFinalGoal} /> : <ViewGoalDataGrid finalGoal={finalGoal} setFinalGoal={setFinalGoal}/>} />
                 <Route path='/' element={<MainPage />} />
                 <Route path='/performance' element={<Performancepage2 selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} selectedMentor={selectedMentor} setSelectedMentor={setSelectedMentor}/>} />
                 <Route path='/ebook' element={<Ebook />} />

@@ -45,8 +45,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
             goalstatus: 'Pending',
             milestones: count,
         }
-        const finalizedgoal = [...finalGoal];
-        finalizedgoal.push(goal)
+        const finalizedgoal = [...finalGoal, goal];
         setFinalGoal(finalizedgoal)
         localStorage.setItem('FinalGoal', JSON.stringify(finalizedgoal));
         ToastContainer("Goal Added Successfully!")

@@ -7,9 +7,10 @@ import React from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 
 
-export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
+export const ViewGoals = ({ finalGoal, setFinalGoal, setProceed }) => {
     let [edit, setEdit] = useState(false)
     let [editindex, setEditIndex] = useState(0)
     let navigate = useNavigate();
@@ -33,36 +34,50 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
         let newArr = [...finalGoal];
         newArr[editindex].milestones.splice(index, 1);
         setFinalGoal(newArr);
-        localStorage.setItem('FinalGoal', JSON.stringify(newArr));
+        if(window.innerWidth < 700) {
+            localStorage.setItem('FinalGoal', JSON.stringify(newArr));
+        }
     }
     let addmilestone = () => {
         let newArr = [...finalGoal];
         newArr[editindex].milestones.push({ goal: "" });
         setFinalGoal(newArr);
-        localStorage.setItem('FinalGoal', JSON.stringify(newArr));
+        if(window.innerWidth < 700) {
+            localStorage.setItem('FinalGoal', JSON.stringify(newArr));
+        }
     }
     let setmilestone = (index, value) => {
         let newArr = [...finalGoal];
         newArr[editindex].milestones[index].goal = value;
         setFinalGoal(newArr);
-        localStorage.setItem('FinalGoal', JSON.stringify(newArr));
+        if(window.innerWidth < 700) {
+            localStorage.setItem('FinalGoal', JSON.stringify(newArr));
+        }
     }
     let handlechangegoal = (value) => {
         let newArr = [...finalGoal];
         newArr[editindex].goalTitle = value;
         setFinalGoal(newArr);
-        localStorage.setItem('FinalGoal', JSON.stringify(newArr));
+        if(window.innerWidth < 700) {
+            localStorage.setItem('FinalGoal', JSON.stringify(newArr));
+        }
     }
     return (
-        <>
+        <div style={{ position: "relative" }}>
             <h1 className='text-center font-semibold main-heading' style={{ paddingTop: '50px', fontSize: '28px' }}>{`${!edit ? "Your Goals" : "Edit Your Goal"}`}</h1>
+            {
+                window.innerWidth > 700 && <div onClick={() => { setProceed(true) }} style={{ position: 'absolute', top: -20, left: '4%', color: '#000', display: 'flex', alignItems: 'center', cursor: 'pointer', marginTop: '20px' }}>
+                    <ArrowLeftIcon style={{ fontSize: '30px' }} />
+                    <p>Go Back</p>
+                </div>
+            }
             <div className="flex justify-center my-5 mt-10">
                 <button onClick={() => { navigate('/goal') }} className='goaldev'>Add New Goal</button>
             </div>
             <div className="container-main">
                 {finalGoal &&
                     !edit && finalGoal.map((item, index) => (
-                        <div data-aos="fade-up" className="viewgoalcontainer p-2 px-4 ">
+                        <div className="viewgoalcontainer p-2 px-4 ">
                             <div className="heading">
                                 <h1 className='mt-2 mb-4 text-center text-2xl font-semibold goal-heading'>Your {item.heading.split(" ").slice(2).join(' ')}</h1>
                                 <i onClick={() => { setDeleteVerfication(!deleteVerfication); setDeleteIndex(index) }} class="fa-solid fa-trash-can"></i>
@@ -144,17 +159,17 @@ export const ViewGoals = ({ finalGoal, setFinalGoal }) => {
                         <h1 style={{ fontSize: '20px', fontWeight: 'bold' }}>Delete Confirmation</h1>
                         <hr style={{ margin: '10px 0 0 0' }} />
                     </DialogTitle>
-                    <div style={{padding: "20px"}}>
+                    <div style={{ padding: "20px" }}>
                         <p style={{ fontSize: '14px', textAlign: 'justify', marginBottom: '20px' }}>Are you sure you want to delete the Goal. Deleted Goal will not be recovered afterwards.</p>
                     </div>
-                <div style={{display: "flex", justifyContent:"end", padding: "0 20px 20px 20px"}}>
-                    <Button style={{ fontSize: '12px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff" }} onClick={() => { setDeleteVerfication(!deleteVerfication); }}>No Close</Button>
-                    <Button style={{ fontSize: '12px', border: '1px solid #ccc', marginLeft: "10px", backgroundColor: "#15375c", color: "#fff" }} onClick={() => { setDeleteVerfication(!deleteVerfication); handledelete(deleteIndex) }} autoFocus>
-                        Delete
-                    </Button>
-                </div>
+                    <div style={{ display: "flex", justifyContent: "end", padding: "0 20px 20px 20px" }}>
+                        <Button style={{ fontSize: '12px', border: '1px solid #ccc', backgroundColor: "#15375c", color: "#fff" }} onClick={() => { setDeleteVerfication(!deleteVerfication); }}>No Close</Button>
+                        <Button style={{ fontSize: '12px', border: '1px solid #ccc', marginLeft: "10px", backgroundColor: "#15375c", color: "#fff" }} onClick={() => { setDeleteVerfication(!deleteVerfication); handledelete(deleteIndex) }} autoFocus>
+                            Delete
+                        </Button>
+                    </div>
                 </Dialog>
             </React.Fragment>
-        </>
+        </div>
     )
 }
