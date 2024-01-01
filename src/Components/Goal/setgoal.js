@@ -7,14 +7,20 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { SetDates } from './select';
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+
 export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, setcorner }) => {
     let Navigate = useNavigate();
     let [date, setDate] = useState("00:00");
     const [selfdev, setSelfdev] = useState(!proceed)
     const [personaldev, setPersonaldev] = useState(false)
     const [milestone, setMilestone] = useState(false)
-    const [acheivement, setAcheivement] = useState(false)
-    const [count, setCount] = useState([{ goal: "", status: 'Pending' }]);
+    const [achievement, setAchievement] = useState(false)
+    const [selectedMilestone, setSelectedMilestone] = useState(-1);
+    const achivementFormate = {
+        name: '',
+        percentage: 0
+    }
+    const [count, setCount] = useState([{ goal: "", status: 'Pending', percentage: 100, achievement: [achivementFormate] }]);
     const [goalTitle, setGoalTitle] = useState("")
     const AcheivementPercentage = new Array(100).fill(0);
     useEffect(() => {
@@ -38,7 +44,6 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
         newArr.splice(index, 1);
         setCount(newArr);
     }
-
     let SetYourGoal = () => {
         const goal = {
             heading: corner,
@@ -136,7 +141,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                     </div>
                                 }
                                 {
-                                    milestone && !acheivement && <div>
+                                    milestone && !achievement && <div>
                                         <p style={{ textAlign: 'center', margin: '0 0 20px 0' }}><ArrowBackIosIcon style={{ fontSize: "20px", fontWeight: "bold", color: "#000", marginRight: "20px", cursor: "pointer" }} onClick={() => { setMilestone(false) }} /><strong>Your Goal: </strong> {goalTitle}</p>
                                         {
                                             count.map((arr, index) => (
@@ -147,9 +152,23 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                             <input style={{ maxWidth: "500px", minWidth: "250px", width: "100%" }} onChange={(e) => { handleChange(index, e.target.value) }} className='input-text' type="text" name="" id="" placeholder={`Write Your Milestone ${index + 1}`} value={arr.goal} />
                                                         </div>
                                                         <SetDates />
-                                                        <AddIcon onClick={() => { setAcheivement(true) }} style={{ cursor: "pointer", fontSize: '20px', color: "#000", position: "absolute", right: '36px', top: "47%" }} />
+                                                        <div className='flex justify-center items-center'>
+                                                            <select onChange={(e) => {
+                                                                const data  = [...count];
+                                                                data[index].percentage = e.target.value;
+                                                                setCount(data);
+                                                            }} className='flex' style={{ outline: true, height: "40px", boxShadow: "1px 1px 10px #ccc", marginTop: `${window.offsetWidth < 645 ? '4px' : '27px'}`, marginRight: "40px", outline: "none" }}>
+                                                                <option disabled={true} selected={true} value="" key="">Status</option>
+                                                                {
+                                                                    AcheivementPercentage.map((Items, index1) => (
+                                                                        <option value={index1 + 1}>{index1 + 1}</option>
+                                                                    ))
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                        <AddIcon onClick={() => { setAchievement(true); setSelectedMilestone(index) }} style={{ cursor: "pointer", fontSize: '20px', color: "#000", position: "absolute", right: '36px', top: "47%" }} />
                                                     </div>
-                                                    <hr style={{ backgroundColor: "#ccc", width: "700px", paddingTop: "1px", marginTop: "10px", margin: "auto" }} />
+                                                    <hr style={{ backgroundColor: "#ccc", width: "auto", paddingTop: "1px", marginTop: "10px", margin: "auto" }} />
                                                     {
                                                         index !== 0 &&
                                                         <>
@@ -171,27 +190,58 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                     </div>
                                 }
                                 {
-                                    acheivement && <div>
-                                        <p style={{ textAlign: 'center', margin: '0 0 20px 0' }}><ArrowBackIosIcon style={{ fontSize: "20px", fontWeight: "bold", color: "#000", marginRight: "20px", cursor: "pointer" }} onClick={() => { setAcheivement(false) }} /><strong>Your Goal: </strong> {goalTitle}</p>
+                                    achievement && <div>
+                                        <p style={{ textAlign: 'center', margin: '0 0 20px 0' }}><ArrowBackIosIcon style={{ fontSize: "20px", fontWeight: "bold", color: "#000", marginRight: "20px", cursor: "pointer" }} onClick={() => { setAchievement(false) }} /><strong>Your Goal: </strong> {goalTitle}</p>
                                         {
-                                            <div className="inp flex justify-center items-center" style={{width: "100%"}}>
-                                                <div className='flex justify-center items-center flex-wrap' style={{width: "100%"}}>
-                                                    <input type="text" style={{maxWidth: "600px", minWidth: "240px", margin:"-10px 20px", width: "100%"}} placeholder='Write Acheivement'/>
-                                                    <select className='flex' style={{outline: true,height: "40px", boxShadow: "1px 1px 10px #ccc", marginTop: "20px"}}>
-                                                        <option disabled={true} selected={true} value="" key="">Acheivement Percentage</option>
-                                                        {
-                                                            AcheivementPercentage.map((Items, index)=>(
-                                                                <option value={index+1}>{index+1}</option>
-                                                            ))
-                                                        }
-                                                    </select>
-                                                </div>
+                                            <div className="inp flex flex-col justify-center items-center" style={{ width: "100%" }}>
+                                                {
+                                                    count[selectedMilestone].achievement.map((Items, index) => (
+                                                        <div key={index + 90} className='flex justify-center items-center flex-wrap' style={{ width: "100%", position: "relative" }}>
+                                                            <input onChange={(e) => {
+                                                                const updatedCount = [...count];
+                                                                const updatedAchievements = [...updatedCount[selectedMilestone].achievement];
+                                                                updatedAchievements[index].name = e.target.value;
+                                                                updatedCount[selectedMilestone].achievement = updatedAchievements;
+                                                                setCount(updatedCount);
+                                                            }} type="text" style={{ maxWidth: "500px", minWidth: "240px", margin: "-10px 20px", width: "100%" }} placeholder='Write Acheivement' value={Items.name} />
+                                                            <select onChange={(e) => {
+                                                                const updatedCount = [...count];
+                                                                const updatedAchievements = [...updatedCount[selectedMilestone].achievement];
+                                                                updatedAchievements[index].percentage = e.target.value;
+                                                                updatedCount[selectedMilestone].achievement = updatedAchievements;
+                                                                setCount(updatedCount);
+                                                            }} className='flex' style={{ outline: true, height: "40px", boxShadow: "1px 1px 10px #ccc", marginTop: "20px", marginRight: "40px" }}>
+                                                                <option disabled={true} selected={true} value="" key="">
+                                                                    Achievement Percentage
+                                                                </option>
+                                                                {Array.from({ length: count[selectedMilestone].percentage }, (_, index) => (
+                                                                    <option key={index + 1} value={index + 1}>
+                                                                        {index + 1}
+                                                                    </option>
+                                                                ))}
+                                                            </select>
+                                                            <AddIcon onClick={() => {
+                                                                const updatedCount = [...count];
+                                                                const newAchievement = { ...achivementFormate };
+                                                                updatedCount[selectedMilestone].achievement.push(newAchievement);
+                                                                setCount(updatedCount);
+                                                            }} style={{ cursor: "pointer", fontSize: "20px", color: "#000", position: "absolute", right: "30px", top: "50%" }} />
+                                                            {
+                                                                index !== 0 && <i style={{ marginTop: "10px" }} onClick={() => {
+                                                                    const updatedCount = [...count];
+                                                                    updatedCount[selectedMilestone].achievement.splice(index, 1);
+                                                                    setCount(updatedCount);
+                                                                }} class="fa-solid fa-trash-can"></i>
+                                                            }
+                                                        </div>
+                                                    ))
+                                                }
                                             </div>
                                         }
                                         <div className='flex justify-center'>
                                             <div style={{ fontSize: "12px" }} className="btns-list mt-10">
                                                 <button className='btns-color
-                                            ' onClick={() => { setAcheivement(false) }}>Save Acheivement</button>
+                                            ' onClick={() => { setAchievement(false) }}>Save Acheivement</button>
                                             </div>
                                         </div>
                                     </div>

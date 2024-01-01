@@ -8,8 +8,8 @@ export const MainPage = () => {
         <>
             <div>
                 <section class="slider" style={{ paddingLeft: '10px' }}>
-                    <div class="hero-slider" style={{width: "auto"}}>
-                        <div class="single-slider" style={{ backgroundImage: `url(${slider2})`, position:"center center", backgroundSize: "contain"}}>
+                    <div class="hero-slider" style={{width: "100%", position: "relative"}}>
+                        <div class="single-slider" style={{ backgroundImage: `url(${slider2})`, backgroundPosition: "center center", backgroundSize: "contain"}}>
                             <div class="container ccocooc">
                                 <div class="row">
                                     <div class="col-lg-7">
@@ -25,7 +25,7 @@ export const MainPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="single-slider" style={{ backgroundImage: `url(${slider3})`, backgroundSize: "contain", backgroundPosition: "center", maxWidth: "1060px", minWidth: "300px" }}>
+                        <div class="single-slider" style={{ backgroundImage: `url(${slider3})`, backgroundSize: "contain", backgroundPosition: "contain", marginRight: "auto"}}>
                             <div class="container ccocooc">
                                 <div class="row">
                                     <div class="col-lg-7">
