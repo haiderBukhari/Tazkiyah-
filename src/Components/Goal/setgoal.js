@@ -157,7 +157,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                                 const data  = [...count];
                                                                 data[index].percentage = e.target.value;
                                                                 setCount(data);
-                                                            }} className='flex' style={{ outline: true, height: "40px", boxShadow: "1px 1px 10px #ccc", marginTop: `${window.offsetWidth < 645 ? '4px' : '27px'}`, marginRight: "40px", outline: "none" }}>
+                                                            }} className='flex' style={{ height: "40px", boxShadow: "1px 1px 10px #ccc", marginTop: `${window.offsetWidth < 645 ? '4px' : '27px'}`, marginRight: "40px", outline: "none" }}>
                                                                 <option disabled={true} selected={true} value="" key="">Status</option>
                                                                 {
                                                                     AcheivementPercentage.map((Items, index1) => (
