@@ -8,8 +8,8 @@ export const MainPage = () => {
         <>
             <div>
                 <section class="slider" style={{ paddingLeft: '10px' }}>
-                    <div class="hero-slider">
-                        <div class="single-slider" style={{ backgroundImage: `url(${slider2})`, backgroundSize: "contain" }}>
+                    <div class="hero-slider" style={{width: "auto"}}>
+                        <div class="single-slider" style={{ backgroundImage: `url(${slider2})`, position:"center center", backgroundSize: "contain"}}>
                             <div class="container ccocooc">
                                 <div class="row">
                                     <div class="col-lg-7">
@@ -25,7 +25,7 @@ export const MainPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="single-slider" style={{ backgroundImage: `url(${slider3})`, backgroundSize: "contain" }}>
+                        <div class="single-slider" style={{ backgroundImage: `url(${slider3})`, backgroundSize: "contain", backgroundPosition: "center", maxWidth: "1060px", minWidth: "300px" }}>
                             <div class="container ccocooc">
                                 <div class="row">
                                     <div class="col-lg-7">
@@ -53,15 +53,10 @@ export const MainPage = () => {
                                 <div style={{ backgroundColor: "transparent" }} class="col-lg-4 col-md-6 col-12">
                                     <div style={{ backgroundColor: "#15375c", minHeight: "350px" }} class="single-schedule first">
                                         <div class="inner">
-                                            {/* <div class="icon"> */}
-                                            {/* <i class="fa fa-ambulance"></i> */}
-                                            {/* </div> */}
                                             <div class="single-content">
                                                 <h4>Learning and leadership</h4>
-                                                {/* <h4>Emergency Cases</h4> */}
                                                 <p>Empower mentees for their learning and holistic development.</p>
                                                 <p>Cultivate self-discipline, leadership qualities, and a sense of social responsibilities in mentees, with the support of our website that facilitates personalized guidance, resources, and tools to enhance their overall educational experience.</p>
-                                                {/* <a href="/">LEARN MORE<i class="fa fa-long-arrow-right"></i></a> */}
                                             </div>
                                         </div>
                                     </div>

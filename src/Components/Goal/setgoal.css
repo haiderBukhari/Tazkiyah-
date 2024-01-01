@@ -66,8 +66,8 @@
 }
 
 .goalstask {
-    min-width: 300px;
-    max-width: 400px;
+    /* min-width: 300px;
+    max-width: 400px; */
     width: 100% !important;
     height: auto !important;
     padding-bottom: 40px !important;
@@ -88,7 +88,7 @@
     width: 100% !important;
     height: 24px !important;
     border-radius: 5px !important;
-    box-shadow: 2px 3px 4px 2px #ccc, -2px -3px 2px 1px #ccc !important;
+    box-shadow: 1px 1px 10px #ccc;
     padding: 20px 4px !important;
 }
 

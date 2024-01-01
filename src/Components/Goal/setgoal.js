@@ -5,16 +5,18 @@ import { useNavigate } from 'react-router-dom';
 import ToastContainer from '../toast';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { SetDates } from './select';
-
+import AddIcon from '@mui/icons-material/Add';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, setcorner }) => {
     let Navigate = useNavigate();
     let [date, setDate] = useState("00:00");
     const [selfdev, setSelfdev] = useState(!proceed)
     const [personaldev, setPersonaldev] = useState(false)
     const [milestone, setMilestone] = useState(false)
+    const [acheivement, setAcheivement] = useState(false)
     const [count, setCount] = useState([{ goal: "", status: 'Pending' }]);
     const [goalTitle, setGoalTitle] = useState("")
-
+    const AcheivementPercentage = new Array(100).fill(0);
     useEffect(() => {
         setSelfdev(!proceed)
     }, [proceed])
@@ -30,7 +32,6 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
         newArr[index].goal = value;
         setCount(newArr);
     }
-
     let handledDelete = (index) => {
         let newArr = [...count];
         console.log(newArr, index);
@@ -93,38 +94,27 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                     </>}
                 {!selfdev && <div className='goalsetting'>
                     {
-                        proceed && <div className='goalstask m-auto'>
+                        proceed && <div style={{ maxWidth: "900px", minWidth: "300px" }} className='goalstask m-auto'>
                             <div className="upper-bound">
                                 <p className='text-center py-5 text-2xl font-semibold leading-9'>✍️ {corner}</p>
                                 <hr />
                             </div>
                             <div className="lower-bound mt-4 px-4">
                                 {
-                                    !milestone && <div>
-                                        <p>Set Your Goal:</p>
-                                        <input onChange={(e) => { setGoalTitle(e.target.value) }} className='input-text' type="text" name="" id="" placeholder='Write Goal' value={goalTitle} />
-                                        <p className='mt-4 text-2xl flex justify-center privates'>
-                                            Make your Goal <i className='mx-2'>Public</i> or <i className='mx-2'>Private </i>
-                                        </p>
-                                        <div className="flex justify-center place-items-center lb mt-2">
-                                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="l1 flex justify-center place-items-center">
-                                                <label htmlFor='private' style={{ fontWeight: '400', margin: '0px' }}>Private</label>
-                                                <input style={{ margin: '0px' }} className='ml-2' type="radio" name="q1" id="private" />
-                                            </div>
-                                            <div className="l1 flex justify-center place-items-center ml-5">
-                                                <label htmlFor='public' style={{ fontWeight: '400', margin: '0px' }}>Public</label>
-                                                <input style={{ margin: '0px' }} className='ml-2' type="radio" name="q1" id="public" />
-                                            </div>
-                                        </div>
-                                        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
-                                            <div style={{}} className="flex justify-between place-items-center lb mt-2 mb-4 items-center">
-                                                <select style={{ width: '150px', margin: 'auto', marginTop: '10px', marginBottom: '3px', padding: "3px 0" }} className='' name="" id="">
-                                                    <option value="">Daily</option>
-                                                    <option value="">Weekly</option>
-                                                    <option value="">Monthly</option>
-                                                </select>
-                                            </div>
-                                            <div style={{ width: '200px', margin: 'auto', boxShadow: "none", border: "none" }}>
+                                    !milestone && <div className=''>
+                                        <div className='flex items-center flex-wrap justify-center' style={{ position: "relative" }}>
+                                            <input style={{ maxWidth: "300px", minWidth: "250px", marginRight: "20px" }} onChange={(e) => { setGoalTitle(e.target.value) }} className='input-text' type="text" name="" id="" placeholder='Write Your Goal' value={goalTitle} />
+                                            <select style={{ height: "40px", boxShadow: "1px 1px 10px #ccc", padding: "2px 3px", marginTop: "7px", outline: "none", marginRight: "20px" }}>
+                                                <option disabled={true} selected={true} value="" key="">Goal Status</option>
+                                                <option value="" key="">Public</option>
+                                                <option value="" key="">Private</option>
+                                            </select>
+                                            <select style={{ height: "40px", boxShadow: "1px 1px 10px #ccc", padding: "2px 3px", marginTop: "7px", outline: "none", marginRight: "20px" }}>
+                                                <option value="" selected={true} key="">Daily</option>
+                                                <option value="" key="">Weekly</option>
+                                                <option value="" key="">Monthly</option>
+                                            </select>
+                                            <div style={{ marginRight: "40px", maxWidth: "200px", minWidth: "100px", width: "100%" }}>
                                                 <input
                                                     type="time"
                                                     value={date}
@@ -132,9 +122,10 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                 />
                                             </div>
                                         </div>
-                                        <SetDates />
+                                        <div style={{ marginTop: "20px", justifyContent: "center", alignItems: "center" }}>
+                                            <SetDates />
+                                        </div>
                                         <div className='flex justify-center item-center'>
-
                                             <div className="btns-list mt-10">
                                                 <button disabled={goalTitle.length === 0} style={{ cursor: `${goalTitle.length === 0 ? 'not-allowed' : 'pointer'}` }} className='btns-color' onClick={() => { setMilestone(!milestone) }}>Add MileStone</button>
                                             </div>
@@ -145,30 +136,62 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                     </div>
                                 }
                                 {
-                                    milestone && <div>
-                                        <p style={{ textAlign: 'center', margin: '0 0 20px 0' }}><strong>Your Goal: </strong> {goalTitle}</p>
-                                        <p>Set Your Milestones:</p>
+                                    milestone && !acheivement && <div>
+                                        <p style={{ textAlign: 'center', margin: '0 0 20px 0' }}><ArrowBackIosIcon style={{ fontSize: "20px", fontWeight: "bold", color: "#000", marginRight: "20px", cursor: "pointer" }} onClick={() => { setMilestone(false) }} /><strong>Your Goal: </strong> {goalTitle}</p>
                                         {
                                             count.map((arr, index) => (
                                                 <div key={arr[index] * index} className="inp">
-                                                    <input onChange={(e) => { handleChange(index, e.target.value) }} className='input-text' type="text" name="" id="" placeholder={`Write Your Milestone ${index + 1}`} value={arr.goal} />
+                                                    <div className='flex flex-wrap justify-center items-center'>
+                                                        <div>
+                                                            <p>Set you Milestone {index + 1}</p>
+                                                            <input style={{ maxWidth: "500px", minWidth: "250px", width: "100%" }} onChange={(e) => { handleChange(index, e.target.value) }} className='input-text' type="text" name="" id="" placeholder={`Write Your Milestone ${index + 1}`} value={arr.goal} />
+                                                        </div>
+                                                        <SetDates />
+                                                        <AddIcon onClick={() => { setAcheivement(true) }} style={{ cursor: "pointer", fontSize: '20px', color: "#000", position: "absolute", right: '36px', top: "47%" }} />
+                                                    </div>
+                                                    <hr style={{ backgroundColor: "#ccc", width: "700px", paddingTop: "1px", marginTop: "10px", margin: "auto" }} />
                                                     {
                                                         index !== 0 &&
                                                         <>
                                                             <i onClick={() => { handledDelete(index) }} class="fa-solid fa-trash-can"></i>
                                                         </>
                                                     }
-                                                    <SetDates />
                                                 </div>
                                             ))
                                         }
                                         <div className='flex justify-center'>
                                             <div className="btns-list mt-10">
-                                                <button  className='btns-color' disabled={count[0].goal === "" || count[count.length - 1].goal === "" ? true : false} style={{fontSize: "12px", cursor: `${count[0].goal === "" || count[count.length - 1].goal === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { setCount([...count, { goal: "", status: "Pending" }]) }}>Add Another MileStone</button>
+                                                <button className='btns-color' disabled={count[0].goal === "" || count[count.length - 1].goal === "" ? true : false} style={{ fontSize: "12px", cursor: `${count[0].goal === "" || count[count.length - 1].goal === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { setCount([...count, { goal: "", status: "Pending" }]) }}>Add Another MileStone</button>
                                             </div>
-                                            <div style={{fontSize: "12px"}} className="btns-list mt-10">
+                                            <div style={{ fontSize: "12px" }} className="btns-list mt-10">
                                                 <button className='btns-color
                                             ' onClick={() => { setMilestone(!milestone) }}>Save MileStones</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                {
+                                    acheivement && <div>
+                                        <p style={{ textAlign: 'center', margin: '0 0 20px 0' }}><ArrowBackIosIcon style={{ fontSize: "20px", fontWeight: "bold", color: "#000", marginRight: "20px", cursor: "pointer" }} onClick={() => { setAcheivement(false) }} /><strong>Your Goal: </strong> {goalTitle}</p>
+                                        {
+                                            <div className="inp flex justify-center items-center" style={{width: "100%"}}>
+                                                <div className='flex justify-center items-center flex-wrap' style={{width: "100%"}}>
+                                                    <input type="text" style={{maxWidth: "600px", minWidth: "240px", margin:"-10px 20px", width: "100%"}} placeholder='Write Acheivement'/>
+                                                    <select className='flex' style={{outline: true,height: "40px", boxShadow: "1px 1px 10px #ccc", marginTop: "20px"}}>
+                                                        <option disabled={true} selected={true} value="" key="">Acheivement Percentage</option>
+                                                        {
+                                                            AcheivementPercentage.map((Items, index)=>(
+                                                                <option value={index+1}>{index+1}</option>
+                                                            ))
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        }
+                                        <div className='flex justify-center'>
+                                            <div style={{ fontSize: "12px" }} className="btns-list mt-10">
+                                                <button className='btns-color
+                                            ' onClick={() => { setAcheivement(false) }}>Save Acheivement</button>
                                             </div>
                                         </div>
                                     </div>
