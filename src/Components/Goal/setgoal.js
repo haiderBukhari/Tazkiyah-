@@ -63,7 +63,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
         localStorage.setItem('FinalGoal', JSON.stringify(finalizedgoal));
         ToastContainer("Goal Added Successfully!")
         setSelfdev(true); setPersonaldev(false); setProceed(false); setcorner("");; setMilestone(false); setCount([{ goal: "", status: 'Pending' }]);; setGoalTitle("");
-        Navigate('/view-goal')
+        Navigate('/achieved-goals')
     }
     let handleback = () => {
         if (!selfdev && proceed && milestone) {
