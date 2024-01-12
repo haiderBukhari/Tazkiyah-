@@ -16,11 +16,15 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
     const [milestone, setMilestone] = useState(false)
     const [achievement, setAchievement] = useState(false)
     const [selectedMilestone, setSelectedMilestone] = useState(-1);
+    const [Goaldates, setGoalDates] = useState({
+        startDate: "",
+        endDate: ""
+    })
     const achivementFormate = {
         name: '',
         percentage: 0
     }
-    const [count, setCount] = useState([{ goal: "", status: 'Pending', percentage: 100, achievement: [achivementFormate] }]);
+    const [count, setCount] = useState([{ goal: "", startDate: "", endDate: "", status: 'Pending', percentage: 100, achievement: [achivementFormate] }]);
     const [goalTitle, setGoalTitle] = useState("")
     const AcheivementPercentage = new Array(100).fill(0);
     useEffect(() => {
@@ -47,10 +51,13 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
     let SetYourGoal = () => {
         const goal = {
             heading: corner,
+            startDate: Goaldates.startDate,
+            endDate: Goaldates.endDate,
             goalTitle,
             goalstatus: 'Pending',
             milestones: count,
         }
+        console.log(goal)
         const finalizedgoal = [...finalGoal, goal];
         setFinalGoal(finalizedgoal)
         localStorage.setItem('FinalGoal', JSON.stringify(finalizedgoal));
@@ -128,7 +135,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                             </div>
                                         </div>
                                         <div style={{ marginTop: "20px", justifyContent: "center", alignItems: "center" }}>
-                                            <SetDates />
+                                            <SetDates setGoalDates={setGoalDates} Goaldates={Goaldates} />
                                         </div>
                                         <div className='flex justify-center item-center'>
                                             <div className="btns-list mt-10">
@@ -151,10 +158,27 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                             <p>Set you Milestone {index + 1}</p>
                                                             <input style={{ maxWidth: "500px", minWidth: "250px", width: "100%" }} onChange={(e) => { handleChange(index, e.target.value) }} className='input-text' type="text" name="" id="" placeholder={`Write Your Milestone ${index + 1}`} value={arr.goal} />
                                                         </div>
-                                                        <SetDates />
+                                                        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+                                                            <div style={{ margin: "10px" }}>
+                                                                <p>Start Date</p>
+                                                                <input onChange={(e) => {
+                                                                    let newArr = [...count];
+                                                                    newArr[index].startDate = e.target.value;
+                                                                    setCount(newArr);
+                                                                }} className='py-2' type="date" name="" id="" required={true} />
+                                                            </div>
+                                                            <div style={{ margin: "10px" }}>
+                                                                <p>End Date</p>
+                                                                <input onChange={(e) => {
+                                                                    let newArr = [...count];
+                                                                    newArr[index].endDate = e.target.value;
+                                                                    setCount(newArr);
+                                                                }} className='py-2' type="date" name="" id="" required={true} />
+                                                            </div>
+                                                        </div>
                                                         <div className='flex justify-center items-center'>
                                                             <select onChange={(e) => {
-                                                                const data  = [...count];
+                                                                const data = [...count];
                                                                 data[index].percentage = e.target.value;
                                                                 setCount(data);
                                                             }} className='flex' style={{ height: "40px", boxShadow: "1px 1px 10px #ccc", marginTop: `${window.offsetWidth < 645 ? '4px' : '27px'}`, marginRight: "40px", outline: "none" }}>

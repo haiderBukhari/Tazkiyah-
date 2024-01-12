@@ -34,7 +34,7 @@ export const ViewGoals = ({ finalGoal, setFinalGoal, setProceed }) => {
         let newArr = [...finalGoal];
         newArr[editindex].milestones.splice(index, 1);
         setFinalGoal(newArr);
-        if(window.innerWidth < 700) {
+        if (window.innerWidth < 700) {
             localStorage.setItem('FinalGoal', JSON.stringify(newArr));
         }
     }
@@ -42,7 +42,7 @@ export const ViewGoals = ({ finalGoal, setFinalGoal, setProceed }) => {
         let newArr = [...finalGoal];
         newArr[editindex].milestones.push({ goal: "" });
         setFinalGoal(newArr);
-        if(window.innerWidth < 700) {
+        if (window.innerWidth < 700) {
             localStorage.setItem('FinalGoal', JSON.stringify(newArr));
         }
     }
@@ -50,7 +50,7 @@ export const ViewGoals = ({ finalGoal, setFinalGoal, setProceed }) => {
         let newArr = [...finalGoal];
         newArr[editindex].milestones[index].goal = value;
         setFinalGoal(newArr);
-        if(window.innerWidth < 700) {
+        if (window.innerWidth < 700) {
             localStorage.setItem('FinalGoal', JSON.stringify(newArr));
         }
     }
@@ -58,7 +58,7 @@ export const ViewGoals = ({ finalGoal, setFinalGoal, setProceed }) => {
         let newArr = [...finalGoal];
         newArr[editindex].goalTitle = value;
         setFinalGoal(newArr);
-        if(window.innerWidth < 700) {
+        if (window.innerWidth < 700) {
             localStorage.setItem('FinalGoal', JSON.stringify(newArr));
         }
     }

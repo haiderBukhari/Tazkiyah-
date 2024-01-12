@@ -19,7 +19,7 @@ import { deleteAuth } from '../../features/authenticationSlice'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import AssignMentees from './AssigneeMentees';
 import PerformanceAnalyticsSideBar from './PerformanceAnalyticsSidebar';
-
+import EditIcon from '@mui/icons-material/Edit';
 export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSideBarShow, showclose, setIsLogin, currentDept, setCurrentDept, editProfilePopup, setEditProfilePopup, editUploadContentPopup, setEditUploadContentPopup, selectedSemester, setSelectedSemester, selectDpt, setSelectDpt, notificationPopUp, setNotificationPopUp }) => {
     const dispatch = useDispatch();
     //eslint-disable-next-line
@@ -115,18 +115,18 @@ export const AsideNavbar = ({ setProceed, corner, setcorner, sidebarshow, setSid
                                 />
                             }
                             {
-                                email && email.email !== "tarbiyah@gmail.com" && email.email !== "manager@gmail.com" && email.email !== "mentor@gmail.com" && <NavLink to="/view-goal" >
-                                    <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/view-goal' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/view-goal' ? '14px' : ''}` }}>
+                                email && email.email !== "tarbiyah@gmail.com" && email.email !== "manager@gmail.com" && email.email !== "mentor@gmail.com" && <NavLink to="/achieved-goals" >
+                                    <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/achieved-goals' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/achieved-goals' ? '14px' : ''}` }}>
                                         <FlagIcon style={{ fontSize: '30px', marginRight: '10px' }} />
                                         View Goals
                                     </li>
                                 </NavLink>
                             }
                             {
-                                email && email.email !== "tarbiyah@gmail.com" && email.email !== "manager@gmail.com" && email.email !== "mentor@gmail.com" && <NavLink to="/achieved-goals" >
-                                    <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/achieved-goals' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/achieved-goals' ? '14px' : ''}` }}>
-                                        <FlagIcon style={{ fontSize: '30px', marginRight: '10px' }} />
-                                        Acheived Goals
+                                email && email.email !== "tarbiyah@gmail.com" && email.email !== "manager@gmail.com" && email.email !== "mentor@gmail.com" && <NavLink to="/view-goal" >
+                                    <li onClick={() => { closeSideBar && setSideBarShow(!sidebarshow); setProceed(false) }} style={{ backgroundColor: `${location.pathname === '/view-goal' ? '#3f6184' : ''}`, borderRadius: `${location.pathname === '/view-goal' ? '14px' : ''}` }}>
+                                        <EditIcon style={{ fontSize: '30px', marginRight: '10px' }} />
+                                        Edit Goals
                                     </li>
                                 </NavLink>
                             }

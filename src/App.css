@@ -1,7 +1,9 @@
-.App{
+.App {
     position: relative;
+    font-size: 15px !important;
 }
-.contact-ss{
+
+.contact-ss {
     position: fixed;
     bottom: 0;
     right: 40px;
@@ -12,25 +14,32 @@
     border-top-right-radius: 4px;
     padding: 10px 20px;
 }
-.contact-ss .btns-pr, .contact-ss i{
+
+.contact-ss .btns-pr,
+.contact-ss i {
     font-size: 20px;
     border: none;
 }
-.contact-ss{
+
+.contact-ss {
     border: 1px solid #ccc;
     background-color: #002751;
 }
-.contact-ss .btns-pr{
+
+.contact-ss .btns-pr {
     padding-left: 10px;
 }
-.contact-ss button:focus{
+
+.contact-ss button:focus {
     outline: none;
     border: none;
 }
-.contact-ss button:focus{
+
+.contact-ss button:focus {
     border: none;
 }
-.icon-app{
+
+.icon-app {
     position: fixed;
     top: 10px;
     font-size: 30px !important;

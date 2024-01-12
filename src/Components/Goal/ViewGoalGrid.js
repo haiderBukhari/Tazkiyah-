@@ -4,12 +4,10 @@ import { DataGrid } from '@mui/x-data-grid';
 import CheckIcon from '@mui/icons-material/Check';
 import './setgoal.css'
 import { ViewGoals } from './ViewGoals';
-import { useNavigate } from "react-router-dom"
 const ViewGoalDataGrid = ({ finalGoal, setFinalGoal }) => {
     const [selectedRowId, setSelectedRowId] = React.useState(null);
     const [selectedData, setSelectedData] = React.useState([]);
     const [proceed, setProceed] = React.useState(true);
-    let navigate = useNavigate();
     const handleRowClick = (id) => {
         setSelectedRowId(id);
         setSelectedData([finalGoal[id]]);
@@ -80,8 +78,8 @@ const ViewGoalDataGrid = ({ finalGoal, setFinalGoal }) => {
         Pending: Items.goalstatus === "Pending"
     }))
 
-    React.useEffect(()=>{
-        if(selectedRowId!==null && proceed){
+    React.useEffect(() => {
+        if (selectedRowId !== null && proceed) {
             const data = [...finalGoal];
             data[selectedRowId] = selectedData[0];
             setFinalGoal(data);
@@ -93,10 +91,7 @@ const ViewGoalDataGrid = ({ finalGoal, setFinalGoal }) => {
         <>
             {
                 proceed && <div style={{ margin: "auto" }}>
-                    <h1 className='text-center font-semibold main-heading' style={{ paddingTop: '50px', fontSize: '28px' }}>Your Goals</h1>
-                    <div className="flex justify-center my-5 mt-10">
-                        <button onClick={() => { navigate('/goal') }} className='goaldev'>Add New Goal</button>
-                    </div>
+                    <h1 className='text-center font-semibold main-heading mb-10' style={{ paddingTop: '50px', fontSize: '28px' }}>Edit Your Goals</h1>
                     <Box sx={{ height: "100%", width: '900px', margin: "auto" }}>
                         <DataGrid
                             rows={rows}
