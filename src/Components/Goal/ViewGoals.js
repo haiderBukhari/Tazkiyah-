@@ -11,7 +11,7 @@ import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 
 
 export const ViewGoals = ({ finalGoal, setFinalGoal, setProceed }) => {
-    let [edit, setEdit] = useState(false)
+    let [edit, setEdit] = useState(true)
     let [editindex, setEditIndex] = useState(0)
     let navigate = useNavigate();
     const [deleteVerfication, setDeleteVerfication] = useState(false);
@@ -64,7 +64,7 @@ export const ViewGoals = ({ finalGoal, setFinalGoal, setProceed }) => {
     }
     return (
         <div style={{ position: "relative" }}>
-            <h1 className='text-center font-semibold main-heading' style={{ paddingTop: '50px', fontSize: '28px' }}>{`${!edit ? "Your Goals" : "Edit Your Goal"}`}</h1>
+            <h1 className='text-center font-semibold main-heading' style={{ paddingTop: '50px', fontSize: '28px' }}>{`${!edit ? "Your Goal" : "Edit Your Goal"}`}</h1>
             {
                 window.innerWidth > 700 && <div onClick={() => { setProceed(true) }} style={{ position: 'absolute', top: -20, left: '4%', color: '#000', display: 'flex', alignItems: 'center', cursor: 'pointer', marginTop: '20px' }}>
                     <ArrowLeftIcon style={{ fontSize: '30px' }} />
@@ -112,11 +112,14 @@ export const ViewGoals = ({ finalGoal, setFinalGoal, setProceed }) => {
                             <hr className='mb-3' />
                             <p className='font-semibold mr-2 text-base'>Your Goal: </p>
                             <input onChange={(e) => { handlechangegoal(e.target.value) }} type="text" name="" id="" value={finalGoal[editindex].goalTitle} required />
-                            <Select status={{
-                                value: "Goal", status: {
-                                    status: finalGoal[0].status
-                                }
-                            }} />
+                            <div>
+                                <select style={{ height: "40px", boxShadow: "1px 1px 10px #ccc", padding: "2px 3px", marginTop: "7px", outline: "none", marginRight: "20px" }}>
+                                    <option disabled={true} selected={true} value="" key="">Goal Status</option>
+                                    <option value="" key="">Public</option>
+                                    <option value="" key="">Private</option>
+                                </select>
+
+                            </div>
                             <div className="milestones-goals mt-4">
                                 {
                                     finalGoal[editindex].milestones.map((item, index) => (

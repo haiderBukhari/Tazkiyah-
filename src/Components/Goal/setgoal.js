@@ -10,12 +10,16 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, setcorner }) => {
     let Navigate = useNavigate();
-    let [date, setDate] = useState("00:00");
     const [selfdev, setSelfdev] = useState(!proceed)
     const [personaldev, setPersonaldev] = useState(false)
     const [milestone, setMilestone] = useState(false)
     const [achievement, setAchievement] = useState(false)
     const [selectedMilestone, setSelectedMilestone] = useState(-1);
+    const [goalStatus, setGoalStatus] = useState({
+        isPublic: null,
+        timeLine: "Daily",
+        time: ""
+    })
     const [Goaldates, setGoalDates] = useState({
         startDate: "",
         endDate: ""
@@ -50,11 +54,14 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
     }
     let SetYourGoal = () => {
         const goal = {
-            heading: corner,
+            goalTitle,
+            isPublic: goalStatus.isPublic,
+            timeLine: goalStatus.timeLine,
+            time: goalStatus.time,
             startDate: Goaldates.startDate,
             endDate: Goaldates.endDate,
-            goalTitle,
             goalstatus: 'Pending',
+            heading: corner,
             milestones: count,
         }
         console.log(goal)
@@ -116,21 +123,21 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                     !milestone && <div className=''>
                                         <div className='flex items-center flex-wrap justify-center' style={{ position: "relative" }}>
                                             <input style={{ maxWidth: "300px", minWidth: "250px", marginRight: "20px" }} onChange={(e) => { setGoalTitle(e.target.value) }} className='input-text' type="text" name="" id="" placeholder='Write Your Goal' value={goalTitle} />
-                                            <select style={{ height: "40px", boxShadow: "1px 1px 10px #ccc", padding: "2px 3px", marginTop: "7px", outline: "none", marginRight: "20px" }}>
-                                                <option disabled={true} selected={true} value="" key="">Goal Status</option>
-                                                <option value="" key="">Public</option>
-                                                <option value="" key="">Private</option>
+                                            <select onChange={(e) => { setGoalStatus({ ...goalStatus, isPublic: e.target.value }) }} style={{ height: "40px", boxShadow: "1px 1px 10px #ccc", padding: "2px 3px", marginTop: "7px", outline: "none", marginRight: "20px" }}>
+                                                <option disabled={true} selected={goalStatus.isPublic === null} value="" key="">Goal Status</option>
+                                                <option selected={goalStatus.isPublic} value={true} key="">Public</option>
+                                                <option selected={goalStatus.isPublic === false} value={false} key="">Private</option>
                                             </select>
-                                            <select style={{ height: "40px", boxShadow: "1px 1px 10px #ccc", padding: "2px 3px", marginTop: "7px", outline: "none", marginRight: "20px" }}>
-                                                <option value="" selected={true} key="">Daily</option>
-                                                <option value="" key="">Weekly</option>
-                                                <option value="" key="">Monthly</option>
+                                            <select onChange={(e) => { setGoalStatus({ ...goalStatus, timeLine: e.target.value }) }} style={{ height: "40px", boxShadow: "1px 1px 10px #ccc", padding: "2px 3px", marginTop: "7px", outline: "none", marginRight: "20px" }}>
+                                                <option value="Daily" selected={goalStatus.timeLine === "Daily"} key="">Daily</option>
+                                                <option value="Weekly" selected={goalStatus.timeLine === "Weekly"} key="">Weekly</option>
+                                                <option value="Monthly" selected={goalStatus.timeLine === "Monthly"} key="">Monthly</option>
                                             </select>
                                             <div style={{ marginRight: "40px", maxWidth: "200px", minWidth: "100px", width: "100%" }}>
                                                 <input
                                                     type="time"
-                                                    value={date}
-                                                    onChange={e => setDate(e.target.value)}
+                                                    value={goalStatus.time}
+                                                    onChange={(e) => { setGoalStatus({ ...goalStatus, time: e.target.value }) }}
                                                 />
                                             </div>
                                         </div>
@@ -165,7 +172,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                                     let newArr = [...count];
                                                                     newArr[index].startDate = e.target.value;
                                                                     setCount(newArr);
-                                                                }} className='py-2' type="date" name="" id="" required={true} />
+                                                                }} value={count[index].startDate} className='py-2' type="date" name="" id="" required={true} />
                                                             </div>
                                                             <div style={{ margin: "10px" }}>
                                                                 <p>End Date</p>
@@ -173,7 +180,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                                     let newArr = [...count];
                                                                     newArr[index].endDate = e.target.value;
                                                                     setCount(newArr);
-                                                                }} className='py-2' type="date" name="" id="" required={true} />
+                                                                }} value={count[index].endDate} className='py-2' type="date" name="" id="" required={true} />
                                                             </div>
                                                         </div>
                                                         <div className='flex justify-center items-center'>
@@ -182,15 +189,17 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                                 data[index].percentage = e.target.value;
                                                                 setCount(data);
                                                             }} className='flex' style={{ height: "40px", boxShadow: "1px 1px 10px #ccc", marginTop: `${window.offsetWidth < 645 ? '4px' : '27px'}`, marginRight: "40px", outline: "none" }}>
-                                                                <option disabled={true} selected={true} value="" key="">Status</option>
+                                                                <option disabled={true} selected={count[index].percentage===null} value="" key="">Status</option>
                                                                 {
                                                                     AcheivementPercentage.map((Items, index1) => (
-                                                                        <option value={index1 + 1}>{index1 + 1}</option>
+                                                                        <>
+                                                                            <option selected={count[index].percentage === index1+1} value={index1 + 1}>{index1 + 1}</option>
+                                                                        </>
                                                                     ))
                                                                 }
                                                             </select>
                                                         </div>
-                                                        <AddIcon onClick={() => { setAchievement(true); setSelectedMilestone(index) }} style={{ cursor: "pointer", fontSize: '20px', color: "#000", position: "absolute", right: '36px', top: "47%" }} />
+                                                        <AddIcon onClick={() => { setAchievement(true); setSelectedMilestone(index); }} style={{ cursor: "pointer", fontSize: '20px', color: "#000", position: "absolute", right: '36px', top: "47%" }} />
                                                     </div>
                                                     <hr style={{ backgroundColor: "#ccc", width: "auto", paddingTop: "1px", marginTop: "10px", margin: "auto" }} />
                                                     {
@@ -204,7 +213,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                         }
                                         <div className='flex justify-center'>
                                             <div className="btns-list mt-10">
-                                                <button className='btns-color' disabled={count[0].goal === "" || count[count.length - 1].goal === "" ? true : false} style={{ fontSize: "12px", cursor: `${count[0].goal === "" || count[count.length - 1].goal === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { setCount([...count, { goal: "", status: "Pending" }]) }}>Add Another MileStone</button>
+                                                <button className='btns-color' disabled={count[0].goal === "" || count[count.length - 1].goal === "" ? true : false} style={{ fontSize: "12px", cursor: `${count[0].goal === "" || count[count.length - 1].goal === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { setCount([...count, { goal: "", startDate: "", endDate: "", status: 'Pending', percentage: 100, achievement: [achivementFormate] }]) }}>Add Another MileStone</button>
                                             </div>
                                             <div style={{ fontSize: "12px" }} className="btns-list mt-10">
                                                 <button className='btns-color

@@ -72,7 +72,7 @@ export const SetDates = ({ setGoalDates, Goaldates }) => {
                     setGoalDates({
                         ...Goaldates, startDate: e.target.value
                     })
-                }} className='py-2' type="date" name="" id="" required={true} />
+                }} className='py-2' value={Goaldates.startDate} type="date" name="" id="" required={true} />
             </div>
             <div style={{ margin: "10px" }}>
                 <p>End Date</p>
@@ -80,7 +80,7 @@ export const SetDates = ({ setGoalDates, Goaldates }) => {
                     setGoalDates({
                         ...Goaldates, endDate: e.target.value
                     })
-                }} className='py-2' type="date" name="" id="" required={true} />
+                }} className='py-2' value={Goaldates.endDate} type="date" name="" id="" required={true} />
             </div>
         </div>
     )
