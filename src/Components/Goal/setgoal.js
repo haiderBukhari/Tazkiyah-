@@ -67,7 +67,16 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
             heading: corner,
             milestones: count,
         }
-        console.log(goal)
+        if (new Date(goal.endDate) < new Date(goal.startDate)) {
+            FailedToast('End date cannot be before the start date.');
+            return;
+        }
+        for(let i=0; i<goal.milestones.length; i++){
+            if(new Date(goal.milestones[i].endDate) < new Date(goal.milestones[i].startDate)){
+                FailedToast('End date cannot be before the start date in Milestones.');
+                return;
+            }
+        }
         axios.post(`${process.env.REACT_APP_BACKEND_PORT}/goals`, goal, {
             headers: {
                 'Content-Type': 'application/json',
@@ -159,7 +168,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                 <button disabled={goalTitle.length === 0} style={{ cursor: `${goalTitle.length === 0 ? 'not-allowed' : 'pointer'}` }} className='btns-color' onClick={() => { setMilestone(!milestone) }}>Add MileStone</button>
                                             </div>
                                             <div className="btns-list mt-10 ml-3">
-                                                <button className='btns-color' disabled={goalTitle === "" || count[0].startDate=== "" || count[0].endDate === "" || Goaldates.startDate === "" || Goaldates.endDate === "" || goalStatus.isPublic===null || goalStatus.time === "" ? true : false} style={{ cursor: `${goalTitle === "" || count[0].startDate=== "" || count[0].endDate === "" || Goaldates.startDate === "" || Goaldates.endDate === "" || goalStatus.isPublic===null || goalStatus.time === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { SetYourGoal() }}>Save Goal</button>
+                                                <button className='btns-color' disabled={goalTitle === "" || count[0].startDate === "" || count[0].endDate === "" || Goaldates.startDate === "" || Goaldates.endDate === "" || goalStatus.isPublic === null || goalStatus.time === "" ? true : false} style={{ cursor: `${goalTitle === "" || count[0].startDate === "" || count[0].endDate === "" || Goaldates.startDate === "" || Goaldates.endDate === "" || goalStatus.isPublic === null || goalStatus.time === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { SetYourGoal() }}>Save Goal</button>
                                             </div>
                                         </div>
                                     </div>

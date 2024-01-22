@@ -37,11 +37,8 @@ export const RegisterUser = ({ setIsLogin }) => {
         'Accept': 'application/json'
       }
     }).then((res) => {
-      localStorage.setItem('User Credential', JSON.stringify(res.data.data))
-      dispatch(createAuth(res.data.data));
-      setIsLogin(true);
-      ToastContainer("Successfully Logined")
-      navigate('/notifications')
+      ToastContainer("Successfully Registered")
+      navigate('/login')
     }).catch(err => {
       if (err.response.data.message.includes("duplicate")) {
         FailedToast("Email already registered")

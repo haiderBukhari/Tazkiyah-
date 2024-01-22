@@ -3,7 +3,7 @@ import './GoalAcheivement.css';
 import avatar from "../../assets/img/avatar.png"
 import FlagIcon from '@mui/icons-material/Flag';
 import axios from 'axios';
-import { FailedToast } from '../toast';
+import ToastContainer, { FailedToast } from '../toast';
 import { useSelector } from 'react-redux';
 
 const GoalAcheivement = ({ edit, handleRowClick }) => {
@@ -12,6 +12,7 @@ const GoalAcheivement = ({ edit, handleRowClick }) => {
     const progressEndValue = 26;
     const speed = 50;
     const [data, setData] = useState(null);
+    const [fetchAgain, setFetchAgain] = useState(false);
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKEND_PORT}/goals/${setterId[0]}`, {
             headers: {
@@ -24,11 +25,25 @@ const GoalAcheivement = ({ edit, handleRowClick }) => {
             FailedToast(err.response.data.message)
         }
         );
-    }, []) //eslint-disable-line
+    }, [fetchAgain]) //eslint-disable-line
     const [show, setShow] = useState(-1);
     const [showMilestone, setShowMilestone] = useState(-1);
     const [selectedMilestone, setSelectedMilestone] = useState(null)
 
+    const handledelete = (id) => {
+        axios.delete(`${process.env.REACT_APP_BACKEND_PORT}/goals/${id}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        }).then((res) => {
+            ToastContainer("Goal Deleted")
+            setFetchAgain(!fetchAgain);
+        }).catch(err => {
+            FailedToast(err.response.data.message)
+        }
+        );
+    }
     useEffect(() => {
         const progress = setInterval(() => {
             setProgressValue((prevValue) => {
@@ -103,6 +118,7 @@ const GoalAcheivement = ({ edit, handleRowClick }) => {
                                 <p className='font-semibold ml-5' style={{ color: "gray", flex: 1 }}>{Items.endDate}</p>
                                 <p className='font-semibold ml-5' style={{ color: "gray", flex: 1 }}>{Items.startDate}</p>
                                 {edit && <button onClick={() => handleRowClick(Items._id, Items)} style={{ cursor: 'pointer', backgroundColor: "#15375c", color: "#fff", padding: "7px 14px", margin: "0 20px 0 0", fontSize: "14px" }}>Edit</button>}
+                                {edit && <button onClick={() => handledelete(Items._id)} style={{ cursor: 'pointer', backgroundColor: "rgba(200, 0 , 0 , 0.8)", color: "#fff", padding: "7px 14px", margin: "0 20px 0 0", fontSize: "14px" }}>Delete</button>}
                             </div>
                             {
                                 show === index && <div>
