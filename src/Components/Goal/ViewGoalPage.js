@@ -4,7 +4,6 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import './setgoal.css'
 import axios from 'axios';
 import ToastContainer, { FailedToast } from '../toast';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 export const ViewGoalPage = ({ selectedGoal, proceed, setProceed }) => {

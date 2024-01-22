@@ -4,7 +4,7 @@ import GoalAcheivement from './GoalAcheivement';
 import { ViewGoalPage } from './ViewGoalPage';
 
 const ViewGoalDataGrid = ({ finalGoal, setFinalGoal }) => {
-    const [selectedRowId, setSelectedRowId] = React.useState(null);
+    const [selectedRowId, setSelectedRowId] = React.useState(null); //eslint-disable-line
     const [selectedData, setSelectedData] = React.useState([]);
     const [proceed, setProceed] = React.useState(true);
     const handleRowClick = (id, data) => {
