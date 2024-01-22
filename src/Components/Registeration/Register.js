@@ -4,13 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import Logo from '../../assets/Tazkiyah Logo Bg.png'
 import ToastContainer, { FailedToast } from './../toast';
 import axios from "axios"
-import { useDispatch } from "react-redux"
-import { createAuth } from '../../features/authenticationSlice'
 
 export const RegisterUser = ({ setIsLogin }) => {
   let sapid = useRef(), email = useRef(), pass = useRef(), c_pass = useRef();
   let navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const handleRegister = (e) => {
     e.preventDefault();
