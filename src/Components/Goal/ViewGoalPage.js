@@ -2,8 +2,13 @@ import { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import './setgoal.css'
+import axios from 'axios';
+import ToastContainer, { FailedToast } from '../toast';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export const ViewGoalPage = ({ selectedGoal, proceed, setProceed }) => {
+    const Navigate = useNavigate();
     const [currentGoal, setCurrentGoal] = useState(selectedGoal[0]);
     const [milestone, setMilestone] = useState(false)
     const [achievement, setAchievement] = useState(false)
@@ -14,7 +19,19 @@ export const ViewGoalPage = ({ selectedGoal, proceed, setProceed }) => {
         percentage: 0
     }
     const SetYourGoal = () => {
-        setProceed(!proceed)
+        axios.patch(`${process.env.REACT_APP_BACKEND_PORT}/goals/${currentGoal._id}`, currentGoal, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        }).then((res) => {
+            ToastContainer("Goal Updated")
+            Navigate('/view-goal')
+            setProceed(!proceed)
+        }).catch(err => {
+            FailedToast(err.response.data.message)
+        }
+        );
     }
 
     let handledDelete = (index) => {

@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import './setgoal.css'
 import SelfDevelopment from '../../assets/self development.jpg'
 import { useNavigate } from 'react-router-dom';
-import ToastContainer from '../toast';
+import ToastContainer, { FailedToast } from '../toast';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { SetDates } from './select';
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, setcorner }) => {
     let Navigate = useNavigate();
     const [selfdev, setSelfdev] = useState(!proceed)
@@ -15,6 +16,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
     const [milestone, setMilestone] = useState(false)
     const [achievement, setAchievement] = useState(false)
     const [selectedMilestone, setSelectedMilestone] = useState(-1);
+    const setterId = useState(useSelector(state => state)?.userId)
     const [goalStatus, setGoalStatus] = useState({
         isPublic: null,
         timeLine: "Daily",
@@ -54,6 +56,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
     }
     let SetYourGoal = () => {
         const goal = {
+            setterId: setterId[0],
             goalTitle,
             isPublic: goalStatus.isPublic,
             timeLine: goalStatus.timeLine,
@@ -65,12 +68,19 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
             milestones: count,
         }
         console.log(goal)
-        const finalizedgoal = [...finalGoal, goal];
-        setFinalGoal(finalizedgoal)
-        localStorage.setItem('FinalGoal', JSON.stringify(finalizedgoal));
-        ToastContainer("Goal Added Successfully!")
-        setSelfdev(true); setPersonaldev(false); setProceed(false); setcorner("");; setMilestone(false); setCount([{ goal: "", status: 'Pending' }]);; setGoalTitle("");
-        Navigate('/achieved-goals')
+        axios.post(`${process.env.REACT_APP_BACKEND_PORT}/goals`, goal, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        }).then((res) => {
+            ToastContainer("Goal Saved")
+            setSelfdev(true); setPersonaldev(false); setProceed(false); setcorner("");; setMilestone(false); setCount([{ goal: "", status: 'Pending' }]);; setGoalTitle("");
+            Navigate('/achieved-goals')
+        }).catch(err => {
+            FailedToast(err.response.data.message)
+        }
+        );
     }
     let handleback = () => {
         if (!selfdev && proceed && milestone) {
@@ -149,7 +159,7 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                 <button disabled={goalTitle.length === 0} style={{ cursor: `${goalTitle.length === 0 ? 'not-allowed' : 'pointer'}` }} className='btns-color' onClick={() => { setMilestone(!milestone) }}>Add MileStone</button>
                                             </div>
                                             <div className="btns-list mt-10 ml-3">
-                                                <button className='btns-color' disabled={goalTitle === "" ? true : false} style={{ cursor: `${goalTitle === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { SetYourGoal() }}>Save Goal</button>
+                                                <button className='btns-color' disabled={goalTitle === "" || count[0].startDate=== "" || count[0].endDate === "" || Goaldates.startDate === "" || Goaldates.endDate === "" || goalStatus.isPublic===null || goalStatus.time === "" ? true : false} style={{ cursor: `${goalTitle === "" || count[0].startDate=== "" || count[0].endDate === "" || Goaldates.startDate === "" || Goaldates.endDate === "" || goalStatus.isPublic===null || goalStatus.time === "" ? 'not-allowed' : 'pointer'}` }} onClick={() => { SetYourGoal() }}>Save Goal</button>
                                             </div>
                                         </div>
                                     </div>
@@ -189,11 +199,11 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                                                                 data[index].percentage = e.target.value;
                                                                 setCount(data);
                                                             }} className='flex' style={{ height: "40px", boxShadow: "1px 1px 10px #ccc", marginTop: `${window.offsetWidth < 645 ? '4px' : '27px'}`, marginRight: "40px", outline: "none" }}>
-                                                                <option disabled={true} selected={count[index].percentage===null} value="" key="">Status</option>
+                                                                <option disabled={true} selected={count[index].percentage === null} value="" key="">Status</option>
                                                                 {
                                                                     AcheivementPercentage.map((Items, index1) => (
                                                                         <>
-                                                                            <option selected={count[index].percentage === index1+1} value={index1 + 1}>{index1 + 1}</option>
+                                                                            <option selected={count[index].percentage === index1 + 1} value={index1 + 1}>{index1 + 1}</option>
                                                                         </>
                                                                     ))
                                                                 }

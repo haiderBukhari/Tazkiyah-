@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import Logo from '../../assets/Tazkiyah Logo Bg.png'
 import { useDispatch } from "react-redux"
 import { createAuth } from '../../features/authenticationSlice'
+import axios from 'axios';
+import ToastContainer, { FailedToast } from '../toast'
 
 export const LoginUser = ({ isLogin, setIsLogin, forgetPasswordPopup, setForgetPasswordPopup }) => {
   let email = useRef(), password = useRef();
@@ -11,9 +13,24 @@ export const LoginUser = ({ isLogin, setIsLogin, forgetPasswordPopup, setForgetP
   const dispatch = useDispatch();
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(createAuth({ email: email.current.value.trim() }));
-    setIsLogin(true);
-    navigate('/notifications')
+
+    axios.get(`${process.env.REACT_APP_BACKEND_PORT}/register`, {
+      params: {
+        email: email.current.value.trim(),
+        password: password.current.value,
+      },
+          headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }).then((res) => {
+      localStorage.setItem('User Credential', JSON.stringify(res.data.data))
+      dispatch(createAuth( res.data.data[0] ));
+      setIsLogin(true);
+      ToastContainer("Successfully Logined")
+      navigate('/notifications')
+
+    }).catch(err => FailedToast(err.response.data.message));
   }
   return (
     <>

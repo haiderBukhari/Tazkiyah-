@@ -2,15 +2,29 @@ import React, { useEffect, useState } from 'react';
 import './GoalAcheivement.css';
 import avatar from "../../assets/img/avatar.png"
 import FlagIcon from '@mui/icons-material/Flag';
+import axios from 'axios';
+import { FailedToast } from '../toast';
+import { useSelector } from 'react-redux';
 
-const GoalAcheivement = ({edit, handleRowClick}) => {
+const GoalAcheivement = ({ edit, handleRowClick }) => {
+    const setterId = useState(useSelector(state => state)?.userId)
     const [progressValue, setProgressValue] = useState(0);
     const progressEndValue = 26;
     const speed = 50;
     const [data, setData] = useState(null);
     useEffect(() => {
-        setData(JSON.parse(localStorage.getItem('FinalGoal')));
-    }, [])
+        axios.get(`${process.env.REACT_APP_BACKEND_PORT}/goals/${setterId[0]}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        }).then((res) => {
+            setData(res.data.data)
+        }).catch(err => {
+            FailedToast(err.response.data.message)
+        }
+        );
+    }, []) //eslint-disable-line
     const [show, setShow] = useState(-1);
     const [showMilestone, setShowMilestone] = useState(-1);
     const [selectedMilestone, setSelectedMilestone] = useState(null)
@@ -88,7 +102,7 @@ const GoalAcheivement = ({edit, handleRowClick}) => {
                                 <p className='font-semibold ml-5' style={{ color: "gray", flex: 1 }}>{Items.goalstatus}</p>
                                 <p className='font-semibold ml-5' style={{ color: "gray", flex: 1 }}>{Items.endDate}</p>
                                 <p className='font-semibold ml-5' style={{ color: "gray", flex: 1 }}>{Items.startDate}</p>
-                                { edit && <button onClick={()=>handleRowClick(index)} style={{ cursor: 'pointer', backgroundColor: "#15375c", color: "#fff", padding: "7px 14px", margin: "0 20px 0 0", fontSize: "14px" }}>Edit</button> }
+                                {edit && <button onClick={() => handleRowClick(Items._id, Items)} style={{ cursor: 'pointer', backgroundColor: "#15375c", color: "#fff", padding: "7px 14px", margin: "0 20px 0 0", fontSize: "14px" }}>Edit</button>}
                             </div>
                             {
                                 show === index && <div>

@@ -7,21 +7,12 @@ const ViewGoalDataGrid = ({ finalGoal, setFinalGoal }) => {
     const [selectedRowId, setSelectedRowId] = React.useState(null);
     const [selectedData, setSelectedData] = React.useState([]);
     const [proceed, setProceed] = React.useState(true);
-    const handleRowClick = (id) => {
+    const handleRowClick = (id, data) => {
         setSelectedRowId(id);
-        setSelectedData([finalGoal[id]]);
+        setSelectedData([data]);
         setProceed(false);
     };
 
-    React.useEffect(() => {
-        if (selectedRowId !== null && proceed) {
-            const data = [...finalGoal];
-            data[selectedRowId] = selectedData[0];
-            setFinalGoal(data);
-            localStorage.setItem('FinalGoal', JSON.stringify(data));
-            setSelectedRowId(null);
-        }
-    }, [proceed, selectedRowId]) //eslint-disable-line
     return (
         <>
             {
