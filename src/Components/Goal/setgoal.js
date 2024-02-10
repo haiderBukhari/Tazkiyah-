@@ -303,6 +303,6 @@ export const SetGoal = ({ finalGoal, setFinalGoal, proceed, setProceed, corner, 
                     }
                 </div>}
             </div>
-        </div >
+        </div>
     );
 }
